@@ -2,5 +2,22 @@
 <?pde version="3.8"?>
 <target name="Target Platform" sequenceNumber="1">
 	<locations>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://updatesite.palladio-simulator.com/palladio-build-updatesite/releases/5.0.0"/>
+			<unit id="org.palladiosimulator.pcm.feature.feature.group" version="5.0.0.202102051710"/>
+			<unit id="de.uka.ipd.sdq.identifier.feature.feature.group" version="5.0.0.202102051655"/>
+			<unit id="org.palladiosimulator.editors.tree.feature.feature.group" version="5.0.0.202102051719"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="http://download.eclipse.org/releases/2020-12"/>
+			<unit id="org.eclipse.ocl.all.sdk.feature.group" version="5.13.0.v20201208-2229"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="http://download.eclipse.org/eclipse/updates/4.18"/>
+			<unit id="org.eclipse.platform.ide" version="4.18.0.I20201202-1800"/>
+		</location>
 	</locations>
+	<environment>
+		<arch>x86_64</arch>
+	</environment>
 </target>
