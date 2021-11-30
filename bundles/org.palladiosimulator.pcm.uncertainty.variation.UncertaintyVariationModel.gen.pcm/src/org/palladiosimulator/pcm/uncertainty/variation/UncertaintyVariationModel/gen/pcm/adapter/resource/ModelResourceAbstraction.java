@@ -1,4 +1,4 @@
-package org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.adapter.resource;
+package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource;
 
 import java.io.IOException;
 import java.util.Collections;
