@@ -1,4 +1,4 @@
-package org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm;
+package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm;
 
 import java.util.Map;
 
@@ -11,12 +11,12 @@ import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.allocation.AllocationContext;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
-import org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.adapter.resource.ResourceAbstraction;
-import org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm.AllocationResourceAbstraction;
-import org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm.RepositoryResourceAbstraction;
-import org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm.ResourceEnvironmentResourceAbstraction;
-import org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm.SystemResourceAbstraction;
-import org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm.UsageResourceAbstraction;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ResourceAbstraction;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm.AllocationResourceAbstraction;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm.RepositoryResourceAbstraction;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm.ResourceEnvironmentResourceAbstraction;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm.SystemResourceAbstraction;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm.UsageResourceAbstraction;
 
 import UncertaintyVariationModel.UncertaintyVariationModelPackage;
 import UncertaintyVariationModel.UncertaintyVariations;

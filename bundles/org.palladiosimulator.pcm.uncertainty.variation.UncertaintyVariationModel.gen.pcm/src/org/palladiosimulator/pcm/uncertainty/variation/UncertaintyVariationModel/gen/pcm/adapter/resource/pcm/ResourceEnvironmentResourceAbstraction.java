@@ -1,6 +1,6 @@
-package org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm;
+package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm;
 
-import org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.adapter.resource.ModelResourceAbstraction;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ModelResourceAbstraction;
 
 public class ResourceEnvironmentResourceAbstraction extends ModelResourceAbstraction {
 	public ResourceEnvironmentResourceAbstraction() {

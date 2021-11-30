@@ -1,9 +1,9 @@
-package org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.ui;
+package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ui;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
-import org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.UncertaintyVariationModelGenPcm;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.UncertaintyVariationModelGenPcm;
 
 public class Execute implements IHandler {
 	@Override

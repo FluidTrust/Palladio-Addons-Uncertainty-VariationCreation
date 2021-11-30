@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.ui.Execute"
+            defaultHandler="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ui.Execute"
             id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ui.execute"
             name="Exec">
       </command>
