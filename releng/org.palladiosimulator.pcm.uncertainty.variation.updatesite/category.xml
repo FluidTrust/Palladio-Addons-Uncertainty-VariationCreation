@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature id="org.palladiosimulator.pcm.uncertainty.variation.feature">
-      <category name="org.palladiosimulator.pcm.uncertainty.variation.category"/>
-   </feature>
    <feature id="org.palladiosimulator.pcm.uncertainty.variation.feature.source">
       <category name="org.palladiosimulator.pcm.uncertainty.variation.source.category"/>
    </feature>
-   <category-def name="org.palladiosimulator.pcm.uncertainty.variation.category" label="Confidentiality Context Analysis">
-   </category-def>
-   <category-def name="org.palladiosimulator.pcm.uncertainty.variation.source.category" label="Confidentiality Context Analysis Developer Resources">
-   </category-def>
+   <feature id="org.palladiosimulator.pcm.uncertainty.variation.feature">
+      <category name="org.palladiosimulator.pcm.uncertainty.variation.category"/>
+   </feature>
+   <category-def name="org.palladiosimulator.pcm.uncertainty.variation.category" label="Uncertainty Variation Modelling"/>
+   <category-def name="org.palladiosimulator.pcm.uncertainty.variation.source.category" label="Uncertainty Variation Modelling Developer Resources"/>
 </site>
-

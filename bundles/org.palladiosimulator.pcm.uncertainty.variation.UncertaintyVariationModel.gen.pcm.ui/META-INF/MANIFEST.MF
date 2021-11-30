@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: UncertaintyVariationModelGenPcmUi
+Bundle-SymbolicName: org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: org.palladiosimulator.pcm.confifentiality.context.dsl.variations.gen.pcm
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.ui;bundle-version="3.118.100",
+ org.eclipse.e4.core.services;bundle-version="2.2.500",
+ org.eclipse.ui.workbench,
+ org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.palladiosimulator.pcm.uncertainty.variation.dsl.UncertaintyVariationModel.gen.pcm.ui.Activator
+Import-Package: org.osgi.framework
