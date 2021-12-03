@@ -3,6 +3,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.UncertaintyVariationModelGenPcm;
 
 public class Execute implements IHandler {
@@ -21,8 +22,7 @@ public class Execute implements IHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		UncertaintyVariationModelGenPcm generator = new UncertaintyVariationModelGenPcm("platform:/resource/FluidTrust-CaseStudy");
-		//new NullProgressMonitor();
-		generator.generateVariations();
+		generator.generateVariations(new NullProgressMonitor());
 		// TODO Auto-generated method stub
 		return null;
 	}

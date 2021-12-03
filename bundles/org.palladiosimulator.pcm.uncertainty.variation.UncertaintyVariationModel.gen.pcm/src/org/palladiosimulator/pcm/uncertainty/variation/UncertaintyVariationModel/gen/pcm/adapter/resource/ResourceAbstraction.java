@@ -3,10 +3,6 @@ package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationMode
 import org.eclipse.emf.ecore.EObject;
 
 public interface ResourceAbstraction {
-
-	//template-method
-	void copy(String destModelUri, String srcModelUri);
-
 	//template-method
 	EObject load(String modelUri);
 

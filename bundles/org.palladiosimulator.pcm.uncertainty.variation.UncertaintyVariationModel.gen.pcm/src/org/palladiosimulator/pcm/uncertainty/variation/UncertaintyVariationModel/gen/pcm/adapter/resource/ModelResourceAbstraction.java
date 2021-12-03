@@ -23,37 +23,6 @@ public abstract class ModelResourceAbstraction implements ResourceAbstraction {
 	
 	//template-method
 	@Override
-	public void copy(String destModelUri, String srcModelUri) {
-		URI srcUri = URI.createURI(srcModelUri);
-		srcUri = srcUri.appendFileExtension(this.getModelName());
-		String srcFile = srcUri.toPlatformString(true);
-		IPath srcPath = new Path(srcFile);
-		
-		URI destUri = URI.createURI(destModelUri + "/" + srcUri.lastSegment());
-		String destFile = destUri.toPlatformString(true);
-		IPath destPath = new Path(destFile);
-		
-		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		IFile file = workspace.getRoot().getFile(srcPath);
-		try {
-			IFile dest = workspace.getRoot().getFile(destPath);
-			if (dest.exists()) {
-				dest.delete(true, null);
-			}
-			if (!dest.getParent().exists()) {
-				((IFolder)dest.getParent().getParent()).getFolder(dest.getParent().getName()).create(true, true, null);
-			}
-			
-			file.copy(destPath, true, null);
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	
-	//template-method
-	@Override
 	public EObject load(String modelUri) {
 		org.eclipse.emf.ecore.resource.Resource.Factory.Registry reg = org.eclipse.emf.ecore.resource.Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getContentTypeToFactoryMap();
