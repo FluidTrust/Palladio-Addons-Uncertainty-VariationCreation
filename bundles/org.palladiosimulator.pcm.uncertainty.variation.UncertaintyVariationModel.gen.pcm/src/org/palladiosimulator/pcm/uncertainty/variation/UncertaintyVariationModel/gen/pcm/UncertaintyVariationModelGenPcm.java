@@ -1,48 +1,31 @@
 package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.allocation.AllocationContext;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ResourceAbstraction;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.pcm.AllocationResourceAbstraction;
-import UncertaintyVariationModel.UncertaintyVariationModelPackage;
 import UncertaintyVariationModel.UncertaintyVariations;
 import UncertaintyVariationModel.VaryingAllocationContext;
 
 public class UncertaintyVariationModelGenPcm {
 	public UncertaintyVariationModelGenPcm(String baseUri) {
-		this.modelBaseUri = baseUri + "/models";
-		this.variationManager = new VariationManager(baseUri);
-	}
-	
-	//Factory Method, Definition state space, state iterator (list<tuple<VariantPoint, currVar>>)
-	private UncertaintyVariations loadModel() {
-		UncertaintyVariationModelPackage.eINSTANCE.eClass();
-		
-		org.eclipse.emf.ecore.resource.Resource.Factory.Registry reg = org.eclipse.emf.ecore.resource.Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getContentTypeToFactoryMap();
-		m.put("uncertaintyvariationmodel", new XMIResourceFactoryImpl());
-		
-		ResourceSet resSet = new ResourceSetImpl();
-		Resource res = resSet.getResource(URI.createURI(this.modelBaseUri + "/port.uncertaintyvariationmodel"), true);
-		
-		UncertaintyVariations secVar = (UncertaintyVariations) res.getContents().get(0);
-		return secVar;
+		this.variationManager = new VariationManager(
+				baseUri, 
+				Arrays.asList("allocation", "repository", "resourceenvironment", "system", "usagemodel")
+		);
 	}
 	
 	//?
-	private void patchAllocationContext(final AllocationContext allocCon, final ResourceContainer resCon) {
-		for (AllocationContext it: this.alloc.getAllocationContexts_Allocation()) {
+	private void patchAllocationContext(Allocation alloc, final AllocationContext allocCon, final ResourceContainer resCon) {
+		for (AllocationContext it: alloc.getAllocationContexts_Allocation()) {
 			if (it.getId().equalsIgnoreCase(allocCon.getId())) {
 				it.setResourceContainer_AllocationContext(resCon);
 			}
@@ -62,8 +45,7 @@ public class UncertaintyVariationModelGenPcm {
 	} 
 	
 	public void generateVariations(IProgressMonitor progressMonitor) {
-		final UncertaintyVariations variantions = loadModel(); /* VariationManager.loadVariantsModel */
-        //VariationModellManger.setKnownVariantModels("allocation", "usageModel");
+		final UncertaintyVariations variantions = (UncertaintyVariations) variationManager.loadUncertaintyVariantModel("port");
 		
 		//Iterator
 		int variationPoint = 0;
@@ -72,16 +54,20 @@ public class UncertaintyVariationModelGenPcm {
 		for (int i = 0; i < varAlloc.getTargetResourceVariations().size(); ++i) {
             try {
 				variationManager.createCurrVariant(i, progressMonitor);
-				//map<ModellType, list<EObject>> models = VariationManager.loadCurrVariantModels();
-
-				ResourceAbstraction allocRes = new AllocationResourceAbstraction();
-
-				this.alloc = (Allocation)allocRes.load(this.variationManager.getCurrScenatioUri() + "/portAllocation");
-				ResourceContainer resCon = resolve(this.alloc.getTargetResourceEnvironment_Allocation(), varAlloc.getTargetResourceVariations().get(i));
-				patchAllocationContext(varAlloc.getAllocationContext(), resCon);
-				allocRes.save(this.variationManager.getCurrScenatioUri() + "/portAllocation", this.alloc);
-				//VariationManager.storeCurrVariantModels(models);
+				Map<String, List<EObject>> models = variationManager.loadCurrVariantModels();
+				
+				for (EObject it : models.get("allocation")) {
+					Allocation alloc = (Allocation)it;
+					ResourceContainer resCon = resolve(alloc.getTargetResourceEnvironment_Allocation(), varAlloc.getTargetResourceVariations().get(i));
+					patchAllocationContext(alloc, varAlloc.getAllocationContext(), resCon);
+					
+				}
+				
+				variationManager.storeCurrVariantModels(models);
 			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -90,7 +76,4 @@ public class UncertaintyVariationModelGenPcm {
 	}
 	
 	private VariationManager variationManager;
-	private String modelBaseUri;
-	private Allocation alloc;
-
 }
