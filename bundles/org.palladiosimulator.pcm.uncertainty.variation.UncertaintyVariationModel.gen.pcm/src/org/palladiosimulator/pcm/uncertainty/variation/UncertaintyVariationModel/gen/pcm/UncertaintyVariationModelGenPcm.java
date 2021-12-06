@@ -8,62 +8,36 @@ import java.util.Map;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
-import org.palladiosimulator.pcm.allocation.Allocation;
-import org.palladiosimulator.pcm.allocation.AllocationContext;
-import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
-import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Iterator;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.AllocationStateHandler;
+
 import UncertaintyVariationModel.UncertaintyVariations;
-import UncertaintyVariationModel.VaryingAllocationContext;
 
 public class UncertaintyVariationModelGenPcm {
 	public UncertaintyVariationModelGenPcm(String baseUri) {
-		this.variationManager = new VariationManager(
+		this.scenarioManager = new ScenarioManager(
 				baseUri, 
-				Arrays.asList("allocation", "repository", "resourceenvironment", "system", "usagemodel")
+				Arrays.asList(AllocationStateHandler.MODEL_TYPE)
 		);
+		this.variationManager = new VariationManager(baseUri);
 	}
-	
-	//?
-	private void patchAllocationContext(Allocation alloc, final AllocationContext allocCon, final ResourceContainer resCon) {
-		for (AllocationContext it: alloc.getAllocationContexts_Allocation()) {
-			if (it.getId().equalsIgnoreCase(allocCon.getId())) {
-				it.setResourceContainer_AllocationContext(resCon);
-			}
-		}
-	}
-	
-	private ResourceContainer resolve(ResourceEnvironment resEnv, ResourceContainer resCon) {
-		ResourceContainer resolved = null;
-		for (ResourceContainer it: resEnv.getResourceContainer_ResourceEnvironment()) {
-			if (it.getId().equalsIgnoreCase(resCon.getId())) {
-				resolved = it;
-				break;
-			}
-		}
-		
-		return resolved;
-	} 
 	
 	public void generateVariations(IProgressMonitor progressMonitor) {
-		final UncertaintyVariations variantions = (UncertaintyVariations) variationManager.loadUncertaintyVariantModel("port");
+		Statespace statespace = new Statespace((UncertaintyVariations) variationManager.loadUncertaintyVariantModel("port"));
+
 		
 		//Iterator
-		int variationPoint = 0;
-		VaryingAllocationContext varAlloc = (VaryingAllocationContext)variantions.getVariationPoints().get(variationPoint);
-		progressMonitor.beginTask("creating variations", varAlloc.getTargetResourceVariations().size());
-		for (int i = 0; i < varAlloc.getTargetResourceVariations().size(); ++i) {
+		progressMonitor.beginTask("creating variations", IProgressMonitor.UNKNOWN);
+		int i = 0;
+		for (Iterator it = statespace.iterator(); it.hasNext(); it.next())
+		{
             try {
-				variationManager.createCurrVariant(i, progressMonitor);
-				Map<String, List<EObject>> models = variationManager.loadCurrVariantModels();
-				
-				for (EObject it : models.get("allocation")) {
-					Allocation alloc = (Allocation)it;
-					ResourceContainer resCon = resolve(alloc.getTargetResourceEnvironment_Allocation(), varAlloc.getTargetResourceVariations().get(i));
-					patchAllocationContext(alloc, varAlloc.getAllocationContext(), resCon);
-					
-				}
-				
-				variationManager.storeCurrVariantModels(models);
+				scenarioManager.createCurrVariant(i, progressMonitor);
+				Map<String, List<EObject>> models = scenarioManager.loadCurrVariantModels();
+				it.patchModels(models);
+				scenarioManager.storeCurrVariantModels(models);
+				++i;
 			} catch (CoreException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -75,5 +49,6 @@ public class UncertaintyVariationModelGenPcm {
 		progressMonitor.done();
 	}
 	
+	private ScenarioManager scenarioManager;
 	private VariationManager variationManager;
 }

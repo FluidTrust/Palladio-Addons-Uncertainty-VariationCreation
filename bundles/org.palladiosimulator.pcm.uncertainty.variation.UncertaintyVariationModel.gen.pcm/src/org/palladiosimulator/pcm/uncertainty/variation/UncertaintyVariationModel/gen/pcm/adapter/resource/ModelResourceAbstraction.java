@@ -32,7 +32,7 @@ public class ModelResourceAbstraction implements ResourceAbstraction {
 	@Override
 	public void save(EObject rootElement) throws IOException {
 		Resource res = rootElement.eResource();
-        res.save(Collections.EMPTY_MAP);	
+		res.save(Collections.EMPTY_MAP);	
 	}
 
 	@Override
