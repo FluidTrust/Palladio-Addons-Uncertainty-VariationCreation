@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UncertaintyVariationModel:UncertaintyVariations xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UncertaintyVariationModel="http://palladiosimulator.org/pcm/UncertaintyVariationModel/v0">
+  <variationPoints xsi:type="UncertaintyVariationModel:VaryingAllocationContext">
+    <targetResourceVariations href="source/portHardware.resourceenvironment#_uPjIMCqNEeyQUZAfFpKaVQ"/>
+    <targetResourceVariations href="source/portHardware.resourceenvironment#_r_6A0CqNEeyQUZAfFpKaVQ"/>
+    <allocationContext href="source/portAllocation.allocation#_Mi4j0CqOEeyQUZAfFpKaVQ"/>
+  </variationPoints>
+  <variationPoints xsi:type="UncertaintyVariationModel:VaryingAllocationContext">
+    <targetResourceVariations href="source/portHardware.resourceenvironment#_2k_JICqNEeyQUZAfFpKaVQ"/>
+    <targetResourceVariations href="source/portHardware.resourceenvironment#_y6hCgCqNEeyQUZAfFpKaVQ"/>
+    <allocationContext href="source/portAllocation.allocation#_KNVowCqOEeyQUZAfFpKaVQ"/>
+  </variationPoints>
+  <variationPoints xsi:type="UncertaintyVariationModel:VaryingBranch">
+    <branchActions href="source/portSystem.repository#_zOM4sCp7EeyQUZAfFpKaVQ"/>
+    <branchActions href="source/portSystem.repository#_677HcCp9EeyQUZAfFpKaVQ"/>
+  </variationPoints>
+  <variationPoints xsi:type="UncertaintyVariationModel:VaryingBranch">
+    <branches href="source/portUsageModel.usagemodel#_KAECwCqDEeyQUZAfFpKaVQ"/>
+  </variationPoints>
+</UncertaintyVariationModel:UncertaintyVariations>
