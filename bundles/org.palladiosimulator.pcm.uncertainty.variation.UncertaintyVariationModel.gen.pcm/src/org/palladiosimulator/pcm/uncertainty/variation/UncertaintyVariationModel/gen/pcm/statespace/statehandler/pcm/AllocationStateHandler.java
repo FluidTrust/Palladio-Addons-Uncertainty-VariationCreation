@@ -1,5 +1,6 @@
 package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -26,17 +27,19 @@ public class AllocationStateHandler implements StateHandler {
 		for (EObject it : models.get(MODEL_TYPE)) {
 			Allocation allocation = (Allocation)it;
 			ResourceContainer resourceContainer = this.resolve(allocation.getTargetResourceEnvironment_Allocation(), varyingAllocationContext.getTargetResourceVariations().get(variationIdx));
-			patchAllocationContext(allocation, varyingAllocationContext.getAllocationContext(), resourceContainer);
+			patch(allocation, varyingAllocationContext.getAllocationContext(), resourceContainer);
 		}
 		
 	}
 	
-	public static final String MODEL_TYPE = "allocation";
+	public static List<String> GET_MODEL_TYPES() { return Arrays.asList(MODEL_TYPE); }
+	
+	private static final String MODEL_TYPE = "allocation";
 
-	private ResourceContainer resolve(ResourceEnvironment resourceEnvironment, ResourceContainer resourceContainer) {
+	private ResourceContainer resolve(ResourceEnvironment resourceEnvironment, ResourceContainer element) {
 		ResourceContainer resolved = null;
 		for (ResourceContainer it: resourceEnvironment.getResourceContainer_ResourceEnvironment()) {
-			if (it.getId().equalsIgnoreCase(resourceContainer.getId())) {
+			if (it.getId().equalsIgnoreCase(element.getId())) {
 				resolved = it;
 				break;
 			}
@@ -45,10 +48,10 @@ public class AllocationStateHandler implements StateHandler {
 		return resolved;
 	}
 	
-	private void patchAllocationContext(Allocation allocation, final AllocationContext allocationContext, final ResourceContainer resourceContainer) {
+	private void patch(Allocation allocation, final AllocationContext element, final ResourceContainer value) {
 		for (AllocationContext it: allocation.getAllocationContexts_Allocation()) {
-			if (it.getId().equalsIgnoreCase(allocationContext.getId())) {
-				it.setResourceContainer_AllocationContext(resourceContainer);
+			if (it.getId().equalsIgnoreCase(element.getId())) {
+				it.setResourceContainer_AllocationContext(value);
 			}
 		}
 	}

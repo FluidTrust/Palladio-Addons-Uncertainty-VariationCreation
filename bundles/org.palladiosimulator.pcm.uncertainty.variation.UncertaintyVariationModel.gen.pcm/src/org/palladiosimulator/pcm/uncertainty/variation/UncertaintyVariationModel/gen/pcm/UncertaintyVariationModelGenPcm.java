@@ -1,7 +1,7 @@
 package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -11,14 +11,20 @@ import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Iterator;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.AllocationStateHandler;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.BranchStateHandler;
 
 import UncertaintyVariationModel.UncertaintyVariations;
 
 public class UncertaintyVariationModelGenPcm {
 	public UncertaintyVariationModelGenPcm(String baseUri) {
+		List<String> models = new ArrayList<>();
+		models.addAll(AllocationStateHandler.GET_MODEL_TYPES());
+		models.addAll(BranchStateHandler.GET_MODEL_TYPES());
+		
+		
 		this.scenarioManager = new ScenarioManager(
 				baseUri, 
-				Arrays.asList(AllocationStateHandler.MODEL_TYPE)
+				models
 		);
 		this.variationManager = new VariationManager(baseUri);
 	}
