@@ -14,9 +14,26 @@
       <steps_Behaviour xsi:type="seff:BranchAction" id="_zOM4sCp7EeyQUZAfFpKaVQ" entityName="BranchAction1" predecessor_AbstractAction="_wwm04Cp7EeyQUZAfFpKaVQ" successor_AbstractAction="_mB4oYSp7EeyQUZAfFpKaVQ">
         <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_3Ak-ICp7EeyQUZAfFpKaVQ" entityName="GuardedBranchTransition1">
           <branchBehaviour_BranchTransition id="_3AnaYCp7EeyQUZAfFpKaVQ">
-            <steps_Behaviour xsi:type="seff:StartAction" id="_3AoBcCp7EeyQUZAfFpKaVQ" successor_AbstractAction="_63lr8Cp7EeyQUZAfFpKaVQ"/>
-            <steps_Behaviour xsi:type="seff:StopAction" id="_3AoBcSp7EeyQUZAfFpKaVQ" predecessor_AbstractAction="_63lr8Cp7EeyQUZAfFpKaVQ"/>
-            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_63lr8Cp7EeyQUZAfFpKaVQ" entityName="ExternalCallAction1" predecessor_AbstractAction="_3AoBcCp7EeyQUZAfFpKaVQ" successor_AbstractAction="_3AoBcSp7EeyQUZAfFpKaVQ" calledService_ExternalService="_VMsz8Cp7EeyQUZAfFpKaVQ" role_ExternalService="_p8mxgCp7EeyQUZAfFpKaVQ"/>
+            <steps_Behaviour xsi:type="seff:StartAction" id="_3AoBcCp7EeyQUZAfFpKaVQ" successor_AbstractAction="_r6hOc2DbEeyl27SGknjUFw"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_3AoBcSp7EeyQUZAfFpKaVQ" predecessor_AbstractAction="_r6hOc2DbEeyl27SGknjUFw"/>
+            <steps_Behaviour xsi:type="seff:BranchAction" id="_r6hOc2DbEeyl27SGknjUFw" entityName="BranchAction3" predecessor_AbstractAction="_3AoBcCp7EeyQUZAfFpKaVQ" successor_AbstractAction="_3AoBcSp7EeyQUZAfFpKaVQ">
+              <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_2zDeQ2DbEeyl27SGknjUFw" entityName="GuardedBranchTransition31">
+                <branchBehaviour_BranchTransition id="_IoZvMGDcEeyl27SGknjUFw">
+                  <steps_Behaviour xsi:type="seff:StartAction" id="_KzzPwmDcEeyl27SGknjUFw" successor_AbstractAction="_63lr8Cp7EeyQUZAfFpKaVQ"/>
+                  <steps_Behaviour xsi:type="seff:StopAction" id="_L2mJgGDcEeyl27SGknjUFw" predecessor_AbstractAction="_63lr8Cp7EeyQUZAfFpKaVQ"/>
+                  <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_63lr8Cp7EeyQUZAfFpKaVQ" entityName="ExternalCallAction31" predecessor_AbstractAction="_KzzPwmDcEeyl27SGknjUFw" successor_AbstractAction="_L2mJgGDcEeyl27SGknjUFw" calledService_ExternalService="_VMsz8Cp7EeyQUZAfFpKaVQ" role_ExternalService="_p8mxgCp7EeyQUZAfFpKaVQ"/>
+                </branchBehaviour_BranchTransition>
+                <branchCondition_GuardedBranchTransition specification="true"/>
+              </branches_Branch>
+              <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_4jEDU2DbEeyl27SGknjUFw" entityName="GuardedBranchTransistion32">
+                <branchBehaviour_BranchTransition id="_R7RBsGDcEeyl27SGknjUFw">
+                  <steps_Behaviour xsi:type="seff:StartAction" id="_WiYWwmDcEeyl27SGknjUFw" successor_AbstractAction="_a2P_umDcEeyl27SGknjUFw"/>
+                  <steps_Behaviour xsi:type="seff:StopAction" id="_XRanAGDcEeyl27SGknjUFw" predecessor_AbstractAction="_a2P_umDcEeyl27SGknjUFw"/>
+                  <steps_Behaviour xsi:type="seff:InternalCallAction" id="_a2P_umDcEeyl27SGknjUFw" entityName="InternalCall32" predecessor_AbstractAction="_WiYWwmDcEeyl27SGknjUFw" successor_AbstractAction="_XRanAGDcEeyl27SGknjUFw"/>
+                </branchBehaviour_BranchTransition>
+                <branchCondition_GuardedBranchTransition specification="false"/>
+              </branches_Branch>
+            </steps_Behaviour>
           </branchBehaviour_BranchTransition>
           <branchCondition_GuardedBranchTransition specification="true"/>
         </branches_Branch>
