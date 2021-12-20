@@ -112,7 +112,7 @@
       <steps_Behaviour xsi:type="seff:InternalAction" id="_j1vOACqIEeyQUZAfFpKaVQ" entityName="processData" predecessor_AbstractAction="_idGnICqIEeyQUZAfFpKaVQ" successor_AbstractAction="_idGnISqIEeyQUZAfFpKaVQ"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
-  <components__Repository xsi:type="repository:BasicComponent" id="_hEDOsCp2EeyXVNg0kfeznA" entityName="ShippingLineSystem&#xA;">
+  <components__Repository xsi:type="repository:BasicComponent" id="_hEDOsCp2EeyXVNg0kfeznA" entityName="ShippingLineSystem&#xA;" parentCompleteComponentTypes="_uYWGQWGgEey0vMuch9XqAA">
     <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_ybBsICp3EeyXVNg0kfeznA" entityName="ShippingLineSystem&#xA;.Interface2.OperationProvidedRole1" providedInterface__OperationProvidedRole="_Ql2hcCp3EeyXVNg0kfeznA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_ybzvQCp3EeyXVNg0kfeznA" describedService__SEFF="_RXahQCp3EeyXVNg0kfeznA">
       <steps_Behaviour xsi:type="seff:StartAction" id="_yb0WUCp3EeyXVNg0kfeznA" successor_AbstractAction="_3k360Cp3EeyXVNg0kfeznA"/>
@@ -196,6 +196,12 @@
       <steps_Behaviour xsi:type="seff:StopAction" id="_tu5EcSqIEeyQUZAfFpKaVQ" predecessor_AbstractAction="_0G69gCqIEeyQUZAfFpKaVQ"/>
       <steps_Behaviour xsi:type="seff:InternalAction" id="_0G69gCqIEeyQUZAfFpKaVQ" entityName="processData" predecessor_AbstractAction="_tu5EcCqIEeyQUZAfFpKaVQ" successor_AbstractAction="_tu5EcSqIEeyQUZAfFpKaVQ"/>
     </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:CompleteComponentType" id="_uYWGQWGgEey0vMuch9XqAA" entityName="Test">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_ybBsICp3EeyXVNg0kfeznA" entityName="ShippingLineSystem&#xA;.Interface2.OperationProvidedRole1" providedInterface__OperationProvidedRole="_Ql2hcCp3EeyXVNg0kfeznA"/>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_7L8UkGGgEey0vMuch9XqAA" parentCompleteComponentTypes="_uYWGQWGgEey0vMuch9XqAA">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_ybBsICp3EeyXVNg0kfeznA" entityName="ShippingLineSystem&#xA;.Interface2.OperationProvidedRole1" providedInterface__OperationProvidedRole="_Ql2hcCp3EeyXVNg0kfeznA"/>
   </components__Repository>
   <interfaces__Repository xsi:type="repository:OperationInterface" id="_sXYkICp2EeyXVNg0kfeznA" entityName="Custom">
     <signatures__OperationInterface id="_t8uKQCp2EeyXVNg0kfeznA" entityName="declareGoods">

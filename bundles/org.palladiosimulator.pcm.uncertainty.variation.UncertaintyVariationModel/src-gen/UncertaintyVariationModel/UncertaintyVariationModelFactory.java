@@ -49,6 +49,24 @@ public interface UncertaintyVariationModelFactory extends EFactory {
 	VaryingBranch createVaryingBranch();
 
 	/**
+	 * Returns a new object of class '<em>Varying Assembly Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Varying Assembly Context</em>'.
+	 * @generated
+	 */
+	VaryingAssemblyContext createVaryingAssemblyContext();
+
+	/**
+	 * Returns a new object of class '<em>Variation Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variation Description</em>'.
+	 * @generated
+	 */
+	VariationDescription createVariationDescription();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

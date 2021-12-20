@@ -92,6 +92,19 @@ public class UncertaintyVariationModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UncertaintyVariationModelPackage.VARYING_ASSEMBLY_CONTEXT: {
+				VaryingAssemblyContext varyingAssemblyContext = (VaryingAssemblyContext)theEObject;
+				T result = caseVaryingAssemblyContext(varyingAssemblyContext);
+				if (result == null) result = caseVariationPoint(varyingAssemblyContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UncertaintyVariationModelPackage.VARIATION_DESCRIPTION: {
+				VariationDescription variationDescription = (VariationDescription)theEObject;
+				T result = caseVariationDescription(variationDescription);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -153,6 +166,36 @@ public class UncertaintyVariationModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVaryingBranch(VaryingBranch object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Varying Assembly Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Varying Assembly Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVaryingAssemblyContext(VaryingAssemblyContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variation Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variation Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariationDescription(VariationDescription object) {
 		return null;
 	}
 

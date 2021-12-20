@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Iterator;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.AllocationStateHandler;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.AssemblyStateHandler;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.BranchStateHandler;
 
 import UncertaintyVariationModel.UncertaintyVariations;
@@ -20,6 +21,7 @@ public class UncertaintyVariationModelGenPcm {
 		List<String> models = new ArrayList<>();
 		models.addAll(AllocationStateHandler.GET_MODEL_TYPES());
 		models.addAll(BranchStateHandler.GET_MODEL_TYPES());
+		models.addAll(AssemblyStateHandler.GET_MODEL_TYPES());
 		
 		
 		this.scenarioManager = new ScenarioManager(

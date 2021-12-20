@@ -6,17 +6,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="variationPoints" upperBound="-1"
         eType="#//VariationPoint" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VariationPoint" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="VaryingAllocationContext" eSuperTypes="#//VariationPoint">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetResourceVariations"
-        upperBound="-1" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext" lowerBound="1"
-        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//allocation/AllocationContext"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VariationPoint" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="varyingSubjects" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variationDescription" eType="#//VariationDescription"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VaryingBranch" eSuperTypes="#//VariationPoint">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="branchActions" upperBound="-1"
-        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//seff/BranchAction"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
-        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//usagemodel/Branch"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VaryingAllocationContext" eSuperTypes="#//VariationPoint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VaryingBranch" eSuperTypes="#//VariationPoint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VaryingAssemblyContext" eSuperTypes="#//VariationPoint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VariationDescription">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetVariations" upperBound="-1"
+        eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
   </eClassifiers>
 </ecore:EPackage>

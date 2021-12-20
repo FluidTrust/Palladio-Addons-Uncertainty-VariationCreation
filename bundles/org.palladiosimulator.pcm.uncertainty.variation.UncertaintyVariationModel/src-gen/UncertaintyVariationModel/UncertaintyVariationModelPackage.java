@@ -103,13 +103,31 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 	int VARIATION_POINT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Varying Subjects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIATION_POINT__VARYING_SUBJECTS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Variation Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIATION_POINT__VARIATION_DESCRIPTION = 1;
+
+	/**
 	 * The number of structural features of the '<em>Variation Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIATION_POINT_FEATURE_COUNT = 0;
+	int VARIATION_POINT_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Variation Point</em>' class.
@@ -131,22 +149,22 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 	int VARYING_ALLOCATION_CONTEXT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Target Resource Variations</b></em>' reference list.
+	 * The feature id for the '<em><b>Varying Subjects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARYING_ALLOCATION_CONTEXT__TARGET_RESOURCE_VARIATIONS = VARIATION_POINT_FEATURE_COUNT + 0;
+	int VARYING_ALLOCATION_CONTEXT__VARYING_SUBJECTS = VARIATION_POINT__VARYING_SUBJECTS;
 
 	/**
-	 * The feature id for the '<em><b>Allocation Context</b></em>' reference.
+	 * The feature id for the '<em><b>Variation Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARYING_ALLOCATION_CONTEXT__ALLOCATION_CONTEXT = VARIATION_POINT_FEATURE_COUNT + 1;
+	int VARYING_ALLOCATION_CONTEXT__VARIATION_DESCRIPTION = VARIATION_POINT__VARIATION_DESCRIPTION;
 
 	/**
 	 * The number of structural features of the '<em>Varying Allocation Context</em>' class.
@@ -155,7 +173,7 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARYING_ALLOCATION_CONTEXT_FEATURE_COUNT = VARIATION_POINT_FEATURE_COUNT + 2;
+	int VARYING_ALLOCATION_CONTEXT_FEATURE_COUNT = VARIATION_POINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Varying Allocation Context</em>' class.
@@ -177,22 +195,22 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 	int VARYING_BRANCH = 3;
 
 	/**
-	 * The feature id for the '<em><b>Branch Actions</b></em>' reference list.
+	 * The feature id for the '<em><b>Varying Subjects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARYING_BRANCH__BRANCH_ACTIONS = VARIATION_POINT_FEATURE_COUNT + 0;
+	int VARYING_BRANCH__VARYING_SUBJECTS = VARIATION_POINT__VARYING_SUBJECTS;
 
 	/**
-	 * The feature id for the '<em><b>Branches</b></em>' reference list.
+	 * The feature id for the '<em><b>Variation Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARYING_BRANCH__BRANCHES = VARIATION_POINT_FEATURE_COUNT + 1;
+	int VARYING_BRANCH__VARIATION_DESCRIPTION = VARIATION_POINT__VARIATION_DESCRIPTION;
 
 	/**
 	 * The number of structural features of the '<em>Varying Branch</em>' class.
@@ -201,7 +219,7 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARYING_BRANCH_FEATURE_COUNT = VARIATION_POINT_FEATURE_COUNT + 2;
+	int VARYING_BRANCH_FEATURE_COUNT = VARIATION_POINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Varying Branch</em>' class.
@@ -211,6 +229,89 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARYING_BRANCH_OPERATION_COUNT = VARIATION_POINT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UncertaintyVariationModel.impl.VaryingAssemblyContextImpl <em>Varying Assembly Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UncertaintyVariationModel.impl.VaryingAssemblyContextImpl
+	 * @see UncertaintyVariationModel.impl.UncertaintyVariationModelPackageImpl#getVaryingAssemblyContext()
+	 * @generated
+	 */
+	int VARYING_ASSEMBLY_CONTEXT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Varying Subjects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARYING_ASSEMBLY_CONTEXT__VARYING_SUBJECTS = VARIATION_POINT__VARYING_SUBJECTS;
+
+	/**
+	 * The feature id for the '<em><b>Variation Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARYING_ASSEMBLY_CONTEXT__VARIATION_DESCRIPTION = VARIATION_POINT__VARIATION_DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>Varying Assembly Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARYING_ASSEMBLY_CONTEXT_FEATURE_COUNT = VARIATION_POINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Varying Assembly Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARYING_ASSEMBLY_CONTEXT_OPERATION_COUNT = VARIATION_POINT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UncertaintyVariationModel.impl.VariationDescriptionImpl <em>Variation Description</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UncertaintyVariationModel.impl.VariationDescriptionImpl
+	 * @see UncertaintyVariationModel.impl.UncertaintyVariationModelPackageImpl#getVariationDescription()
+	 * @generated
+	 */
+	int VARIATION_DESCRIPTION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Target Variations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIATION_DESCRIPTION__TARGET_VARIATIONS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Variation Description</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIATION_DESCRIPTION_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Variation Description</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIATION_DESCRIPTION_OPERATION_COUNT = 0;
 
 
 	/**
@@ -245,6 +346,28 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 	EClass getVariationPoint();
 
 	/**
+	 * Returns the meta object for the reference list '{@link UncertaintyVariationModel.VariationPoint#getVaryingSubjects <em>Varying Subjects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Varying Subjects</em>'.
+	 * @see UncertaintyVariationModel.VariationPoint#getVaryingSubjects()
+	 * @see #getVariationPoint()
+	 * @generated
+	 */
+	EReference getVariationPoint_VaryingSubjects();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link UncertaintyVariationModel.VariationPoint#getVariationDescription <em>Variation Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Variation Description</em>'.
+	 * @see UncertaintyVariationModel.VariationPoint#getVariationDescription()
+	 * @see #getVariationPoint()
+	 * @generated
+	 */
+	EReference getVariationPoint_VariationDescription();
+
+	/**
 	 * Returns the meta object for class '{@link UncertaintyVariationModel.VaryingAllocationContext <em>Varying Allocation Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,28 +376,6 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getVaryingAllocationContext();
-
-	/**
-	 * Returns the meta object for the reference list '{@link UncertaintyVariationModel.VaryingAllocationContext#getTargetResourceVariations <em>Target Resource Variations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Target Resource Variations</em>'.
-	 * @see UncertaintyVariationModel.VaryingAllocationContext#getTargetResourceVariations()
-	 * @see #getVaryingAllocationContext()
-	 * @generated
-	 */
-	EReference getVaryingAllocationContext_TargetResourceVariations();
-
-	/**
-	 * Returns the meta object for the reference '{@link UncertaintyVariationModel.VaryingAllocationContext#getAllocationContext <em>Allocation Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Allocation Context</em>'.
-	 * @see UncertaintyVariationModel.VaryingAllocationContext#getAllocationContext()
-	 * @see #getVaryingAllocationContext()
-	 * @generated
-	 */
-	EReference getVaryingAllocationContext_AllocationContext();
 
 	/**
 	 * Returns the meta object for class '{@link UncertaintyVariationModel.VaryingBranch <em>Varying Branch</em>}'.
@@ -287,26 +388,35 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 	EClass getVaryingBranch();
 
 	/**
-	 * Returns the meta object for the reference list '{@link UncertaintyVariationModel.VaryingBranch#getBranchActions <em>Branch Actions</em>}'.
+	 * Returns the meta object for class '{@link UncertaintyVariationModel.VaryingAssemblyContext <em>Varying Assembly Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Branch Actions</em>'.
-	 * @see UncertaintyVariationModel.VaryingBranch#getBranchActions()
-	 * @see #getVaryingBranch()
+	 * @return the meta object for class '<em>Varying Assembly Context</em>'.
+	 * @see UncertaintyVariationModel.VaryingAssemblyContext
 	 * @generated
 	 */
-	EReference getVaryingBranch_BranchActions();
+	EClass getVaryingAssemblyContext();
 
 	/**
-	 * Returns the meta object for the reference list '{@link UncertaintyVariationModel.VaryingBranch#getBranches <em>Branches</em>}'.
+	 * Returns the meta object for class '{@link UncertaintyVariationModel.VariationDescription <em>Variation Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Branches</em>'.
-	 * @see UncertaintyVariationModel.VaryingBranch#getBranches()
-	 * @see #getVaryingBranch()
+	 * @return the meta object for class '<em>Variation Description</em>'.
+	 * @see UncertaintyVariationModel.VariationDescription
 	 * @generated
 	 */
-	EReference getVaryingBranch_Branches();
+	EClass getVariationDescription();
+
+	/**
+	 * Returns the meta object for the reference list '{@link UncertaintyVariationModel.VariationDescription#getTargetVariations <em>Target Variations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Target Variations</em>'.
+	 * @see UncertaintyVariationModel.VariationDescription#getTargetVariations()
+	 * @see #getVariationDescription()
+	 * @generated
+	 */
+	EReference getVariationDescription_TargetVariations();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -360,6 +470,22 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 		EClass VARIATION_POINT = eINSTANCE.getVariationPoint();
 
 		/**
+		 * The meta object literal for the '<em><b>Varying Subjects</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIATION_POINT__VARYING_SUBJECTS = eINSTANCE.getVariationPoint_VaryingSubjects();
+
+		/**
+		 * The meta object literal for the '<em><b>Variation Description</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIATION_POINT__VARIATION_DESCRIPTION = eINSTANCE.getVariationPoint_VariationDescription();
+
+		/**
 		 * The meta object literal for the '{@link UncertaintyVariationModel.impl.VaryingAllocationContextImpl <em>Varying Allocation Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -368,22 +494,6 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VARYING_ALLOCATION_CONTEXT = eINSTANCE.getVaryingAllocationContext();
-
-		/**
-		 * The meta object literal for the '<em><b>Target Resource Variations</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARYING_ALLOCATION_CONTEXT__TARGET_RESOURCE_VARIATIONS = eINSTANCE.getVaryingAllocationContext_TargetResourceVariations();
-
-		/**
-		 * The meta object literal for the '<em><b>Allocation Context</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARYING_ALLOCATION_CONTEXT__ALLOCATION_CONTEXT = eINSTANCE.getVaryingAllocationContext_AllocationContext();
 
 		/**
 		 * The meta object literal for the '{@link UncertaintyVariationModel.impl.VaryingBranchImpl <em>Varying Branch</em>}' class.
@@ -396,20 +506,32 @@ public interface UncertaintyVariationModelPackage extends EPackage {
 		EClass VARYING_BRANCH = eINSTANCE.getVaryingBranch();
 
 		/**
-		 * The meta object literal for the '<em><b>Branch Actions</b></em>' reference list feature.
+		 * The meta object literal for the '{@link UncertaintyVariationModel.impl.VaryingAssemblyContextImpl <em>Varying Assembly Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see UncertaintyVariationModel.impl.VaryingAssemblyContextImpl
+		 * @see UncertaintyVariationModel.impl.UncertaintyVariationModelPackageImpl#getVaryingAssemblyContext()
 		 * @generated
 		 */
-		EReference VARYING_BRANCH__BRANCH_ACTIONS = eINSTANCE.getVaryingBranch_BranchActions();
+		EClass VARYING_ASSEMBLY_CONTEXT = eINSTANCE.getVaryingAssemblyContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Branches</b></em>' reference list feature.
+		 * The meta object literal for the '{@link UncertaintyVariationModel.impl.VariationDescriptionImpl <em>Variation Description</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UncertaintyVariationModel.impl.VariationDescriptionImpl
+		 * @see UncertaintyVariationModel.impl.UncertaintyVariationModelPackageImpl#getVariationDescription()
+		 * @generated
+		 */
+		EClass VARIATION_DESCRIPTION = eINSTANCE.getVariationDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Variations</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARYING_BRANCH__BRANCHES = eINSTANCE.getVaryingBranch_Branches();
+		EReference VARIATION_DESCRIPTION__TARGET_VARIATIONS = eINSTANCE.getVariationDescription_TargetVariations();
 
 	}
 

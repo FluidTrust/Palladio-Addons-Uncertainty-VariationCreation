@@ -16,14 +16,15 @@
     <genClasses ecoreClass="UncertaintyVariationModel.ecore#//UncertaintyVariations">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//UncertaintyVariations/variationPoints"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="UncertaintyVariationModel.ecore#//VariationPoint"/>
-    <genClasses ecoreClass="UncertaintyVariationModel.ecore#//VaryingAllocationContext">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VaryingAllocationContext/targetResourceVariations"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VaryingAllocationContext/allocationContext"/>
+    <genClasses image="false" ecoreClass="UncertaintyVariationModel.ecore#//VariationPoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VariationPoint/varyingSubjects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VariationPoint/variationDescription"/>
     </genClasses>
-    <genClasses ecoreClass="UncertaintyVariationModel.ecore#//VaryingBranch">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VaryingBranch/branchActions"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VaryingBranch/branches"/>
+    <genClasses ecoreClass="UncertaintyVariationModel.ecore#//VaryingAllocationContext"/>
+    <genClasses ecoreClass="UncertaintyVariationModel.ecore#//VaryingBranch"/>
+    <genClasses ecoreClass="UncertaintyVariationModel.ecore#//VaryingAssemblyContext"/>
+    <genClasses ecoreClass="UncertaintyVariationModel.ecore#//VariationDescription">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VariationDescription/targetVariations"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

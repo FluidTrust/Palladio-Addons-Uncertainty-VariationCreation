@@ -141,6 +141,52 @@ public class UncertaintyVariationModelItemProviderAdapterFactory extends Uncerta
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link UncertaintyVariationModel.VaryingAssemblyContext} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VaryingAssemblyContextItemProvider varyingAssemblyContextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link UncertaintyVariationModel.VaryingAssemblyContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVaryingAssemblyContextAdapter() {
+		if (varyingAssemblyContextItemProvider == null) {
+			varyingAssemblyContextItemProvider = new VaryingAssemblyContextItemProvider(this);
+		}
+
+		return varyingAssemblyContextItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link UncertaintyVariationModel.VariationDescription} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VariationDescriptionItemProvider variationDescriptionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link UncertaintyVariationModel.VariationDescription}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVariationDescriptionAdapter() {
+		if (variationDescriptionItemProvider == null) {
+			variationDescriptionItemProvider = new VariationDescriptionItemProvider(this);
+		}
+
+		return variationDescriptionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +288,8 @@ public class UncertaintyVariationModelItemProviderAdapterFactory extends Uncerta
 		if (uncertaintyVariationsItemProvider != null) uncertaintyVariationsItemProvider.dispose();
 		if (varyingAllocationContextItemProvider != null) varyingAllocationContextItemProvider.dispose();
 		if (varyingBranchItemProvider != null) varyingBranchItemProvider.dispose();
+		if (varyingAssemblyContextItemProvider != null) varyingAssemblyContextItemProvider.dispose();
+		if (variationDescriptionItemProvider != null) variationDescriptionItemProvider.dispose();
 	}
 
 }

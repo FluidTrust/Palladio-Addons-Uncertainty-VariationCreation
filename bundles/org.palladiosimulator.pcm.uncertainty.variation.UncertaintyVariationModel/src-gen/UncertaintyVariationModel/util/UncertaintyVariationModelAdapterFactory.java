@@ -84,6 +84,14 @@ public class UncertaintyVariationModelAdapterFactory extends AdapterFactoryImpl 
 				return createVaryingBranchAdapter();
 			}
 			@Override
+			public Adapter caseVaryingAssemblyContext(VaryingAssemblyContext object) {
+				return createVaryingAssemblyContextAdapter();
+			}
+			@Override
+			public Adapter caseVariationDescription(VariationDescription object) {
+				return createVariationDescriptionAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -156,6 +164,34 @@ public class UncertaintyVariationModelAdapterFactory extends AdapterFactoryImpl 
 	 * @generated
 	 */
 	public Adapter createVaryingBranchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UncertaintyVariationModel.VaryingAssemblyContext <em>Varying Assembly Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UncertaintyVariationModel.VaryingAssemblyContext
+	 * @generated
+	 */
+	public Adapter createVaryingAssemblyContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UncertaintyVariationModel.VariationDescription <em>Variation Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UncertaintyVariationModel.VariationDescription
+	 * @generated
+	 */
+	public Adapter createVariationDescriptionAdapter() {
 		return null;
 	}
 
