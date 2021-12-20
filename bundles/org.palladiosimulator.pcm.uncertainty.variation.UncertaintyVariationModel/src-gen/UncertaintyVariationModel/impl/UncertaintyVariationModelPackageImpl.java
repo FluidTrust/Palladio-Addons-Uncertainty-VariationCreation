@@ -5,8 +5,10 @@ package UncertaintyVariationModel.impl;
 import UncertaintyVariationModel.UncertaintyVariationModelFactory;
 import UncertaintyVariationModel.UncertaintyVariationModelPackage;
 import UncertaintyVariationModel.UncertaintyVariations;
+import UncertaintyVariationModel.VariationDescription;
 import UncertaintyVariationModel.VariationPoint;
 import UncertaintyVariationModel.VaryingAllocationContext;
+import UncertaintyVariationModel.VaryingAssemblyContext;
 import UncertaintyVariationModel.VaryingBranch;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
@@ -26,13 +28,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.palladiosimulator.pcm.PcmPackage;
 
-import org.palladiosimulator.pcm.allocation.AllocationPackage;
-
-import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
-
-import org.palladiosimulator.pcm.seff.SeffPackage;
-
-import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,6 +64,20 @@ public class UncertaintyVariationModelPackageImpl extends EPackageImpl implement
 	 * @generated
 	 */
 	private EClass varyingBranchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass varyingAssemblyContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variationDescriptionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -170,26 +180,26 @@ public class UncertaintyVariationModelPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getVariationPoint_VaryingSubjects() {
+		return (EReference)variationPointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariationPoint_VariationDescription() {
+		return (EReference)variationPointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVaryingAllocationContext() {
 		return varyingAllocationContextEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVaryingAllocationContext_TargetResourceVariations() {
-		return (EReference)varyingAllocationContextEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVaryingAllocationContext_AllocationContext() {
-		return (EReference)varyingAllocationContextEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -206,8 +216,8 @@ public class UncertaintyVariationModelPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVaryingBranch_BranchActions() {
-		return (EReference)varyingBranchEClass.getEStructuralFeatures().get(0);
+	public EClass getVaryingAssemblyContext() {
+		return varyingAssemblyContextEClass;
 	}
 
 	/**
@@ -215,8 +225,17 @@ public class UncertaintyVariationModelPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVaryingBranch_Branches() {
-		return (EReference)varyingBranchEClass.getEStructuralFeatures().get(1);
+	public EClass getVariationDescription() {
+		return variationDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariationDescription_TargetVariations() {
+		return (EReference)variationDescriptionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -251,14 +270,17 @@ public class UncertaintyVariationModelPackageImpl extends EPackageImpl implement
 		createEReference(uncertaintyVariationsEClass, UNCERTAINTY_VARIATIONS__VARIATION_POINTS);
 
 		variationPointEClass = createEClass(VARIATION_POINT);
+		createEReference(variationPointEClass, VARIATION_POINT__VARYING_SUBJECTS);
+		createEReference(variationPointEClass, VARIATION_POINT__VARIATION_DESCRIPTION);
 
 		varyingAllocationContextEClass = createEClass(VARYING_ALLOCATION_CONTEXT);
-		createEReference(varyingAllocationContextEClass, VARYING_ALLOCATION_CONTEXT__TARGET_RESOURCE_VARIATIONS);
-		createEReference(varyingAllocationContextEClass, VARYING_ALLOCATION_CONTEXT__ALLOCATION_CONTEXT);
 
 		varyingBranchEClass = createEClass(VARYING_BRANCH);
-		createEReference(varyingBranchEClass, VARYING_BRANCH__BRANCH_ACTIONS);
-		createEReference(varyingBranchEClass, VARYING_BRANCH__BRANCHES);
+
+		varyingAssemblyContextEClass = createEClass(VARYING_ASSEMBLY_CONTEXT);
+
+		variationDescriptionEClass = createEClass(VARIATION_DESCRIPTION);
+		createEReference(variationDescriptionEClass, VARIATION_DESCRIPTION__TARGET_VARIATIONS);
 	}
 
 	/**
@@ -285,10 +307,8 @@ public class UncertaintyVariationModelPackageImpl extends EPackageImpl implement
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI);
-		AllocationPackage theAllocationPackage = (AllocationPackage)EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI);
-		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
-		UsagemodelPackage theUsagemodelPackage = (UsagemodelPackage)EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI);
+		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -297,20 +317,24 @@ public class UncertaintyVariationModelPackageImpl extends EPackageImpl implement
 		// Add supertypes to classes
 		varyingAllocationContextEClass.getESuperTypes().add(this.getVariationPoint());
 		varyingBranchEClass.getESuperTypes().add(this.getVariationPoint());
+		varyingAssemblyContextEClass.getESuperTypes().add(this.getVariationPoint());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(uncertaintyVariationsEClass, UncertaintyVariations.class, "UncertaintyVariations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUncertaintyVariations_VariationPoints(), this.getVariationPoint(), null, "variationPoints", null, 0, -1, UncertaintyVariations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variationPointEClass, VariationPoint.class, "VariationPoint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariationPoint_VaryingSubjects(), theEntityPackage.getEntity(), null, "varyingSubjects", null, 1, -1, VariationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVariationPoint_VariationDescription(), this.getVariationDescription(), null, "variationDescription", null, 0, 1, VariationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(varyingAllocationContextEClass, VaryingAllocationContext.class, "VaryingAllocationContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVaryingAllocationContext_TargetResourceVariations(), theResourceenvironmentPackage.getResourceContainer(), null, "targetResourceVariations", null, 0, -1, VaryingAllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVaryingAllocationContext_AllocationContext(), theAllocationPackage.getAllocationContext(), null, "allocationContext", null, 1, 1, VaryingAllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(varyingBranchEClass, VaryingBranch.class, "VaryingBranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVaryingBranch_BranchActions(), theSeffPackage.getBranchAction(), null, "branchActions", null, 0, -1, VaryingBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVaryingBranch_Branches(), theUsagemodelPackage.getBranch(), null, "branches", null, 0, -1, VaryingBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(varyingAssemblyContextEClass, VaryingAssemblyContext.class, "VaryingAssemblyContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(variationDescriptionEClass, VariationDescription.class, "VariationDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariationDescription_TargetVariations(), theIdentifierPackage.getIdentifier(), null, "targetVariations", null, 0, -1, VariationDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

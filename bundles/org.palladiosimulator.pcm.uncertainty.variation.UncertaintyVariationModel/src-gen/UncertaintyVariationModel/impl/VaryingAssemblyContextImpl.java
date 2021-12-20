@@ -3,23 +3,23 @@
 package UncertaintyVariationModel.impl;
 
 import UncertaintyVariationModel.UncertaintyVariationModelPackage;
-import UncertaintyVariationModel.VaryingAllocationContext;
+import UncertaintyVariationModel.VaryingAssemblyContext;
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Varying Allocation Context</b></em>'.
+ * An implementation of the model object '<em><b>Varying Assembly Context</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class VaryingAllocationContextImpl extends VariationPointImpl implements VaryingAllocationContext {
+public class VaryingAssemblyContextImpl extends VariationPointImpl implements VaryingAssemblyContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VaryingAllocationContextImpl() {
+	protected VaryingAssemblyContextImpl() {
 		super();
 	}
 
@@ -30,7 +30,7 @@ public class VaryingAllocationContextImpl extends VariationPointImpl implements 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UncertaintyVariationModelPackage.Literals.VARYING_ALLOCATION_CONTEXT;
+		return UncertaintyVariationModelPackage.Literals.VARYING_ASSEMBLY_CONTEXT;
 	}
 
-} //VaryingAllocationContextImpl
+} //VaryingAssemblyContextImpl

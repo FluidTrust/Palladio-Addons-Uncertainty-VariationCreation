@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<UncertaintyVariationModel:UncertaintyVariations xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UncertaintyVariationModel="http://palladiosimulator.org/pcm/UncertaintyVariationModel/v0">
+<UncertaintyVariationModel:UncertaintyVariations xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UncertaintyVariationModel="http://palladiosimulator.org/pcm/UncertaintyVariationModel/v0" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:usagemodel="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2">
   <variationPoints xsi:type="UncertaintyVariationModel:VaryingAllocationContext">
-    <targetResourceVariations href="source/portHardware.resourceenvironment#_uPjIMCqNEeyQUZAfFpKaVQ"/>
-    <targetResourceVariations href="source/portHardware.resourceenvironment#_r_6A0CqNEeyQUZAfFpKaVQ"/>
-    <allocationContext href="source/portAllocation.allocation#_Mi4j0CqOEeyQUZAfFpKaVQ"/>
+    <varyingSubjects xsi:type="allocation:AllocationContext" href="source/portAllocation.allocation#_JzoIQCqOEeyQUZAfFpKaVQ"/>
+    <variationDescription>
+      <targetVariations xsi:type="resourceenvironment:ResourceContainer" href="source/portHardware.resourceenvironment#_uPjIMCqNEeyQUZAfFpKaVQ"/>
+      <targetVariations xsi:type="resourceenvironment:ResourceContainer" href="source/portHardware.resourceenvironment#_r_6A0CqNEeyQUZAfFpKaVQ"/>
+    </variationDescription>
   </variationPoints>
   <variationPoints xsi:type="UncertaintyVariationModel:VaryingAllocationContext">
-    <targetResourceVariations href="source/portHardware.resourceenvironment#_2k_JICqNEeyQUZAfFpKaVQ"/>
-    <targetResourceVariations href="source/portHardware.resourceenvironment#_y6hCgCqNEeyQUZAfFpKaVQ"/>
-    <allocationContext href="source/portAllocation.allocation#_KNVowCqOEeyQUZAfFpKaVQ"/>
+    <varyingSubjects xsi:type="allocation:AllocationContext" href="source/portAllocation.allocation#_KNVowCqOEeyQUZAfFpKaVQ"/>
+    <variationDescription>
+      <targetVariations xsi:type="resourceenvironment:ResourceContainer" href="source/portHardware.resourceenvironment#_2k_JICqNEeyQUZAfFpKaVQ"/>
+      <targetVariations xsi:type="resourceenvironment:ResourceContainer" href="source/portHardware.resourceenvironment#_y6hCgCqNEeyQUZAfFpKaVQ"/>
+    </variationDescription>
   </variationPoints>
   <variationPoints xsi:type="UncertaintyVariationModel:VaryingBranch">
-    <branchActions href="source/portSystem.repository#_r6hOc2DbEeyl27SGknjUFw"/>
-    <branchActions href="source/portSystem.repository#_zOM4sCp7EeyQUZAfFpKaVQ"/>
-    <branchActions href="source/portSystem.repository#_677HcCp9EeyQUZAfFpKaVQ"/>
+    <varyingSubjects xsi:type="seff:BranchAction" href="source/portSystem.repository#_zOM4sCp7EeyQUZAfFpKaVQ"/>
+    <varyingSubjects xsi:type="seff:BranchAction" href="source/portSystem.repository#_677HcCp9EeyQUZAfFpKaVQ"/>
+    <varyingSubjects xsi:type="seff:BranchAction" href="source/portSystem.repository#_r6hOc2DbEeyl27SGknjUFw"/>
   </variationPoints>
   <variationPoints xsi:type="UncertaintyVariationModel:VaryingBranch">
-    <branches href="source/portUsageModel.usagemodel#_KAECwCqDEeyQUZAfFpKaVQ"/>
+    <varyingSubjects xsi:type="usagemodel:Branch" href="source/portUsageModel.usagemodel#_KAECwCqDEeyQUZAfFpKaVQ"/>
+  </variationPoints>
+  <variationPoints xsi:type="UncertaintyVariationModel:VaryingAssemblyContext">
+    <varyingSubjects xsi:type="composition:AssemblyContext" href="source/portSystem.system#_8QhVICp4EeyXVNg0kfeznA"/>
+    <variationDescription>
+      <targetVariations xsi:type="repository:BasicComponent" href="source/portSystem.repository#_hEDOsCp2EeyXVNg0kfeznA"/>
+      <targetVariations xsi:type="repository:BasicComponent" href="source/portSystem.repository#_7L8UkGGgEey0vMuch9XqAA"/>
+    </variationDescription>
   </variationPoints>
 </UncertaintyVariationModel:UncertaintyVariations>

@@ -11,19 +11,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link UncertaintyVariationModel.VaryingAllocationContext} object.
+ * This is the item provider adapter for a {@link UncertaintyVariationModel.VaryingAssemblyContext} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class VaryingAllocationContextItemProvider extends VariationPointItemProvider {
+public class VaryingAssemblyContextItemProvider extends VariationPointItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VaryingAllocationContextItemProvider(AdapterFactory adapterFactory) {
+	public VaryingAssemblyContextItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -43,14 +43,14 @@ public class VaryingAllocationContextItemProvider extends VariationPointItemProv
 	}
 
 	/**
-	 * This returns VaryingAllocationContext.gif.
+	 * This returns VaryingAssemblyContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VaryingAllocationContext"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VaryingAssemblyContext"));
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class VaryingAllocationContextItemProvider extends VariationPointItemProv
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_VaryingAllocationContext_type");
+		return getString("_UI_VaryingAssemblyContext_type");
 	}
 
 

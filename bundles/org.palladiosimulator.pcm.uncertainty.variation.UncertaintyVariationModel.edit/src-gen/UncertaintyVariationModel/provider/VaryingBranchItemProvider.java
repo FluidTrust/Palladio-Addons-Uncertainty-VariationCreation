@@ -3,15 +3,11 @@
 package UncertaintyVariationModel.provider;
 
 
-import UncertaintyVariationModel.UncertaintyVariationModelPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
@@ -42,54 +38,8 @@ public class VaryingBranchItemProvider extends VariationPointItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBranchActionsPropertyDescriptor(object);
-			addBranchesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Branch Actions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBranchActionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_VaryingBranch_branchActions_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VaryingBranch_branchActions_feature", "_UI_VaryingBranch_type"),
-				 UncertaintyVariationModelPackage.Literals.VARYING_BRANCH__BRANCH_ACTIONS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Branches feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBranchesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_VaryingBranch_branches_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VaryingBranch_branches_feature", "_UI_VaryingBranch_type"),
-				 UncertaintyVariationModelPackage.Literals.VARYING_BRANCH__BRANCHES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

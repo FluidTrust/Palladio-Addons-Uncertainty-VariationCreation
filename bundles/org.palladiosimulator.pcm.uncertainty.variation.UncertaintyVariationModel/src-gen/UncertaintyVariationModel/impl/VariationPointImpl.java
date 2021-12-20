@@ -3,20 +3,61 @@
 package UncertaintyVariationModel.impl;
 
 import UncertaintyVariationModel.UncertaintyVariationModelPackage;
+import UncertaintyVariationModel.VariationDescription;
 import UncertaintyVariationModel.VariationPoint;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import org.palladiosimulator.pcm.core.entity.Entity;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Variation Point</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link UncertaintyVariationModel.impl.VariationPointImpl#getVaryingSubjects <em>Varying Subjects</em>}</li>
+ *   <li>{@link UncertaintyVariationModel.impl.VariationPointImpl#getVariationDescription <em>Variation Description</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public abstract class VariationPointImpl extends MinimalEObjectImpl.Container implements VariationPoint {
+	/**
+	 * The cached value of the '{@link #getVaryingSubjects() <em>Varying Subjects</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVaryingSubjects()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Entity> varyingSubjects;
+
+	/**
+	 * The cached value of the '{@link #getVariationDescription() <em>Variation Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariationDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected VariationDescription variationDescription;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,6 +75,145 @@ public abstract class VariationPointImpl extends MinimalEObjectImpl.Container im
 	@Override
 	protected EClass eStaticClass() {
 		return UncertaintyVariationModelPackage.Literals.VARIATION_POINT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Entity> getVaryingSubjects() {
+		if (varyingSubjects == null) {
+			varyingSubjects = new EObjectResolvingEList<Entity>(Entity.class, this, UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS);
+		}
+		return varyingSubjects;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VariationDescription getVariationDescription() {
+		return variationDescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetVariationDescription(VariationDescription newVariationDescription, NotificationChain msgs) {
+		VariationDescription oldVariationDescription = variationDescription;
+		variationDescription = newVariationDescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, oldVariationDescription, newVariationDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVariationDescription(VariationDescription newVariationDescription) {
+		if (newVariationDescription != variationDescription) {
+			NotificationChain msgs = null;
+			if (variationDescription != null)
+				msgs = ((InternalEObject)variationDescription).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, null, msgs);
+			if (newVariationDescription != null)
+				msgs = ((InternalEObject)newVariationDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, null, msgs);
+			msgs = basicSetVariationDescription(newVariationDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, newVariationDescription, newVariationDescription));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION:
+				return basicSetVariationDescription(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS:
+				return getVaryingSubjects();
+			case UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION:
+				return getVariationDescription();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS:
+				getVaryingSubjects().clear();
+				getVaryingSubjects().addAll((Collection<? extends Entity>)newValue);
+				return;
+			case UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION:
+				setVariationDescription((VariationDescription)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS:
+				getVaryingSubjects().clear();
+				return;
+			case UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION:
+				setVariationDescription((VariationDescription)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS:
+				return varyingSubjects != null && !varyingSubjects.isEmpty();
+			case UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION:
+				return variationDescription != null;
+		}
+		return super.eIsSet(featureID);
 	}
 
 } //VariationPointImpl

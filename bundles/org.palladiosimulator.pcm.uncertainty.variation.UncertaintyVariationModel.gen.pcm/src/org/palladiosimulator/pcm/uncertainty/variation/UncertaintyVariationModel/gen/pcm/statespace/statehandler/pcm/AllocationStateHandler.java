@@ -3,56 +3,44 @@ package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationMode
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.allocation.AllocationContext;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
-import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.StateHandler;
 
+import UncertaintyVariationModel.VariationDescription;
 import UncertaintyVariationModel.VariationPoint;
-import UncertaintyVariationModel.VaryingAllocationContext;
 
-public class AllocationStateHandler implements StateHandler {
+public class AllocationStateHandler extends GenericStateHandler {
 
 	@Override
 	public int getSizeOfDimension(VariationPoint variationPoint) {
-		return ((VaryingAllocationContext)variationPoint).getTargetResourceVariations().size();
+		VariationDescription desc = variationPoint.getVariationDescription();
+		return desc.getTargetVariations().size();
 	}
 
 	@Override
 	public void patchModelWith(Map<String, List<EObject>> models, VariationPoint variationPoint, int variationIdx) {
-		VaryingAllocationContext varyingAllocationContext = (VaryingAllocationContext)variationPoint;
-		for (EObject it : models.get(MODEL_TYPE)) {
-			Allocation allocation = (Allocation)it;
-			ResourceContainer resourceContainer = this.resolve(allocation.getTargetResourceEnvironment_Allocation(), varyingAllocationContext.getTargetResourceVariations().get(variationIdx));
-			patch(allocation, varyingAllocationContext.getAllocationContext(), resourceContainer);
+		VariationDescription desc = variationPoint.getVariationDescription();
+		for (EObject container : models.get(MODEL_TYPE)) {
+			Allocation allocation = (Allocation)container;
+			Optional<EObject> resolvedVariation = resolve(allocation.getTargetResourceEnvironment_Allocation(), desc.getTargetVariations().get(variationIdx));
+			Optional<EObject> resolvedSubject = resolve(allocation, variationPoint.getVaryingSubjects().get(0));
+			resolvedSubject.ifPresent(subject -> patch(subject, resolvedVariation));
 		}
 		
 	}
 	
-	public static List<String> GET_MODEL_TYPES() { return Arrays.asList(MODEL_TYPE); }
+	public static List<String> GET_MODEL_TYPES() { return Arrays.asList(MODEL_TYPE); }	
+	
+	private void patch(EObject element, Optional<EObject> value) {
+		value.ifPresent(val -> {
+			AllocationContext resolved = (AllocationContext)element;
+			resolved.setResourceContainer_AllocationContext((ResourceContainer)val);
+		});
+	}
 	
 	private static final String MODEL_TYPE = "allocation";
-
-	private ResourceContainer resolve(ResourceEnvironment resourceEnvironment, ResourceContainer element) {
-		ResourceContainer resolved = null;
-		for (ResourceContainer it: resourceEnvironment.getResourceContainer_ResourceEnvironment()) {
-			if (it.getId().equalsIgnoreCase(element.getId())) {
-				resolved = it;
-				break;
-			}
-		}
-		
-		return resolved;
-	}
-	
-	private void patch(Allocation allocation, final AllocationContext element, final ResourceContainer value) {
-		for (AllocationContext it: allocation.getAllocationContexts_Allocation()) {
-			if (it.getId().equalsIgnoreCase(element.getId())) {
-				it.setResourceContainer_AllocationContext(value);
-			}
-		}
-	}
 }

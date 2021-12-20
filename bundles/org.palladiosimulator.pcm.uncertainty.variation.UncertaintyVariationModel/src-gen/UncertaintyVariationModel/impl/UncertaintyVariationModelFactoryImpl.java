@@ -59,6 +59,8 @@ public class UncertaintyVariationModelFactoryImpl extends EFactoryImpl implement
 			case UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS: return createUncertaintyVariations();
 			case UncertaintyVariationModelPackage.VARYING_ALLOCATION_CONTEXT: return createVaryingAllocationContext();
 			case UncertaintyVariationModelPackage.VARYING_BRANCH: return createVaryingBranch();
+			case UncertaintyVariationModelPackage.VARYING_ASSEMBLY_CONTEXT: return createVaryingAssemblyContext();
+			case UncertaintyVariationModelPackage.VARIATION_DESCRIPTION: return createVariationDescription();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +94,26 @@ public class UncertaintyVariationModelFactoryImpl extends EFactoryImpl implement
 	public VaryingBranch createVaryingBranch() {
 		VaryingBranchImpl varyingBranch = new VaryingBranchImpl();
 		return varyingBranch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VaryingAssemblyContext createVaryingAssemblyContext() {
+		VaryingAssemblyContextImpl varyingAssemblyContext = new VaryingAssemblyContextImpl();
+		return varyingAssemblyContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VariationDescription createVariationDescription() {
+		VariationDescriptionImpl variationDescription = new VariationDescriptionImpl();
+		return variationDescription;
 	}
 
 	/**
