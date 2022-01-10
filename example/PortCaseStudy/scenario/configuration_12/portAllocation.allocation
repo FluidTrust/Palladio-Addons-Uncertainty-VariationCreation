@@ -23,7 +23,7 @@
     <assemblyContext_AllocationContext href="portSystem.system#_e51LICp8EeyQUZAfFpKaVQ"/>
   </allocationContexts_Allocation>
   <allocationContexts_Allocation id="_Mi4j0CqOEeyQUZAfFpKaVQ" entityName="Allocation_Assembly_PortAuthoritySystem">
-    <resourceContainer_AllocationContext href="portHardware.resourceenvironment#_uPjIMCqNEeyQUZAfFpKaVQ"/>
+    <resourceContainer_AllocationContext href="portHardware.resourceenvironment#_y6hCgCqNEeyQUZAfFpKaVQ"/>
     <assemblyContext_AllocationContext href="portSystem.system#_ofv8gCp8EeyQUZAfFpKaVQ"/>
   </allocationContexts_Allocation>
 </allocation:Allocation>
