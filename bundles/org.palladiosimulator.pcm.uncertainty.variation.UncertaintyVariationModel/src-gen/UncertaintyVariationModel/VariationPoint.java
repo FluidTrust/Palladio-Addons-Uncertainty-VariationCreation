@@ -2,11 +2,10 @@
  */
 package UncertaintyVariationModel;
 
+import de.uka.ipd.sdq.identifier.Identifier;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
-
-import org.palladiosimulator.pcm.core.entity.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,7 @@ import org.palladiosimulator.pcm.core.entity.Entity;
 public interface VariationPoint extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Varying Subjects</b></em>' reference list.
-	 * The list contents are of type {@link org.palladiosimulator.pcm.core.entity.Entity}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.identifier.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Varying Subjects</em>' reference list.
@@ -36,7 +35,7 @@ public interface VariationPoint extends EObject {
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<Entity> getVaryingSubjects();
+	EList<Identifier> getVaryingSubjects();
 
 	/**
 	 * Returns the value of the '<em><b>Variation Description</b></em>' containment reference.
