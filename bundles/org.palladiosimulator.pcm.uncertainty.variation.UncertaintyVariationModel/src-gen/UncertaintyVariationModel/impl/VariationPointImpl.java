@@ -6,6 +6,7 @@ import UncertaintyVariationModel.UncertaintyVariationModelPackage;
 import UncertaintyVariationModel.VariationDescription;
 import UncertaintyVariationModel.VariationPoint;
 
+import de.uka.ipd.sdq.identifier.Identifier;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,8 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
-import org.palladiosimulator.pcm.core.entity.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +45,7 @@ public abstract class VariationPointImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Entity> varyingSubjects;
+	protected EList<Identifier> varyingSubjects;
 
 	/**
 	 * The cached value of the '{@link #getVariationDescription() <em>Variation Description</em>}' containment reference.
@@ -82,9 +81,9 @@ public abstract class VariationPointImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Entity> getVaryingSubjects() {
+	public EList<Identifier> getVaryingSubjects() {
 		if (varyingSubjects == null) {
-			varyingSubjects = new EObjectResolvingEList<Entity>(Entity.class, this, UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS);
+			varyingSubjects = new EObjectResolvingEList<Identifier>(Identifier.class, this, UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS);
 		}
 		return varyingSubjects;
 	}
@@ -173,7 +172,7 @@ public abstract class VariationPointImpl extends MinimalEObjectImpl.Container im
 		switch (featureID) {
 			case UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS:
 				getVaryingSubjects().clear();
-				getVaryingSubjects().addAll((Collection<? extends Entity>)newValue);
+				getVaryingSubjects().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION:
 				setVariationDescription((VariationDescription)newValue);

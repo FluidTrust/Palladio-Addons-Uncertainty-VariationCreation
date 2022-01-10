@@ -8,7 +8,7 @@ import java.util.Map;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Iterator;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.StatespaceIterator;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.AllocationStateHandler;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.AssemblyStateHandler;
@@ -38,7 +38,7 @@ public class UncertaintyVariationModelGenPcm {
 		//Iterator
 		progressMonitor.beginTask("creating variations", IProgressMonitor.UNKNOWN);
 		int i = 0;
-		for (Iterator it = statespace.iterator(); it.hasNext(); it.next())
+		for (StatespaceIterator it = statespace.iterator(); it.hasNext(); it.next())
 		{
             try {
 				scenarioManager.createCurrVariant(i, progressMonitor);

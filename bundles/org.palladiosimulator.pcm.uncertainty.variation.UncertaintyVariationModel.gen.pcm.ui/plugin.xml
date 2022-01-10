@@ -6,7 +6,7 @@
       <command
             defaultHandler="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ui.Execute"
             id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ui.execute"
-            name="Exec">
+            name="GenerateUncertaintyVaraitions">
       </command>
    </extension>
    <extension
@@ -17,7 +17,7 @@
          <command
                commandId="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ui.execute"
                id="1"
-               label="Execute"
+               label="Generate Uncertainty Variations"
                style="push">
          </command>
       </menuContribution>
