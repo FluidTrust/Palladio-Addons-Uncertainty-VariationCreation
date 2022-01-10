@@ -7,7 +7,7 @@
     <assemblyContext_AllocationContext href="portSystem.system#_8QhVICp4EeyXVNg0kfeznA"/>
   </allocationContexts_Allocation>
   <allocationContexts_Allocation id="_JzoIQCqOEeyQUZAfFpKaVQ" entityName="Allocation_Assembly_PortCommunicationSystem">
-    <resourceContainer_AllocationContext href="portHardware.resourceenvironment#_uPjIMCqNEeyQUZAfFpKaVQ"/>
+    <resourceContainer_AllocationContext href="portHardware.resourceenvironment#_r_6A0CqNEeyQUZAfFpKaVQ"/>
     <assemblyContext_AllocationContext href="portSystem.system#_YKx5MCp8EeyQUZAfFpKaVQ"/>
   </allocationContexts_Allocation>
   <allocationContexts_Allocation id="_KNVowCqOEeyQUZAfFpKaVQ" entityName="Allocation_Assembly_CustomSystem">
@@ -23,7 +23,7 @@
     <assemblyContext_AllocationContext href="portSystem.system#_e51LICp8EeyQUZAfFpKaVQ"/>
   </allocationContexts_Allocation>
   <allocationContexts_Allocation id="_Mi4j0CqOEeyQUZAfFpKaVQ" entityName="Allocation_Assembly_PortAuthoritySystem">
-    <resourceContainer_AllocationContext href="portHardware.resourceenvironment#_r_6A0CqNEeyQUZAfFpKaVQ"/>
+    <resourceContainer_AllocationContext href="portHardware.resourceenvironment#_y6hCgCqNEeyQUZAfFpKaVQ"/>
     <assemblyContext_AllocationContext href="portSystem.system#_ofv8gCp8EeyQUZAfFpKaVQ"/>
   </allocationContexts_Allocation>
 </allocation:Allocation>
