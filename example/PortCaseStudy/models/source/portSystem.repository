@@ -112,8 +112,8 @@
       <steps_Behaviour xsi:type="seff:InternalAction" id="_j1vOACqIEeyQUZAfFpKaVQ" entityName="processData" predecessor_AbstractAction="_idGnICqIEeyQUZAfFpKaVQ" successor_AbstractAction="_idGnISqIEeyQUZAfFpKaVQ"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
-  <components__Repository xsi:type="repository:BasicComponent" id="_hEDOsCp2EeyXVNg0kfeznA" entityName="ShippingLineSystem&#xA;" parentCompleteComponentTypes="_uYWGQWGgEey0vMuch9XqAA">
-    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_ybBsICp3EeyXVNg0kfeznA" entityName="ShippingLineSystem&#xA;.Interface2.OperationProvidedRole1" providedInterface__OperationProvidedRole="_Ql2hcCp3EeyXVNg0kfeznA"/>
+  <components__Repository xsi:type="repository:BasicComponent" id="_hEDOsCp2EeyXVNg0kfeznA" entityName="ShippingLineSystem&#xA;">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="__z-OoHekEeyXoe88jRMOUg" entityName="ShippingLineSystem&#xA;.ShippingLine.OperationProvidedRole1" providedInterface__OperationProvidedRole="_Ql2hcCp3EeyXVNg0kfeznA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_ybzvQCp3EeyXVNg0kfeznA" describedService__SEFF="_RXahQCp3EeyXVNg0kfeznA">
       <steps_Behaviour xsi:type="seff:StartAction" id="_yb0WUCp3EeyXVNg0kfeznA" successor_AbstractAction="_3k360Cp3EeyXVNg0kfeznA"/>
       <steps_Behaviour xsi:type="seff:StopAction" id="_yb0WUSp3EeyXVNg0kfeznA" predecessor_AbstractAction="_3k360Cp3EeyXVNg0kfeznA"/>
@@ -197,11 +197,32 @@
       <steps_Behaviour xsi:type="seff:InternalAction" id="_0G69gCqIEeyQUZAfFpKaVQ" entityName="processData" predecessor_AbstractAction="_tu5EcCqIEeyQUZAfFpKaVQ" successor_AbstractAction="_tu5EcSqIEeyQUZAfFpKaVQ"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
-  <components__Repository xsi:type="repository:CompleteComponentType" id="_uYWGQWGgEey0vMuch9XqAA" entityName="Test">
-    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_ybBsICp3EeyXVNg0kfeznA" entityName="ShippingLineSystem&#xA;.Interface2.OperationProvidedRole1" providedInterface__OperationProvidedRole="_Ql2hcCp3EeyXVNg0kfeznA"/>
-  </components__Repository>
-  <components__Repository xsi:type="repository:BasicComponent" id="_7L8UkGGgEey0vMuch9XqAA" parentCompleteComponentTypes="_uYWGQWGgEey0vMuch9XqAA">
-    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_ybBsICp3EeyXVNg0kfeznA" entityName="ShippingLineSystem&#xA;.Interface2.OperationProvidedRole1" providedInterface__OperationProvidedRole="_Ql2hcCp3EeyXVNg0kfeznA"/>
+  <components__Repository xsi:type="repository:BasicComponent" id="_7L8UkGGgEey0vMuch9XqAA">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_vZ4awHekEeyXoe88jRMOUg" entityName="aName.ShippingLine.OperationProvidedRole1" providedInterface__OperationProvidedRole="_Ql2hcCp3EeyXVNg0kfeznA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_vaXi8HekEeyXoe88jRMOUg" describedService__SEFF="__VBqICqHEeyQUZAfFpKaVQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_vaXi8XekEeyXoe88jRMOUg" successor_AbstractAction="_vaYKAHekEeyXoe88jRMOUg"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_vaYKAHekEeyXoe88jRMOUg" predecessor_AbstractAction="_vaXi8XekEeyXoe88jRMOUg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_veIBkHekEeyXoe88jRMOUg" describedService__SEFF="_BfpvoCp9EeyQUZAfFpKaVQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_veIooHekEeyXoe88jRMOUg" successor_AbstractAction="_veIooXekEeyXoe88jRMOUg"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_veIooXekEeyXoe88jRMOUg" predecessor_AbstractAction="_veIooHekEeyXoe88jRMOUg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_vexh0HekEeyXoe88jRMOUg" describedService__SEFF="_mrpoACqEEeyQUZAfFpKaVQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_veyI4HekEeyXoe88jRMOUg" successor_AbstractAction="_veyI4XekEeyXoe88jRMOUg"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_veyI4XekEeyXoe88jRMOUg" predecessor_AbstractAction="_veyI4HekEeyXoe88jRMOUg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_vfUUYHekEeyXoe88jRMOUg" describedService__SEFF="_RXahQCp3EeyXVNg0kfeznA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_vfUUYXekEeyXoe88jRMOUg" successor_AbstractAction="_vfUUYnekEeyXoe88jRMOUg"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_vfUUYnekEeyXoe88jRMOUg" predecessor_AbstractAction="_vfUUYXekEeyXoe88jRMOUg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_vf140HekEeyXoe88jRMOUg" describedService__SEFF="_l0CDgCqEEeyQUZAfFpKaVQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_vf2f4HekEeyXoe88jRMOUg" successor_AbstractAction="_vf2f4XekEeyXoe88jRMOUg"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_vf2f4XekEeyXoe88jRMOUg" predecessor_AbstractAction="_vf2f4HekEeyXoe88jRMOUg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_vgW2MHekEeyXoe88jRMOUg" describedService__SEFF="_0QYi4CqFEeyQUZAfFpKaVQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_vgXdQHekEeyXoe88jRMOUg" successor_AbstractAction="_vgXdQXekEeyXoe88jRMOUg"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_vgXdQXekEeyXoe88jRMOUg" predecessor_AbstractAction="_vgXdQHekEeyXoe88jRMOUg"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <interfaces__Repository xsi:type="repository:OperationInterface" id="_sXYkICp2EeyXVNg0kfeznA" entityName="Custom">
     <signatures__OperationInterface id="_t8uKQCp2EeyXVNg0kfeznA" entityName="declareGoods">

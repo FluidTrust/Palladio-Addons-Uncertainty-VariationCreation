@@ -22,7 +22,7 @@
     <innerProvidedRole_ProvidedDelegationConnector href="portSystem.repository#_PIADYCp3EeyXVNg0kfeznA"/>
   </connectors__ComposedStructure>
   <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="__ppNECp4EeyXVNg0kfeznA" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_65Wt4Cp4EeyXVNg0kfeznA" assemblyContext_ProvidedDelegationConnector="_8QhVICp4EeyXVNg0kfeznA">
-    <innerProvidedRole_ProvidedDelegationConnector href="portSystem.repository#_ybBsICp3EeyXVNg0kfeznA"/>
+    <innerProvidedRole_ProvidedDelegationConnector href="portSystem.repository#__z-OoHekEeyXoe88jRMOUg"/>
   </connectors__ComposedStructure>
   <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_eUaJ4Cp8EeyQUZAfFpKaVQ" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_Tu9OICp8EeyQUZAfFpKaVQ" assemblyContext_ProvidedDelegationConnector="_YKx5MCp8EeyQUZAfFpKaVQ">
     <innerProvidedRole_ProvidedDelegationConnector href="portSystem.repository#_mBXD8Cp7EeyQUZAfFpKaVQ"/>
@@ -40,7 +40,7 @@
     <requiredRole_AssemblyConnector href="portSystem.repository#_3EUKcCqCEeyQUZAfFpKaVQ"/>
   </connectors__ComposedStructure>
   <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_icNWoCqFEeyQUZAfFpKaVQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_YKx5MCp8EeyQUZAfFpKaVQ" providingAssemblyContext_AssemblyConnector="_8QhVICp4EeyXVNg0kfeznA">
-    <providedRole_AssemblyConnector href="portSystem.repository#_ybBsICp3EeyXVNg0kfeznA"/>
+    <providedRole_AssemblyConnector href="portSystem.repository#__z-OoHekEeyXoe88jRMOUg"/>
     <requiredRole_AssemblyConnector href="portSystem.repository#_lc4HwCqEEeyQUZAfFpKaVQ"/>
   </connectors__ComposedStructure>
   <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_JR8JwCqJEeyQUZAfFpKaVQ" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_Hb2x4CqJEeyQUZAfFpKaVQ" assemblyContext_ProvidedDelegationConnector="_FuWHMCqJEeyQUZAfFpKaVQ">
