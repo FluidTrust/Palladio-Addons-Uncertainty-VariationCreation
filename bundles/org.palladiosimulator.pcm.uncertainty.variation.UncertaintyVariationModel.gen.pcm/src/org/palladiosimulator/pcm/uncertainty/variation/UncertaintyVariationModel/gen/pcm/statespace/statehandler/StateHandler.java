@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import UncertaintyVariationModel.VariationPoint;
 
 public interface StateHandler {
-	public int getSizeOfDimension(VariationPoint variationPoint);
-	public void patchModelWith(Map<String, List<EObject>> models, VariationPoint variationPoint, int variationIdx);
+    public int getSizeOfDimension(VariationPoint variationPoint);
+
+    public void patchModelWith(Map<String, List<EObject>> models, VariationPoint variationPoint, int variationIdx);
 }

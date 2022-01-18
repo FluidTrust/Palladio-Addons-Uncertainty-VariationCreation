@@ -5,10 +5,10 @@ import java.io.IOException;
 import org.eclipse.emf.ecore.EObject;
 
 public interface ResourceAbstraction {
-	void register(String modelType);
-	
-	EObject load(String modelUri);
+    void register(String modelType);
 
-	void save(EObject rootElement) throws IOException;
+    EObject load(String modelUri);
+
+    void save(EObject rootElement) throws IOException;
 
 }
