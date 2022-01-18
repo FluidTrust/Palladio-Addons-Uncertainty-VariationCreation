@@ -3,5 +3,5 @@ package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationMode
 import UncertaintyVariationModel.VariationPoint;
 
 public interface StateHandlerFactory {
-	public StateHandler createFor(VariationPoint object);
+    public StateHandler createFor(VariationPoint object);
 }

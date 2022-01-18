@@ -15,32 +15,39 @@ import UncertaintyVariationModel.VariationPoint;
 
 public class AllocationStateHandler extends GenericStateHandler {
 
-	@Override
-	public int getSizeOfDimension(VariationPoint variationPoint) {
-		VariationDescription desc = variationPoint.getVariationDescription();
-		return desc.getTargetVariations().size();
-	}
+    @Override
+    public int getSizeOfDimension(final VariationPoint variationPoint) {
+        final VariationDescription desc = variationPoint.getVariationDescription();
+        return desc.getTargetVariations()
+            .size();
+    }
 
-	@Override
-	public void patchModelWith(Map<String, List<EObject>> models, VariationPoint variationPoint, int variationIdx) {
-		VariationDescription desc = variationPoint.getVariationDescription();
-		for (EObject container : models.get(MODEL_TYPE)) {
-			Allocation allocation = (Allocation)container;
-			Optional<EObject> resolvedVariation = resolve(allocation.getTargetResourceEnvironment_Allocation(), desc.getTargetVariations().get(variationIdx));
-			Optional<EObject> resolvedSubject = resolve(allocation, variationPoint.getVaryingSubjects().get(0));
-			resolvedSubject.ifPresent(subject -> patch(subject, resolvedVariation));
-		}
-		
-	}
-	
-	public static List<String> GET_MODEL_TYPES() { return Arrays.asList(MODEL_TYPE); }	
-	
-	private void patch(EObject element, Optional<EObject> value) {
-		value.ifPresent(val -> {
-			AllocationContext resolved = (AllocationContext)element;
-			resolved.setResourceContainer_AllocationContext((ResourceContainer)val);
-		});
-	}
-	
-	private static final String MODEL_TYPE = "allocation";
+    @Override
+    public void patchModelWith(final Map<String, List<EObject>> models, final VariationPoint variationPoint,
+            final int variationIdx) {
+        final VariationDescription desc = variationPoint.getVariationDescription();
+        for (final EObject container : models.get(MODEL_TYPE)) {
+            final Allocation allocation = (Allocation) container;
+            final Optional<EObject> resolvedVariation = this
+                .resolve(allocation.getTargetResourceEnvironment_Allocation(), desc.getTargetVariations()
+                    .get(variationIdx));
+            final Optional<EObject> resolvedSubject = this.resolve(allocation, variationPoint.getVaryingSubjects()
+                .get(0));
+            resolvedSubject.ifPresent(subject -> this.patch(subject, resolvedVariation));
+        }
+
+    }
+
+    public static List<String> getModelTypes() {
+        return Arrays.asList(MODEL_TYPE);
+    }
+
+    private void patch(final EObject element, final Optional<EObject> value) {
+        value.ifPresent(val -> {
+            final AllocationContext resolved = (AllocationContext) element;
+            resolved.setResourceContainer_AllocationContext((ResourceContainer) val);
+        });
+    }
+
+    private static final String MODEL_TYPE = "allocation";
 }
