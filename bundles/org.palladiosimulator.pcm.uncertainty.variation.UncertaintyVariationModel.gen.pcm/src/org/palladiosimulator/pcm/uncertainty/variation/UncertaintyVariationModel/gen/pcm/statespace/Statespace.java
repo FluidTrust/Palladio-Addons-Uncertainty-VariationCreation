@@ -3,6 +3,7 @@ package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationMode
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.StateHandler;
@@ -20,6 +21,14 @@ public class Statespace {
         this.uncertaintyVariations.getVariationPoints()
             .stream()
             .forEach(it -> this.stateHandlers.add(factory.createFor(it)));
+    }
+
+    public List<String> getModelTypes() {
+        return stateHandlers.stream()
+            .flatMap(hnd -> hnd.getModelTypes()
+                .stream())
+            .distinct()
+            .collect(Collectors.toList());
     }
 
     public StatespaceIterator iterator() {

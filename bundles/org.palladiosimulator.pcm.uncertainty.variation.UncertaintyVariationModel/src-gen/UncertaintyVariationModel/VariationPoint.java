@@ -18,45 +18,68 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link UncertaintyVariationModel.VariationPoint#getVaryingSubjects <em>Varying Subjects</em>}</li>
  *   <li>{@link UncertaintyVariationModel.VariationPoint#getVariationDescription <em>Variation Description</em>}</li>
+ *   <li>{@link UncertaintyVariationModel.VariationPoint#getStateHandlerId <em>State Handler Id</em>}</li>
  * </ul>
  *
  * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationPoint()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface VariationPoint extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Varying Subjects</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.identifier.Identifier}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Varying Subjects</b></em>' reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.identifier.Identifier}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Varying Subjects</em>' reference list.
-	 * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationPoint_VaryingSubjects()
-	 * @model required="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Varying Subjects</em>' reference list.
+     * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationPoint_VaryingSubjects()
+     * @model required="true"
+     * @generated
+     */
 	EList<Identifier> getVaryingSubjects();
 
 	/**
-	 * Returns the value of the '<em><b>Variation Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Variation Description</b></em>' containment reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variation Description</em>' containment reference.
-	 * @see #setVariationDescription(VariationDescription)
-	 * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationPoint_VariationDescription()
-	 * @model containment="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Variation Description</em>' containment reference.
+     * @see #setVariationDescription(VariationDescription)
+     * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationPoint_VariationDescription()
+     * @model containment="true"
+     * @generated
+     */
 	VariationDescription getVariationDescription();
 
 	/**
-	 * Sets the value of the '{@link UncertaintyVariationModel.VariationPoint#getVariationDescription <em>Variation Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link UncertaintyVariationModel.VariationPoint#getVariationDescription <em>Variation Description</em>}' containment reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Variation Description</em>' containment reference.
-	 * @see #getVariationDescription()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Variation Description</em>' containment reference.
+     * @see #getVariationDescription()
+     * @generated
+     */
 	void setVariationDescription(VariationDescription value);
+
+    /**
+     * Returns the value of the '<em><b>State Handler Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>State Handler Id</em>' attribute.
+     * @see #setStateHandlerId(String)
+     * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationPoint_StateHandlerId()
+     * @model required="true"
+     * @generated
+     */
+    String getStateHandlerId();
+
+    /**
+     * Sets the value of the '{@link UncertaintyVariationModel.VariationPoint#getStateHandlerId <em>State Handler Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>State Handler Id</em>' attribute.
+     * @see #getStateHandlerId()
+     * @generated
+     */
+    void setStateHandlerId(String value);
 
 } // VariationPoint

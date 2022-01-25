@@ -58,7 +58,8 @@ public class BranchStateHandler extends GenericStateHandler {
         }
     }
 
-    public static List<String> getModelTypes() {
+    @Override
+    public List<String> getModelTypes() {
         return Arrays.asList(MODEL_TYPE1, MODEL_TYPE2);
     }
 

@@ -36,11 +36,4 @@ public class ModelResourceAbstraction implements ResourceAbstraction {
         final Resource res = rootElement.eResource();
         res.save(Collections.EMPTY_MAP);
     }
-
-    @Override
-    public void register(final String modelType) {
-        final Registry reg = Registry.INSTANCE;
-        final Map<String, Object> m = reg.getContentTypeToFactoryMap();
-        m.put(modelType, new XMIResourceFactoryImpl());
-    }
 }

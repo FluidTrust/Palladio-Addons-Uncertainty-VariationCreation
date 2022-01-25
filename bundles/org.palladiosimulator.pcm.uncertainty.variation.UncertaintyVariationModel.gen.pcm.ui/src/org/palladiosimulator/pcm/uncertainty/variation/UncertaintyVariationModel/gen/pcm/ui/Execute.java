@@ -1,31 +1,38 @@
 package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ui;
 
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
-import org.eclipse.core.commands.IHandlerListener;
-import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.progress.IProgressService;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.UncertaintyVariationModelGenPcm;
 
-public class Execute implements IHandler {
-    @Override
-    public void addHandlerListener(final IHandlerListener handlerListener) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void dispose() {
-        // TODO Auto-generated method stub
-
-    }
-
+public class Execute extends AbstractHandler implements IHandler {
     @Override
     public Object execute(final ExecutionEvent event) throws ExecutionException {
-        final UncertaintyVariationModelGenPcm generator = new UncertaintyVariationModelGenPcm(
-                "platform:/resource/FluidTrust-CaseStudy");
-        generator.generateVariations(new NullProgressMonitor());
-        // TODO Auto-generated method stub
+        final IWorkbench wb = PlatformUI.getWorkbench();
+        final IProgressService ps = wb.getProgressService();
+        try {
+            ps.run(true, true, new IRunnableWithProgress() {
+                @Override
+                public void run(IProgressMonitor monitor) {
+                    monitor.beginTask("generating variations", IProgressMonitor.UNKNOWN);
+                    final UncertaintyVariationModelGenPcm generator = new UncertaintyVariationModelGenPcm(
+                            "platform:/resource/FluidTrust-CaseStudy");
+                    generator.generateVariations(monitor);
+                    monitor.done();
+                }
+            });
+        } catch (InvocationTargetException | InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -33,18 +40,6 @@ public class Execute implements IHandler {
     public boolean isEnabled() {
         // TODO Auto-generated method stub
         return true;
-    }
-
-    @Override
-    public boolean isHandled() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public void removeHandlerListener(final IHandlerListener handlerListener) {
-        // TODO Auto-generated method stub
-
     }
 
 }

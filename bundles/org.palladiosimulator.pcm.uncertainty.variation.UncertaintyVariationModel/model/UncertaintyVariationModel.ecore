@@ -6,17 +6,27 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="variationPoints" upperBound="-1"
         eType="#//VariationPoint" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VariationPoint" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="VariationPoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="varyingSubjects" lowerBound="1"
         upperBound="-1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variationDescription" eType="#//VariationDescription"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateHandlerId" lowerBound="1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VaryingAllocationContext" eSuperTypes="#//VariationPoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="VaryingBranch" eSuperTypes="#//VariationPoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="VaryingAssemblyContext" eSuperTypes="#//VariationPoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="VariationDescription">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetVariations" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetVariations" lowerBound="1"
+        upperBound="-1" eType="#//Value" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveValue" eSuperTypes="#//Value">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueCollection" eSuperTypes="#//Value">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
         eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
   </eClassifiers>
 </ecore:EPackage>

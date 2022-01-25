@@ -4,34 +4,24 @@ import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.StateHandlerFactory;
 
 import UncertaintyVariationModel.VariationPoint;
-import UncertaintyVariationModel.VaryingAllocationContext;
-import UncertaintyVariationModel.VaryingAssemblyContext;
-import UncertaintyVariationModel.VaryingBranch;
-import UncertaintyVariationModel.util.UncertaintyVariationModelSwitch;
 
-public class ConcreteStateHandlerFactory extends UncertaintyVariationModelSwitch<StateHandler>
-        implements StateHandlerFactory {
+public class ConcreteStateHandlerFactory implements StateHandlerFactory {
     public ConcreteStateHandlerFactory() {
     }
 
     @Override
     public StateHandler createFor(final VariationPoint object) {
-        return this.doSwitch(object);
+        String stateHandlerId = object.getStateHandlerId();
+        if (stateHandlerId.equalsIgnoreCase("AllocationStateHandler")) {
+            return new AllocationStateHandler();
+        } else if (stateHandlerId.equalsIgnoreCase("BranchStateHandler")) {
+            return new BranchStateHandler();
+        } else if (stateHandlerId.equalsIgnoreCase("AssemblyStateHandler")) {
+            return new AssemblyStateHandler();
+        } else if (stateHandlerId.equalsIgnoreCase("CharacteristicsStateHandler")) {
+            return new CharacteristicsStateHandler();
+        } else {
+            throw new UnsupportedOperationException("Unknown stateHandlerId " + stateHandlerId);
+        }
     }
-
-    @Override
-    public StateHandler caseVaryingAllocationContext(final VaryingAllocationContext object) {
-        return new AllocationStateHandler();
-    }
-
-    @Override
-    public StateHandler caseVaryingBranch(final VaryingBranch object) {
-        return new BranchStateHandler();
-    }
-
-    @Override
-    public StateHandler caseVaryingAssemblyContext(final VaryingAssemblyContext object) {
-        return new AssemblyStateHandler();
-    }
-
 }
