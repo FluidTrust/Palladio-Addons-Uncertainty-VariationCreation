@@ -16,6 +16,15 @@
 			<repository location="http://download.eclipse.org/eclipse/updates/4.18"/>
 			<unit id="org.eclipse.platform.ide" version="4.18.0.I20201202-1800"/>
 		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://updatesite.palladio-simulator.com/fluidtrust/fluidtrust-build-updatesite/nightly/"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.editor.tree.feature.feature.group" version="5.1.0.202201242356"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.model.feature.feature.group" version="5.1.0.202201242356"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.pcm.editor.tree.feature.feature.group" version="5.1.0.202201250000"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.pcm.model.feature.feature.group" version="5.1.0.202201250000"/>
+			<unit id="org.palladiosimulator.dataflow.dictionary.editor.tree.feature.feature.group" version="5.1.0.202201242347"/>
+			<unit id="org.palladiosimulator.dataflow.dictionary.model.feature.feature.group" version="5.1.0.202201242347"/>
+		</location>
 	</locations>
 	<environment>
 		<arch>x86_64</arch>
