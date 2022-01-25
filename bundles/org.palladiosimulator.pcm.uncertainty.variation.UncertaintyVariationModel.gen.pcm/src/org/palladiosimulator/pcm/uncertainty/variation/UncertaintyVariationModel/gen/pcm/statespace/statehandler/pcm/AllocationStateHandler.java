@@ -10,6 +10,7 @@ import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.allocation.AllocationContext;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 
+import UncertaintyVariationModel.PrimitiveValue;
 import UncertaintyVariationModel.VariationDescription;
 import UncertaintyVariationModel.VariationPoint;
 
@@ -28,9 +29,10 @@ public class AllocationStateHandler extends GenericStateHandler {
         final VariationDescription desc = variationPoint.getVariationDescription();
         for (final EObject container : models.get(MODEL_TYPE)) {
             final Allocation allocation = (Allocation) container;
+            final PrimitiveValue val = (PrimitiveValue) desc.getTargetVariations()
+                .get(variationIdx);
             final Optional<EObject> resolvedVariation = this
-                .resolve(allocation.getTargetResourceEnvironment_Allocation(), desc.getTargetVariations()
-                    .get(variationIdx));
+                .resolve(allocation.getTargetResourceEnvironment_Allocation(), val.getLink());
             final Optional<EObject> resolvedSubject = this.resolve(allocation, variationPoint.getVaryingSubjects()
                 .get(0));
             resolvedSubject.ifPresent(subject -> this.patch(subject, resolvedVariation));
@@ -38,7 +40,8 @@ public class AllocationStateHandler extends GenericStateHandler {
 
     }
 
-    public static List<String> getModelTypes() {
+    @Override
+    public List<String> getModelTypes() {
         return Arrays.asList(MODEL_TYPE);
     }
 

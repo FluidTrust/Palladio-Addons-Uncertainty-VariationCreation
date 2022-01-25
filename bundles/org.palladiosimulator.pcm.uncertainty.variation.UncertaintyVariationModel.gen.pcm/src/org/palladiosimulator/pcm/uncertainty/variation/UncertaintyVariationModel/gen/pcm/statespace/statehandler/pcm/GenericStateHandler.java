@@ -1,5 +1,6 @@
 package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -26,6 +27,15 @@ public abstract class GenericStateHandler implements StateHandler {
                     .equalsIgnoreCase(element.getId()));
     }
 
+    protected List<Optional<EObject>> reslove(final EObject container, final List<Identifier> elements) {
+        List<Optional<EObject>> result = new ArrayList<>();
+        for (final Identifier element : elements) {
+            result.add(this.resolve(container, element));
+        }
+
+        return result;
+    }
+
     protected Optional<EObject> resolve(final List<EObject> containers, final Identifier element) {
         Optional<EObject> resolved = Optional.empty();
         for (final EObject container : containers) {
@@ -36,6 +46,14 @@ public abstract class GenericStateHandler implements StateHandler {
         }
 
         return resolved;
+    }
+
+    protected List<Optional<EObject>> resolve(final List<EObject> containers, final List<Identifier> elements) {
+        List<Optional<EObject>> result = new ArrayList<>();
+        for (final Identifier element : elements) {
+            result.add(this.resolve(containers, element));
+        }
+        return result;
     }
 
     protected <T extends EObject> Optional<T> findInstance(final EObject container, Predicate<EObject> typeFilter,

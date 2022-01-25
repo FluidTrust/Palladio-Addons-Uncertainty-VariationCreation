@@ -2,8 +2,6 @@
  */
 package UncertaintyVariationModel;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -26,15 +24,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface VariationDescription extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Target Variations</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.identifier.Identifier}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Target Variations</b></em>' containment reference list.
+     * The list contents are of type {@link UncertaintyVariationModel.Value}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Variations</em>' reference list.
-	 * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationDescription_TargetVariations()
-	 * @model
-	 * @generated
-	 */
-	EList<Identifier> getTargetVariations();
+     * @return the value of the '<em>Target Variations</em>' containment reference list.
+     * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationDescription_TargetVariations()
+     * @model containment="true" required="true"
+     * @generated
+     */
+	EList<Value> getTargetVariations();
 
 } // VariationDescription

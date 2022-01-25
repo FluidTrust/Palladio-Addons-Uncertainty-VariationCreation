@@ -15,22 +15,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class VaryingAssemblyContextImpl extends VariationPointImpl implements VaryingAssemblyContext {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected VaryingAssemblyContextImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return UncertaintyVariationModelPackage.Literals.VARYING_ASSEMBLY_CONTEXT;
-	}
+        return UncertaintyVariationModelPackage.Literals.VARYING_ASSEMBLY_CONTEXT;
+    }
 
 } //VaryingAssemblyContextImpl

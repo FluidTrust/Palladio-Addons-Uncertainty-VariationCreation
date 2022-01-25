@@ -14,6 +14,7 @@ import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 import org.palladiosimulator.pcm.repository.OperationRequiredRole;
 import org.palladiosimulator.pcm.repository.RepositoryComponent;
 
+import UncertaintyVariationModel.PrimitiveValue;
 import UncertaintyVariationModel.VariationDescription;
 import UncertaintyVariationModel.VariationPoint;
 import de.uka.ipd.sdq.identifier.Identifier;
@@ -31,12 +32,12 @@ public class AssemblyStateHandler extends GenericStateHandler {
     public void patchModelWith(final Map<String, List<EObject>> models, final VariationPoint variationPoint,
             final int variationIdx) {
         final VariationDescription desc = variationPoint.getVariationDescription();
-        for (final String modelType : getModelTypes()) {
+        for (final String modelType : this.getModelTypes()) {
             for (final EObject container : models.get(modelType)) {
                 for (final Identifier curr : variationPoint.getVaryingSubjects()) {
-                    final Optional<EObject> resolvedVariation = this.resolve(models.get(MODEL_TYPE2),
-                            desc.getTargetVariations()
-                                .get(variationIdx));
+                    final PrimitiveValue val = (PrimitiveValue) desc.getTargetVariations()
+                        .get(variationIdx);
+                    final Optional<EObject> resolvedVariation = this.resolve(models.get(MODEL_TYPE2), val.getLink());
                     final Optional<EObject> resolvedSubject = this.resolve(container, curr);
                     resolvedSubject.ifPresent(subject -> this.patch(subject, resolvedVariation));
                 }
@@ -44,7 +45,8 @@ public class AssemblyStateHandler extends GenericStateHandler {
         }
     }
 
-    public static List<String> getModelTypes() {
+    @Override
+    public List<String> getModelTypes() {
         return Arrays.asList(MODEL_TYPE1, MODEL_TYPE2);
     }
 
@@ -57,8 +59,8 @@ public class AssemblyStateHandler extends GenericStateHandler {
             final RepositoryComponent variantComponent = (RepositoryComponent) val;
             final RepositoryComponent currentComponent = resolved.getEncapsulatedComponent__AssemblyContext();
 
-            patchProvidedConnectors(resolved, variantComponent, currentComponent);
-            patchRequiredConnectors(resolved, variantComponent, currentComponent);
+            this.patchProvidedConnectors(resolved, variantComponent, currentComponent);
+            this.patchRequiredConnectors(resolved, variantComponent, currentComponent);
 
             resolved.setEncapsulatedComponent__AssemblyContext(variantComponent);
         });
@@ -75,16 +77,18 @@ public class AssemblyStateHandler extends GenericStateHandler {
             final OperationRequiredRole currentRole = (OperationRequiredRole) currentComponent
                 .getRequiredRoles_InterfaceRequiringEntity()
                 .get(idx);
+            // TODO: Connector for Events, Infrastructure, etc.
             // get Assembly connector
-            Optional<AssemblyConnector> connector = this.findInstance(resolved.eContainer(),
+            final Optional<AssemblyConnector> connector = this.findInstance(resolved.eContainer(),
                     currObj -> currObj instanceof AssemblyConnector,
                     curr -> curr.getRequiringAssemblyContext_AssemblyConnector()
                         .equals(resolved)
                             && curr.getRequiredRole_AssemblyConnector()
                                 .equals(currentRole));
             connector.ifPresent(val -> val.setRequiredRole_AssemblyConnector(variantRole));
+            // TODO: Delegation Connector for Events, Infrastructure, etc.
             // get Delegation connector
-            Optional<RequiredDelegationConnector> connector2 = this.findInstance(resolved.eContainer(),
+            final Optional<RequiredDelegationConnector> connector2 = this.findInstance(resolved.eContainer(),
                     currObj -> currObj instanceof RequiredDelegationConnector,
                     curr -> curr.getAssemblyContext_RequiredDelegationConnector()
                         .equals(resolved)
@@ -106,18 +110,18 @@ public class AssemblyStateHandler extends GenericStateHandler {
             final OperationProvidedRole currentRole = (OperationProvidedRole) currentComponent
                 .getProvidedRoles_InterfaceProvidingEntity()
                 .get(idx);
-
+            // TODO: Connector for Events, Infrastructure, etc.
             // get Assembly Connector
-            Optional<AssemblyConnector> connector = this.findInstance(resolved.eContainer(),
+            final Optional<AssemblyConnector> connector = this.findInstance(resolved.eContainer(),
                     currObj -> currObj instanceof AssemblyConnector,
                     curr -> curr.getProvidingAssemblyContext_AssemblyConnector()
                         .equals(resolved)
                             && curr.getProvidedRole_AssemblyConnector()
                                 .equals(currentRole));
             connector.ifPresent(val -> val.setProvidedRole_AssemblyConnector(variantRole));
+            // TODO: Delegation Connector for Events, Infrastructure, etc.
             // get Delegation connector
-
-            Optional<ProvidedDelegationConnector> connector2 = this.findInstance(resolved.eContainer(),
+            final Optional<ProvidedDelegationConnector> connector2 = this.findInstance(resolved.eContainer(),
                     currObj -> currObj instanceof ProvidedDelegationConnector,
                     curr -> curr.getAssemblyContext_ProvidedDelegationConnector()
                         .equals(resolved)

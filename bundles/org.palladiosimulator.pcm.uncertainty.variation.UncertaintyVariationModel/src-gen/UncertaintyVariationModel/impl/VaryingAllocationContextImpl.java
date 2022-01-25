@@ -15,22 +15,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class VaryingAllocationContextImpl extends VariationPointImpl implements VaryingAllocationContext {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected VaryingAllocationContextImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return UncertaintyVariationModelPackage.Literals.VARYING_ALLOCATION_CONTEXT;
-	}
+        return UncertaintyVariationModelPackage.Literals.VARYING_ALLOCATION_CONTEXT;
+    }
 
 } //VaryingAllocationContextImpl

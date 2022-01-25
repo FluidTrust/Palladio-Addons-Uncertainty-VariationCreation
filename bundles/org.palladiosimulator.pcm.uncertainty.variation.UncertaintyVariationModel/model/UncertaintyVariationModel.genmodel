@@ -19,12 +19,20 @@
     <genClasses image="false" ecoreClass="UncertaintyVariationModel.ecore#//VariationPoint">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VariationPoint/varyingSubjects"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VariationPoint/variationDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UncertaintyVariationModel.ecore#//VariationPoint/stateHandlerId"/>
     </genClasses>
     <genClasses ecoreClass="UncertaintyVariationModel.ecore#//VaryingAllocationContext"/>
     <genClasses ecoreClass="UncertaintyVariationModel.ecore#//VaryingBranch"/>
     <genClasses ecoreClass="UncertaintyVariationModel.ecore#//VaryingAssemblyContext"/>
     <genClasses ecoreClass="UncertaintyVariationModel.ecore#//VariationDescription">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VariationDescription/targetVariations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VariationDescription/targetVariations"/>
+    </genClasses>
+    <genClasses ecoreClass="UncertaintyVariationModel.ecore#//Value"/>
+    <genClasses ecoreClass="UncertaintyVariationModel.ecore#//PrimitiveValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//PrimitiveValue/link"/>
+    </genClasses>
+    <genClasses ecoreClass="UncertaintyVariationModel.ecore#//ValueCollection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//ValueCollection/links"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -16,22 +16,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class VaryingBranchImpl extends VariationPointImpl implements VaryingBranch {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected VaryingBranchImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return UncertaintyVariationModelPackage.Literals.VARYING_BRANCH;
-	}
+        return UncertaintyVariationModelPackage.Literals.VARYING_BRANCH;
+    }
 
 } //VaryingBranchImpl
