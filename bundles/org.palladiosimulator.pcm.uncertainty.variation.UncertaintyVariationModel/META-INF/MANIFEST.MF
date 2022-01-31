@@ -8,9 +8,22 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: UncertaintyVariationModel,
- UncertaintyVariationModel.impl,
- UncertaintyVariationModel.util
+Export-Package: UncertaintyVariationModel;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util,de.uka.ipd.sdq.identifier",
+ UncertaintyVariationModel.impl;
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.emf.ecore.impl,
+   org.eclipse.emf.common.util,
+   de.uka.ipd.sdq.identifier,
+   UncertaintyVariationModel,
+   org.eclipse.emf.common.notify",
+ UncertaintyVariationModel.statehandler;uses:="UncertaintyVariationModel",
+ UncertaintyVariationModel.statehandler.impl,
+ UncertaintyVariationModel.util;
+  uses:="org.eclipse.emf.ecore,
+   UncertaintyVariationModel,
+   org.eclipse.emf.common.notify,
+   org.eclipse.emf.common.notify.impl,
+   org.eclipse.emf.ecore.util"
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
  org.palladiosimulator.pcm;visibility:=reexport,

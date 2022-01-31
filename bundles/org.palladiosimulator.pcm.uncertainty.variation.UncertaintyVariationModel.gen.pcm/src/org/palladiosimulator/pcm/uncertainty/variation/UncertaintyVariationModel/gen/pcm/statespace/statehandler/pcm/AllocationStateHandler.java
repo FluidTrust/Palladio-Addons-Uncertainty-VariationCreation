@@ -13,6 +13,7 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import UncertaintyVariationModel.PrimitiveValue;
 import UncertaintyVariationModel.VariationDescription;
 import UncertaintyVariationModel.VariationPoint;
+import UncertaintyVariationModel.statehandler.GenericStateHandler;
 
 public class AllocationStateHandler extends GenericStateHandler {
 

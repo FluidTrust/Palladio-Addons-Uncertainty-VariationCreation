@@ -6,17 +6,16 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.StateHandler;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.StateHandlerFactory;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.ConcreteStateHandlerFactory;
 
 import UncertaintyVariationModel.UncertaintyVariations;
+import UncertaintyVariationModel.statehandler.StateHandler;
+import UncertaintyVariationModel.statehandler.StateHandlerFactory;
 
 public class Statespace {
     public Statespace(final EObject uncertaintyVariations) {
         this.uncertaintyVariations = (UncertaintyVariations) uncertaintyVariations;
         this.stateHandlers = new ArrayList<>();
-        final StateHandlerFactory factory = new ConcreteStateHandlerFactory();
+        final StateHandlerFactory factory = StateHandlerFactory.INSTANCE;
 
         this.uncertaintyVariations.getVariationPoints()
             .stream()

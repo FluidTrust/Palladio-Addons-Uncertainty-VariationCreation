@@ -1,4 +1,4 @@
-package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler;
+package UncertaintyVariationModel.statehandler;
 
 import java.util.List;
 import java.util.Map;

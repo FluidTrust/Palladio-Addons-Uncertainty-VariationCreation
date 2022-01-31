@@ -17,6 +17,7 @@ import org.palladiosimulator.pcm.repository.RepositoryComponent;
 import UncertaintyVariationModel.PrimitiveValue;
 import UncertaintyVariationModel.VariationDescription;
 import UncertaintyVariationModel.VariationPoint;
+import UncertaintyVariationModel.statehandler.GenericStateHandler;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 public class AssemblyStateHandler extends GenericStateHandler {

@@ -1,4 +1,4 @@
-package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm;
+package UncertaintyVariationModel.statehandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,6 @@ import java.util.function.Predicate;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.StateHandler;
 
 import UncertaintyVariationModel.VariationPoint;
 import de.uka.ipd.sdq.identifier.Identifier;
