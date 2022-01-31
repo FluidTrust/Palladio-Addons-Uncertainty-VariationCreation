@@ -13,6 +13,7 @@ import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCha
 import UncertaintyVariationModel.ValueCollection;
 import UncertaintyVariationModel.VariationDescription;
 import UncertaintyVariationModel.VariationPoint;
+import UncertaintyVariationModel.statehandler.GenericStateHandler;
 
 public class CharacteristicsStateHandler extends GenericStateHandler {
 

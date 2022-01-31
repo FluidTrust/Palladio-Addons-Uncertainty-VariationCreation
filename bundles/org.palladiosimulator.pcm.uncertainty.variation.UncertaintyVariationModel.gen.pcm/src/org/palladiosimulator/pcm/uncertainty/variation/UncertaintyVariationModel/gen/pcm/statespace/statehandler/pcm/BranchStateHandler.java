@@ -14,6 +14,7 @@ import org.palladiosimulator.pcm.usagemodel.Branch;
 import org.palladiosimulator.pcm.usagemodel.BranchTransition;
 
 import UncertaintyVariationModel.VariationPoint;
+import UncertaintyVariationModel.statehandler.GenericStateHandler;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 public class BranchStateHandler extends GenericStateHandler {
