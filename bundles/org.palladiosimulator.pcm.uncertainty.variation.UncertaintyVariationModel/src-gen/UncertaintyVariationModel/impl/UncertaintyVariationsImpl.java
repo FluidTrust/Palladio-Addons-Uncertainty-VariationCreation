@@ -34,54 +34,54 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class UncertaintyVariationsImpl extends MinimalEObjectImpl.Container implements UncertaintyVariations {
-	/**
+    /**
      * The cached value of the '{@link #getVariationPoints() <em>Variation Points</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getVariationPoints()
      * @generated
      * @ordered
      */
-	protected EList<VariationPoint> variationPoints;
+    protected EList<VariationPoint> variationPoints;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected UncertaintyVariationsImpl() {
+    protected UncertaintyVariationsImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return UncertaintyVariationModelPackage.Literals.UNCERTAINTY_VARIATIONS;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<VariationPoint> getVariationPoints() {
+    public EList<VariationPoint> getVariationPoints() {
         if (variationPoints == null) {
             variationPoints = new EObjectContainmentEList<VariationPoint>(VariationPoint.class, this, UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS__VARIATION_POINTS);
         }
         return variationPoints;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS__VARIATION_POINTS:
                 return ((InternalEList<?>)getVariationPoints()).basicRemove(otherEnd, msgs);
@@ -89,13 +89,13 @@ public class UncertaintyVariationsImpl extends MinimalEObjectImpl.Container impl
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS__VARIATION_POINTS:
                 return getVariationPoints();
@@ -103,14 +103,14 @@ public class UncertaintyVariationsImpl extends MinimalEObjectImpl.Container impl
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS__VARIATION_POINTS:
                 getVariationPoints().clear();
@@ -120,13 +120,13 @@ public class UncertaintyVariationsImpl extends MinimalEObjectImpl.Container impl
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS__VARIATION_POINTS:
                 getVariationPoints().clear();
@@ -135,13 +135,13 @@ public class UncertaintyVariationsImpl extends MinimalEObjectImpl.Container impl
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS__VARIATION_POINTS:
                 return variationPoints != null && !variationPoints.isEmpty();

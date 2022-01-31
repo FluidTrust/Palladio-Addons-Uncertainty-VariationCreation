@@ -13,24 +13,24 @@ import org.eclipse.emf.ecore.EFactory;
  * @generated
  */
 public interface UncertaintyVariationModelFactory extends EFactory {
-	/**
+    /**
      * The singleton instance of the factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	UncertaintyVariationModelFactory eINSTANCE = UncertaintyVariationModel.impl.UncertaintyVariationModelFactoryImpl.init();
+    UncertaintyVariationModelFactory eINSTANCE = UncertaintyVariationModel.impl.UncertaintyVariationModelFactoryImpl.init();
 
-	/**
+    /**
      * Returns a new object of class '<em>Uncertainty Variations</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Uncertainty Variations</em>'.
      * @generated
      */
-	UncertaintyVariations createUncertaintyVariations();
+    UncertaintyVariations createUncertaintyVariations();
 
-	/**
+    /**
      * Returns a new object of class '<em>Variation Point</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -40,42 +40,15 @@ public interface UncertaintyVariationModelFactory extends EFactory {
     VariationPoint createVariationPoint();
 
     /**
-     * Returns a new object of class '<em>Varying Allocation Context</em>'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return a new object of class '<em>Varying Allocation Context</em>'.
-     * @generated
-     */
-	VaryingAllocationContext createVaryingAllocationContext();
-
-	/**
-     * Returns a new object of class '<em>Varying Branch</em>'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return a new object of class '<em>Varying Branch</em>'.
-     * @generated
-     */
-	VaryingBranch createVaryingBranch();
-
-	/**
-     * Returns a new object of class '<em>Varying Assembly Context</em>'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return a new object of class '<em>Varying Assembly Context</em>'.
-     * @generated
-     */
-	VaryingAssemblyContext createVaryingAssemblyContext();
-
-	/**
      * Returns a new object of class '<em>Variation Description</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return a new object of class '<em>Variation Description</em>'.
      * @generated
      */
-	VariationDescription createVariationDescription();
+    VariationDescription createVariationDescription();
 
-	/**
+    /**
      * Returns a new object of class '<em>Primitive Value</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -96,10 +69,10 @@ public interface UncertaintyVariationModelFactory extends EFactory {
     /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the package supported by this factory.
      * @generated
      */
-	UncertaintyVariationModelPackage getUncertaintyVariationModelPackage();
+    UncertaintyVariationModelPackage getUncertaintyVariationModelPackage();
 
 } //UncertaintyVariationModelFactory

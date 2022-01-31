@@ -23,48 +23,48 @@ import org.eclipse.emf.ecore.util.Switch;
  * @generated
  */
 public class UncertaintyVariationModelSwitch<T> extends Switch<T> {
-	/**
+    /**
      * The cached model package
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected static UncertaintyVariationModelPackage modelPackage;
+    protected static UncertaintyVariationModelPackage modelPackage;
 
-	/**
+    /**
      * Creates an instance of the switch.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public UncertaintyVariationModelSwitch() {
+    public UncertaintyVariationModelSwitch() {
         if (modelPackage == null) {
             modelPackage = UncertaintyVariationModelPackage.eINSTANCE;
         }
     }
 
-	/**
+    /**
      * Checks whether this is a switch for the given package.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param ePackage the package in question.
      * @return whether this is a switch for the given package.
      * @generated
      */
-	@Override
-	protected boolean isSwitchFor(EPackage ePackage) {
+    @Override
+    protected boolean isSwitchFor(EPackage ePackage) {
         return ePackage == modelPackage;
     }
 
-	/**
+    /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
+    @Override
+    protected T doSwitch(int classifierID, EObject theEObject) {
         switch (classifierID) {
             case UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS: {
                 UncertaintyVariations uncertaintyVariations = (UncertaintyVariations)theEObject;
@@ -75,27 +75,6 @@ public class UncertaintyVariationModelSwitch<T> extends Switch<T> {
             case UncertaintyVariationModelPackage.VARIATION_POINT: {
                 VariationPoint variationPoint = (VariationPoint)theEObject;
                 T result = caseVariationPoint(variationPoint);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case UncertaintyVariationModelPackage.VARYING_ALLOCATION_CONTEXT: {
-                VaryingAllocationContext varyingAllocationContext = (VaryingAllocationContext)theEObject;
-                T result = caseVaryingAllocationContext(varyingAllocationContext);
-                if (result == null) result = caseVariationPoint(varyingAllocationContext);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case UncertaintyVariationModelPackage.VARYING_BRANCH: {
-                VaryingBranch varyingBranch = (VaryingBranch)theEObject;
-                T result = caseVaryingBranch(varyingBranch);
-                if (result == null) result = caseVariationPoint(varyingBranch);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case UncertaintyVariationModelPackage.VARYING_ASSEMBLY_CONTEXT: {
-                VaryingAssemblyContext varyingAssemblyContext = (VaryingAssemblyContext)theEObject;
-                T result = caseVaryingAssemblyContext(varyingAssemblyContext);
-                if (result == null) result = caseVariationPoint(varyingAssemblyContext);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -129,97 +108,52 @@ public class UncertaintyVariationModelSwitch<T> extends Switch<T> {
         }
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Uncertainty Variations</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Uncertainty Variations</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseUncertaintyVariations(UncertaintyVariations object) {
+    public T caseUncertaintyVariations(UncertaintyVariations object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Variation Point</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Variation Point</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseVariationPoint(VariationPoint object) {
+    public T caseVariationPoint(VariationPoint object) {
         return null;
     }
 
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Varying Allocation Context</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Varying Allocation Context</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseVaryingAllocationContext(VaryingAllocationContext object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Varying Branch</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Varying Branch</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseVaryingBranch(VaryingBranch object) {
-        return null;
-    }
-
-	/**
-     * Returns the result of interpreting the object as an instance of '<em>Varying Assembly Context</em>'.
-     * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Varying Assembly Context</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-	public T caseVaryingAssemblyContext(VaryingAssemblyContext object) {
-        return null;
-    }
-
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Variation Description</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Variation Description</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseVariationDescription(VariationDescription object) {
+    public T caseVariationDescription(VariationDescription object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -267,16 +201,16 @@ public class UncertaintyVariationModelSwitch<T> extends Switch<T> {
     /**
      * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch, but this is the last case anyway.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch, but this is the last case anyway.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-	@Override
-	public T defaultCase(EObject object) {
+    @Override
+    public T defaultCase(EObject object) {
         return null;
     }
 

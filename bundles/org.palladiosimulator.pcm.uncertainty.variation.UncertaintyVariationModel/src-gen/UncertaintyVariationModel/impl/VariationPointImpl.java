@@ -7,6 +7,7 @@ import UncertaintyVariationModel.VariationDescription;
 import UncertaintyVariationModel.VariationPoint;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -38,27 +39,27 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * @generated
  */
 public class VariationPointImpl extends MinimalEObjectImpl.Container implements VariationPoint {
-	/**
+    /**
      * The cached value of the '{@link #getVaryingSubjects() <em>Varying Subjects</em>}' reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getVaryingSubjects()
      * @generated
      * @ordered
      */
-	protected EList<Identifier> varyingSubjects;
+    protected EList<Identifier> varyingSubjects;
 
-	/**
+    /**
      * The cached value of the '{@link #getVariationDescription() <em>Variation Description</em>}' containment reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getVariationDescription()
      * @generated
      * @ordered
      */
-	protected VariationDescription variationDescription;
+    protected VariationDescription variationDescription;
 
-	/**
+    /**
      * The default value of the '{@link #getStateHandlerId() <em>State Handler Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -80,50 +81,50 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected VariationPointImpl() {
+    protected VariationPointImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return UncertaintyVariationModelPackage.Literals.VARIATION_POINT;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<Identifier> getVaryingSubjects() {
+    public EList<Identifier> getVaryingSubjects() {
         if (varyingSubjects == null) {
             varyingSubjects = new EObjectResolvingEList<Identifier>(Identifier.class, this, UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS);
         }
         return varyingSubjects;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public VariationDescription getVariationDescription() {
+    public VariationDescription getVariationDescription() {
         return variationDescription;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetVariationDescription(VariationDescription newVariationDescription, NotificationChain msgs) {
+    public NotificationChain basicSetVariationDescription(VariationDescription newVariationDescription, NotificationChain msgs) {
         VariationDescription oldVariationDescription = variationDescription;
         variationDescription = newVariationDescription;
         if (eNotificationRequired()) {
@@ -133,12 +134,12 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setVariationDescription(VariationDescription newVariationDescription) {
+    public void setVariationDescription(VariationDescription newVariationDescription) {
         if (newVariationDescription != variationDescription) {
             NotificationChain msgs = null;
             if (variationDescription != null)
@@ -152,7 +153,7 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
             eNotify(new ENotificationImpl(this, Notification.SET, UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, newVariationDescription, newVariationDescription));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -175,11 +176,11 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 
     /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION:
                 return basicSetVariationDescription(null, msgs);
@@ -187,13 +188,13 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS:
                 return getVaryingSubjects();
@@ -205,14 +206,14 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS:
                 getVaryingSubjects().clear();
@@ -228,13 +229,13 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS:
                 getVaryingSubjects().clear();
@@ -249,13 +250,13 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS:
                 return varyingSubjects != null && !varyingSubjects.isEmpty();

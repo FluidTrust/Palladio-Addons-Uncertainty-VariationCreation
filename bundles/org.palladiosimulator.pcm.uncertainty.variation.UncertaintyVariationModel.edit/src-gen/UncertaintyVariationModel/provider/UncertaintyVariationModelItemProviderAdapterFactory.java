@@ -33,37 +33,37 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class UncertaintyVariationModelItemProviderAdapterFactory extends UncertaintyVariationModelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
-	/**
+    /**
      * This keeps track of the root adapter factory that delegates to this adapter factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected ComposedAdapterFactory parentAdapterFactory;
+    protected ComposedAdapterFactory parentAdapterFactory;
 
-	/**
+    /**
      * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected IChangeNotifier changeNotifier = new ChangeNotifier();
+    protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
-	/**
+    /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected Collection<Object> supportedTypes = new ArrayList<Object>();
+    protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
-	/**
+    /**
      * This constructs an instance.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public UncertaintyVariationModelItemProviderAdapterFactory() {
+    public UncertaintyVariationModelItemProviderAdapterFactory() {
         supportedTypes.add(IEditingDomainItemProvider.class);
         supportedTypes.add(IStructuredItemContentProvider.class);
         supportedTypes.add(ITreeItemContentProvider.class);
@@ -71,22 +71,22 @@ public class UncertaintyVariationModelItemProviderAdapterFactory extends Uncerta
         supportedTypes.add(IItemPropertySource.class);
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link UncertaintyVariationModel.UncertaintyVariations} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected UncertaintyVariationsItemProvider uncertaintyVariationsItemProvider;
+    protected UncertaintyVariationsItemProvider uncertaintyVariationsItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link UncertaintyVariationModel.UncertaintyVariations}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createUncertaintyVariationsAdapter() {
+    @Override
+    public Adapter createUncertaintyVariationsAdapter() {
         if (uncertaintyVariationsItemProvider == null) {
             uncertaintyVariationsItemProvider = new UncertaintyVariationsItemProvider(this);
         }
@@ -94,7 +94,7 @@ public class UncertaintyVariationModelItemProviderAdapterFactory extends Uncerta
         return uncertaintyVariationsItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link UncertaintyVariationModel.VariationPoint} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -118,90 +118,21 @@ public class UncertaintyVariationModelItemProviderAdapterFactory extends Uncerta
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link UncertaintyVariationModel.VaryingAllocationContext} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected VaryingAllocationContextItemProvider varyingAllocationContextItemProvider;
-
-	/**
-     * This creates an adapter for a {@link UncertaintyVariationModel.VaryingAllocationContext}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createVaryingAllocationContextAdapter() {
-        if (varyingAllocationContextItemProvider == null) {
-            varyingAllocationContextItemProvider = new VaryingAllocationContextItemProvider(this);
-        }
-
-        return varyingAllocationContextItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link UncertaintyVariationModel.VaryingBranch} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected VaryingBranchItemProvider varyingBranchItemProvider;
-
-	/**
-     * This creates an adapter for a {@link UncertaintyVariationModel.VaryingBranch}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createVaryingBranchAdapter() {
-        if (varyingBranchItemProvider == null) {
-            varyingBranchItemProvider = new VaryingBranchItemProvider(this);
-        }
-
-        return varyingBranchItemProvider;
-    }
-
-	/**
-     * This keeps track of the one adapter used for all {@link UncertaintyVariationModel.VaryingAssemblyContext} instances.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	protected VaryingAssemblyContextItemProvider varyingAssemblyContextItemProvider;
-
-	/**
-     * This creates an adapter for a {@link UncertaintyVariationModel.VaryingAssemblyContext}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	@Override
-	public Adapter createVaryingAssemblyContextAdapter() {
-        if (varyingAssemblyContextItemProvider == null) {
-            varyingAssemblyContextItemProvider = new VaryingAssemblyContextItemProvider(this);
-        }
-
-        return varyingAssemblyContextItemProvider;
-    }
-
-	/**
      * This keeps track of the one adapter used for all {@link UncertaintyVariationModel.VariationDescription} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected VariationDescriptionItemProvider variationDescriptionItemProvider;
+    protected VariationDescriptionItemProvider variationDescriptionItemProvider;
 
-	/**
+    /**
      * This creates an adapter for a {@link UncertaintyVariationModel.VariationDescription}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createVariationDescriptionAdapter() {
+    @Override
+    public Adapter createVariationDescriptionAdapter() {
         if (variationDescriptionItemProvider == null) {
             variationDescriptionItemProvider = new VariationDescriptionItemProvider(this);
         }
@@ -209,7 +140,7 @@ public class UncertaintyVariationModelItemProviderAdapterFactory extends Uncerta
         return variationDescriptionItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link UncertaintyVariationModel.PrimitiveValue} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -258,51 +189,51 @@ public class UncertaintyVariationModelItemProviderAdapterFactory extends Uncerta
     /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public ComposeableAdapterFactory getRootAdapterFactory() {
+    public ComposeableAdapterFactory getRootAdapterFactory() {
         return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
     }
 
-	/**
+    /**
      * This sets the composed adapter factory that contains this factory.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean isFactoryForType(Object type) {
+    @Override
+    public boolean isFactoryForType(Object type) {
         return supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
-	/**
+    /**
      * This implementation substitutes the factory itself as the key for the adapter.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter adapt(Notifier notifier, Object type) {
+    @Override
+    public Adapter adapt(Notifier notifier, Object type) {
         return super.adapt(notifier, this);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object adapt(Object object, Object type) {
+    @Override
+    public Object adapt(Object object, Object type) {
         if (isFactoryForType(type)) {
             Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
@@ -313,33 +244,33 @@ public class UncertaintyVariationModelItemProviderAdapterFactory extends Uncerta
         return null;
     }
 
-	/**
+    /**
      * This adds a listener.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void addListener(INotifyChangedListener notifyChangedListener) {
+    public void addListener(INotifyChangedListener notifyChangedListener) {
         changeNotifier.addListener(notifyChangedListener);
     }
 
-	/**
+    /**
      * This removes a listener.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void removeListener(INotifyChangedListener notifyChangedListener) {
+    public void removeListener(INotifyChangedListener notifyChangedListener) {
         changeNotifier.removeListener(notifyChangedListener);
     }
 
-	/**
+    /**
      * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void fireNotifyChanged(Notification notification) {
+    public void fireNotifyChanged(Notification notification) {
         changeNotifier.fireNotifyChanged(notification);
 
         if (parentAdapterFactory != null) {
@@ -347,18 +278,15 @@ public class UncertaintyVariationModelItemProviderAdapterFactory extends Uncerta
         }
     }
 
-	/**
+    /**
      * This disposes all of the item providers created by this factory. 
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void dispose() {
+    public void dispose() {
         if (uncertaintyVariationsItemProvider != null) uncertaintyVariationsItemProvider.dispose();
         if (variationPointItemProvider != null) variationPointItemProvider.dispose();
-        if (varyingAllocationContextItemProvider != null) varyingAllocationContextItemProvider.dispose();
-        if (varyingBranchItemProvider != null) varyingBranchItemProvider.dispose();
-        if (varyingAssemblyContextItemProvider != null) varyingAssemblyContextItemProvider.dispose();
         if (variationDescriptionItemProvider != null) variationDescriptionItemProvider.dispose();
         if (primitiveValueItemProvider != null) primitiveValueItemProvider.dispose();
         if (valueCollectionItemProvider != null) valueCollectionItemProvider.dispose();

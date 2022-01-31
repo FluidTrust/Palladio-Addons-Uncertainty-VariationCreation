@@ -3,6 +3,7 @@
 package UncertaintyVariationModel;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -26,39 +27,39 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface VariationPoint extends EObject {
-	/**
+    /**
      * Returns the value of the '<em><b>Varying Subjects</b></em>' reference list.
      * The list contents are of type {@link de.uka.ipd.sdq.identifier.Identifier}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Varying Subjects</em>' reference list.
      * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationPoint_VaryingSubjects()
      * @model required="true"
      * @generated
      */
-	EList<Identifier> getVaryingSubjects();
+    EList<Identifier> getVaryingSubjects();
 
-	/**
+    /**
      * Returns the value of the '<em><b>Variation Description</b></em>' containment reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Variation Description</em>' containment reference.
      * @see #setVariationDescription(VariationDescription)
      * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationPoint_VariationDescription()
      * @model containment="true"
      * @generated
      */
-	VariationDescription getVariationDescription();
+    VariationDescription getVariationDescription();
 
-	/**
+    /**
      * Sets the value of the '{@link UncertaintyVariationModel.VariationPoint#getVariationDescription <em>Variation Description</em>}' containment reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>Variation Description</em>' containment reference.
      * @see #getVariationDescription()
      * @generated
      */
-	void setVariationDescription(VariationDescription value);
+    void setVariationDescription(VariationDescription value);
 
     /**
      * Returns the value of the '<em><b>State Handler Id</b></em>' attribute.
