@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.palladiosimulator.pcm.uncertainty.variation.feature"
-      label="Uncertainty Variation Creation"
+      id="org.palladiosimulator.pcm.uncertainty.variation.pcm.feature"
+      label="Uncertainty Variation PCM Creation"
       version="0.1.0.qualifier"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license.epl2"
@@ -26,8 +26,8 @@
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="de.uka.ipd.sdq.identifier" version="5.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.pcm" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.identifier" version="5.1.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm" version="5.1.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.ui" version="3.118.100" match="greaterOrEqual"/>
@@ -37,22 +37,19 @@
       <import plugin="org.eclipse.jface"/>
    </requires>
 
+   <includes
+         id="org.palladiosimulator.pcm.uncertainty.variation.feature"
+         version="0.0.0"/>
+
    <plugin
-         id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel"
+         id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.editor"
+         id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

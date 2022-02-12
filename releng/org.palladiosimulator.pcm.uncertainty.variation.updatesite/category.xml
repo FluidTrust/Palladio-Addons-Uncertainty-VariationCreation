@@ -6,6 +6,12 @@
    <feature id="org.palladiosimulator.pcm.uncertainty.variation.feature">
       <category name="org.palladiosimulator.pcm.uncertainty.variation.category"/>
    </feature>
+   <feature id="org.palladiosimulator.pcm.uncertainty.variation.pcm.feature">
+      <category name="org.palladiosimulator.pcm.uncertainty.variation.category"/>
+   </feature>
+   <feature id="org.palladiosimulator.pcm.uncertainty.variation.pcm.dataflow.feature">
+      <category name="org.palladiosimulator.pcm.uncertainty.variation.category"/>
+   </feature>
    <category-def name="org.palladiosimulator.pcm.uncertainty.variation.category" label="Uncertainty Variation Modelling"/>
    <category-def name="org.palladiosimulator.pcm.uncertainty.variation.source.category" label="Uncertainty Variation Modelling Developer Resources"/>
 </site>
