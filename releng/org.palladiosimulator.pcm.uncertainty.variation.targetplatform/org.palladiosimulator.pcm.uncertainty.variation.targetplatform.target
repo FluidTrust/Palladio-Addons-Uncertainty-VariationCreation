@@ -3,27 +3,35 @@
 <target name="Target Platform" sequenceNumber="1">
 	<locations>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<repository location="https://updatesite.palladio-simulator.com/palladio-build-updatesite/releases/5.0.0"/>
-			<unit id="org.palladiosimulator.pcm.feature.feature.group" version="5.0.0.202102051710"/>
-			<unit id="de.uka.ipd.sdq.identifier.feature.feature.group" version="5.0.0.202102051655"/>
-			<unit id="org.palladiosimulator.editors.tree.feature.feature.group" version="5.0.0.202102051719"/>
-		</location>
-		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<repository location="http://download.eclipse.org/releases/2020-12"/>
-			<unit id="org.eclipse.ocl.all.sdk.feature.group" version="5.13.0.v20201208-2229"/>
-		</location>
-		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<repository location="http://download.eclipse.org/eclipse/updates/4.18"/>
-			<unit id="org.eclipse.platform.ide" version="4.18.0.I20201202-1800"/>
-		</location>
-		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 			<repository location="https://updatesite.palladio-simulator.com/fluidtrust/fluidtrust-build-updatesite/nightly/"/>
-			<unit id="org.palladiosimulator.dataflow.confidentiality.editor.tree.feature.feature.group" version="5.1.0.202201242356"/>
-			<unit id="org.palladiosimulator.dataflow.confidentiality.model.feature.feature.group" version="5.1.0.202201242356"/>
-			<unit id="org.palladiosimulator.dataflow.confidentiality.pcm.editor.tree.feature.feature.group" version="5.1.0.202201250000"/>
-			<unit id="org.palladiosimulator.dataflow.confidentiality.pcm.model.feature.feature.group" version="5.1.0.202201250000"/>
-			<unit id="org.palladiosimulator.dataflow.dictionary.editor.tree.feature.feature.group" version="5.1.0.202201242347"/>
-			<unit id="org.palladiosimulator.dataflow.dictionary.model.feature.feature.group" version="5.1.0.202201242347"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.editor.tree.feature.feature.group" version="0.0.0"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.model.feature.feature.group" version="0.0.0"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.editor.sirius.feature.feature.group" version="0.0.0"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.testresources.feature.feature.group" version="0.0.0"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.transformation.feature.feature.group" version="0.0.0"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.ui.feature.feature.group" version="0.0.0"/>
+			<unit id="org.palladiosimulator.dataflow.dictionary.characterized.dsl.feature.feature.group" version="0.0.0"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.pcm.model.feature.feature.group" version="0.0.0"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://download.eclipse.org/releases/2021-12"/>
+			<unit id="org.eclipse.ocl.all.sdk.feature.group" version="5.17.0.v20211130-1448"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://download.eclipse.org/eclipse/updates/4.22"/>
+			<unit id="org.eclipse.platform.ide" version="4.22.0.I20211124-1800"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://updatesite.palladio-simulator.com/palladio-build-updatesite/releases/5.1.0"/>
+			<unit id="de.uka.ipd.sdq.workflow.feature.mdsd.feature.group" version="0.0.0"/>
+			<unit id="org.palladiosimulator.editors.tree.feature.feature.group" version="0.0.0"/>
+			<unit id="org.palladiosimulator.mdsdprofiles.feature.feature.group" version="0.0.0"/>
+			<unit id="org.palladiosimulator.pcm.feature.feature.group" version="0.0.0"/>
+			<unit id="de.uka.ipd.sdq.identifier.feature.feature.group" version="0.0.0"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://updatesite.mdsd.tools/library-emfeditutils/releases/latest/"/>
+			<unit id="tools.mdsd.library.emfeditutils.feature.feature.group" version="0.0.0"/>
 		</location>
 	</locations>
 	<environment>
