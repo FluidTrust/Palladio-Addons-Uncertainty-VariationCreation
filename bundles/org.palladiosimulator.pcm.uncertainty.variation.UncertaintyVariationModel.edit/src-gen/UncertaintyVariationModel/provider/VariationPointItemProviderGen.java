@@ -5,7 +5,7 @@ package UncertaintyVariationModel.provider;
 
 import UncertaintyVariationModel.UncertaintyVariationModelFactory;
 import UncertaintyVariationModel.UncertaintyVariationModelPackage;
-import UncertaintyVariationModel.UncertaintyVariations;
+import UncertaintyVariationModel.VariationPoint;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,22 +17,24 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link UncertaintyVariationModel.UncertaintyVariations} object.
+ * This is the item provider adapter for a {@link UncertaintyVariationModel.VariationPoint} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class UncertaintyVariationsItemProvider 
+public class VariationPointItemProviderGen 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +49,7 @@ public class UncertaintyVariationsItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UncertaintyVariationsItemProvider(AdapterFactory adapterFactory)
+	public VariationPointItemProviderGen(AdapterFactory adapterFactory)
 	{
 		super(adapterFactory);
 	}
@@ -65,8 +67,56 @@ public class UncertaintyVariationsItemProvider
 		{
 			super.getPropertyDescriptors(object);
 
+			addVaryingSubjectsPropertyDescriptor(object);
+			addStateHandlerIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Varying Subjects feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVaryingSubjectsPropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VariationPoint_varyingSubjects_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariationPoint_varyingSubjects_feature", "_UI_VariationPoint_type"),
+				 UncertaintyVariationModelPackage.Literals.VARIATION_POINT__VARYING_SUBJECTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the State Handler Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStateHandlerIdPropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VariationPoint_stateHandlerId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariationPoint_stateHandlerId_feature", "_UI_VariationPoint_type"),
+				 UncertaintyVariationModelPackage.Literals.VARIATION_POINT__STATE_HANDLER_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -83,7 +133,7 @@ public class UncertaintyVariationsItemProvider
 		if (childrenFeatures == null)
 		{
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(UncertaintyVariationModelPackage.Literals.UNCERTAINTY_VARIATIONS__VARIATION_POINTS);
+			childrenFeatures.add(UncertaintyVariationModelPackage.Literals.VARIATION_POINT__VARIATION_DESCRIPTION);
 		}
 		return childrenFeatures;
 	}
@@ -103,18 +153,6 @@ public class UncertaintyVariationsItemProvider
 	}
 
 	/**
-	 * This returns UncertaintyVariations.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object)
-	{
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/UncertaintyVariations"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,7 +161,10 @@ public class UncertaintyVariationsItemProvider
 	@Override
 	public String getText(Object object)
 	{
-		return getString("_UI_UncertaintyVariations_type");
+		String label = ((VariationPoint)object).getStateHandlerId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_VariationPoint_type") :
+			getString("_UI_VariationPoint_type") + " " + label;
 	}
 
 
@@ -139,9 +180,12 @@ public class UncertaintyVariationsItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(UncertaintyVariations.class))
+		switch (notification.getFeatureID(VariationPoint.class))
 		{
-			case UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS__VARIATION_POINTS:
+			case UncertaintyVariationModelPackage.VARIATION_POINT__STATE_HANDLER_ID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -162,8 +206,8 @@ public class UncertaintyVariationsItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UncertaintyVariationModelPackage.Literals.UNCERTAINTY_VARIATIONS__VARIATION_POINTS,
-				 UncertaintyVariationModelFactory.eINSTANCE.createVariationPoint()));
+				(UncertaintyVariationModelPackage.Literals.VARIATION_POINT__VARIATION_DESCRIPTION,
+				 UncertaintyVariationModelFactory.eINSTANCE.createVariationDescription()));
 	}
 
 	/**

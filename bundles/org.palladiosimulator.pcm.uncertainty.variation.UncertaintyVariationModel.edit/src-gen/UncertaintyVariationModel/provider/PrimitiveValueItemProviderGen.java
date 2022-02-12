@@ -15,12 +15,12 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link UncertaintyVariationModel.ValueCollection} object.
+ * This is the item provider adapter for a {@link UncertaintyVariationModel.PrimitiveValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueCollectionItemProvider extends ValueItemProvider
+public class PrimitiveValueItemProviderGen extends ValueItemProvider
 {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -28,7 +28,7 @@ public class ValueCollectionItemProvider extends ValueItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueCollectionItemProvider(AdapterFactory adapterFactory)
+	public PrimitiveValueItemProviderGen(AdapterFactory adapterFactory)
 	{
 		super(adapterFactory);
 	}
@@ -46,26 +46,26 @@ public class ValueCollectionItemProvider extends ValueItemProvider
 		{
 			super.getPropertyDescriptors(object);
 
-			addLinksPropertyDescriptor(object);
+			addLinkPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Links feature.
+	 * This adds a property descriptor for the Link feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLinksPropertyDescriptor(Object object)
+	protected void addLinkPropertyDescriptor(Object object)
 	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ValueCollection_links_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValueCollection_links_feature", "_UI_ValueCollection_type"),
-				 UncertaintyVariationModelPackage.Literals.VALUE_COLLECTION__LINKS,
+				 getString("_UI_PrimitiveValue_link_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveValue_link_feature", "_UI_PrimitiveValue_type"),
+				 UncertaintyVariationModelPackage.Literals.PRIMITIVE_VALUE__LINK,
 				 true,
 				 false,
 				 true,
@@ -75,7 +75,7 @@ public class ValueCollectionItemProvider extends ValueItemProvider
 	}
 
 	/**
-	 * This returns ValueCollection.gif.
+	 * This returns PrimitiveValue.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -83,7 +83,7 @@ public class ValueCollectionItemProvider extends ValueItemProvider
 	@Override
 	public Object getImage(Object object)
 	{
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ValueCollection"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimitiveValue"));
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class ValueCollectionItemProvider extends ValueItemProvider
 	@Override
 	public String getText(Object object)
 	{
-		return getString("_UI_ValueCollection_type");
+		return getString("_UI_PrimitiveValue_type");
 	}
 
 

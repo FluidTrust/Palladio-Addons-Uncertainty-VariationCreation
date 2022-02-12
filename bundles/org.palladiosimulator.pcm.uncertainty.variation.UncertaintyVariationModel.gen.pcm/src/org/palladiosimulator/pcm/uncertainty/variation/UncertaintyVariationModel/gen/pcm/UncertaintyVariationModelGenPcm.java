@@ -12,8 +12,8 @@ import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.StatespaceIterator;
 
 /**
- * The class UncertaintyVariationModelGenPcm realizes the generation of the uncertainty varied
- * palladio component model (pcm) based the specified uncertainty variation model.
+ * UncertaintyVariationModelGenPcm realizes the generation of the uncertainty varied palladio
+ * component model (pcm) based the specified uncertainty variation model.
  */
 public class UncertaintyVariationModelGenPcm {
     /**
@@ -29,9 +29,8 @@ public class UncertaintyVariationModelGenPcm {
     }
 
     /**
-     * The function generateVariations generates the different scenarios, which will found under
-     * scenario directory of the current project, from the pcm based on the uncertainty variation
-     * model.
+     * generateVariations generates the different scenarios, which will found under scenario
+     * directory of the current project, from the pcm based on the uncertainty variation model.
      *
      * @param progressMonitor
      */

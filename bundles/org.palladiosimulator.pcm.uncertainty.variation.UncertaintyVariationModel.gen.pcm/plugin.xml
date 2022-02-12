@@ -7,21 +7,59 @@
             class="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.AllocationStateHandler"
             id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.AllocationStateHandler"
             name="AllocationStateHandler">
+         <VaryingSubjectDefinition>
+            <Type
+                  type="org.palladiosimulator.pcm.allocation.AllocationContext">
+            </Type>
+         </VaryingSubjectDefinition>
+         <VariationDescriptionDefinition>
+            <Type
+                  type="org.palladiosimulator.pcm.resourceenvironment.ResourceContainer">
+            </Type>
+         </VariationDescriptionDefinition>
       </StateHandlerImplementation>
       <StateHandlerImplementation
             class="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.AssemblyStateHandler"
             id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.AssemblyStateHandler"
             name="AssemblyStateHandler">
+         <VaryingSubjectDefinition>
+            <Type
+                  type="org.palladiosimulator.pcm.core.composition.AssemblyContext">
+            </Type>
+         </VaryingSubjectDefinition>
+         <VariationDescriptionDefinition>
+            <Type
+                  type="org.palladiosimulator.pcm.repository.RepositoryComponent">
+            </Type>
+         </VariationDescriptionDefinition>
       </StateHandlerImplementation>
       <StateHandlerImplementation
             class="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.BranchStateHandler"
             id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.BranchStateHandler"
             name="BranchStateHandler">
+         <VaryingSubjectDefinition>
+            <Type
+                  type="org.palladiosimulator.pcm.usagemodel.Branch">
+            </Type>
+            <Type
+                  type="org.palladiosimulator.pcm.seff.BranchAction">
+            </Type>
+         </VaryingSubjectDefinition>
       </StateHandlerImplementation>
       <StateHandlerImplementation
             class="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.CharacteristicsStateHandler"
             id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.CharacteristicsStateHandler"
             name="CharacteristicsStateHandler">
+         <VaryingSubjectDefinition>
+            <Type
+                  type="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.EnumCharacteristic">
+            </Type>
+         </VaryingSubjectDefinition>
+         <VariationDescriptionDefinition>
+            <Type
+                  type="org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Literal">
+            </Type>
+         </VariationDescriptionDefinition>
       </StateHandlerImplementation>
    </extension>
 

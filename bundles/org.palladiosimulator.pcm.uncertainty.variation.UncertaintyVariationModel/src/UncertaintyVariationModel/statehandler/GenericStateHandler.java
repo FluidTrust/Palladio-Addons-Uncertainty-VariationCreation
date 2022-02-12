@@ -12,6 +12,9 @@ import org.eclipse.emf.ecore.EObject;
 import UncertaintyVariationModel.VariationPoint;
 import de.uka.ipd.sdq.identifier.Identifier;
 
+/**
+ * GenericStateHandler realizes the abstract base class for StateHandler.
+ */
 public abstract class GenericStateHandler implements StateHandler {
     @Override
     public abstract int getSizeOfDimension(VariationPoint variationPoint);
@@ -20,6 +23,14 @@ public abstract class GenericStateHandler implements StateHandler {
     public abstract void patchModelWith(Map<String, List<EObject>> models, VariationPoint variationPoint,
             int variationIdx);
 
+    /**
+     * resolve finds an optional model element in the container that corresponds to element.
+     * 
+     * @param container
+     *            the container to search in
+     * @param element
+     * @return the model element that corresponds the element or empty
+     */
     protected Optional<EObject> resolve(final EObject container, final Identifier element) {
         return this.findInstance(container, currObj -> currObj instanceof Identifier,
                 curr -> ((Identifier) curr).getId()
@@ -47,6 +58,12 @@ public abstract class GenericStateHandler implements StateHandler {
         return resolved;
     }
 
+    /**
+     * 
+     * @param containers
+     * @param elements
+     * @return
+     */
     protected List<Optional<EObject>> resolve(final List<EObject> containers, final List<Identifier> elements) {
         List<Optional<EObject>> result = new ArrayList<>();
         for (final Identifier element : elements) {
@@ -55,6 +72,21 @@ public abstract class GenericStateHandler implements StateHandler {
         return result;
     }
 
+    /**
+     * findInstance finds an optional model element in the container that fulfills the type filter
+     * and the valueFilter.
+     * 
+     * @param <T>
+     *            the type of the model element
+     * @param container
+     *            the container to search in
+     * @param typeFilter
+     *            predicate to filter elements in the container with a type expression
+     * @param valueFilter
+     *            predicate to filter elements in the container with attribute values. It is used
+     *            after the typeFilter.
+     * @return the model element that fits the filter or empty
+     */
     protected <T extends EObject> Optional<T> findInstance(final EObject container, Predicate<EObject> typeFilter,
             Predicate<T> valueFilter) {
         T resolved = null;

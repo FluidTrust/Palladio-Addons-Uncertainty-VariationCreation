@@ -7,7 +7,7 @@ import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ResourceAbstraction;
 
 /**
- * The class VariationManager realizes the management of the uncertainty variation model.
+ * VariationManager realizes the management of the uncertainty variation model.
  */
 public class VariationManager {
     /**
@@ -24,8 +24,8 @@ public class VariationManager {
     }
 
     /**
-     * The function loadUncertaintyVariationModel loads and returns the specified uncertainty
-     * variant model of the current project.
+     * loadUncertaintyVariationModel loads and returns the specified uncertainty variant model of
+     * the current project.
      * 
      * @param name
      *            specifies the name of the uncertainty variation model.

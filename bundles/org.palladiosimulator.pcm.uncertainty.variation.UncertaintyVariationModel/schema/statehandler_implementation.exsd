@@ -49,6 +49,10 @@
 
    <element name="StateHandlerImplementation">
       <complexType>
+         <sequence>
+            <element ref="VaryingSubjectDefinition"/>
+            <element ref="VariationDescriptionDefinition"/>
+         </sequence>
          <attribute name="name" type="string" use="required">
             <annotation>
                <documentation>
@@ -73,6 +77,37 @@
                </appInfo>
             </annotation>
          </attribute>
+      </complexType>
+   </element>
+
+   <element name="VaryingSubjectDefinition">
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="Type"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="Type">
+      <complexType>
+         <attribute name="type" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":de.uka.ipd.sdq.identifier.Identifier"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="VariationDescriptionDefinition">
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="Type"/>
+         </sequence>
       </complexType>
    </element>
 
