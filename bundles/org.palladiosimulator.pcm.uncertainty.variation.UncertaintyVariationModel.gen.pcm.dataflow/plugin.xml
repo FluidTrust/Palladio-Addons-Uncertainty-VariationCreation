@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.statehandler_implementation">
+      <StateHandlerImplementation
+            class="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.CharacteristicsStateHandler"
+            id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.CharacteristicsStateHandler"
+            name="CharacteristicsStateHandler">
+      </StateHandlerImplementation>
+   </extension>
+
+</plugin>
