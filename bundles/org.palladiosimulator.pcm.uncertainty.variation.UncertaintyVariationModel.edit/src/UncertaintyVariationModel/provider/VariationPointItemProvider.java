@@ -29,12 +29,12 @@ public class VariationPointItemProvider extends VariationPointItemProviderGen {
             protected Collection<?> getValueChoiceTyped(final VariationPoint object, final List<String> typedList) {
                 final StateHandlerImplementation impl = new StateHandlerImplementation();
                 final var stateHandlerId = object.getStateHandlerId();
-                if (stateHandlerId.isEmpty()) {
+                if (stateHandlerId == null) {
                     return impl.getIds();
                 }
 
                 final List<String> ids = impl.getIds();
-                ids.add("");
+                ids.add(null);
 
                 return ids;
             }
@@ -52,7 +52,7 @@ public class VariationPointItemProvider extends VariationPointItemProviderGen {
             protected Collection<?> getValueChoiceTyped(final VariationPoint object, List<Identifier> typedList) {
                 final var impl = new StateHandlerImplementation();
                 final var stateHandlerId = object.getStateHandlerId();
-                if (stateHandlerId.isEmpty()) {
+                if (stateHandlerId == null) {
                     return typedList;
                 }
 

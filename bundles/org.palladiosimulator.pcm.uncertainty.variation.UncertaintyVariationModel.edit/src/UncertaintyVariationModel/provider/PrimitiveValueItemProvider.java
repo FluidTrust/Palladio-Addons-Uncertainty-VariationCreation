@@ -30,7 +30,7 @@ public class PrimitiveValueItemProvider extends PrimitiveValueItemProviderGen {
                 final var stateHandlerId = object.getVariationdescription()
                     .getVariationpoint()
                     .getStateHandlerId();
-                if (stateHandlerId.isEmpty()) {
+                if (stateHandlerId == null) {
                     return typedList;
                 }
 
