@@ -46,21 +46,6 @@
             </Type>
          </VaryingSubjectDefinition>
       </StateHandlerImplementation>
-      <StateHandlerImplementation
-            class="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.CharacteristicsStateHandler"
-            id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.CharacteristicsStateHandler"
-            name="CharacteristicsStateHandler">
-         <VaryingSubjectDefinition>
-            <Type
-                  type="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.EnumCharacteristic">
-            </Type>
-         </VaryingSubjectDefinition>
-         <VariationDescriptionDefinition>
-            <Type
-                  type="org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Literal">
-            </Type>
-         </VariationDescriptionDefinition>
-      </StateHandlerImplementation>
    </extension>
 
 </plugin>

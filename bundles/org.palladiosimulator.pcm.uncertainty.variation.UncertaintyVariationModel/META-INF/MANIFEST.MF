@@ -8,10 +8,10 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: UncertaintyVariationModel;uses:="org.eclipse.emf.ecore,
+Export-Package: UncertaintyVariationModel; uses:="org.eclipse.emf.ecore,
  org.eclipse.emf.common.util,
  de.uka.ipd.sdq.identifier",
- UncertaintyVariationModel.impl; uses:="org.eclipse.emf.ecore,
+ UncertaintyVariationModel.impl;   uses:="org.eclipse.emf.ecore,
    org.eclipse.emf.ecore.impl,
    org.eclipse.emf.common.util,
    de.uka.ipd.sdq.identifier,

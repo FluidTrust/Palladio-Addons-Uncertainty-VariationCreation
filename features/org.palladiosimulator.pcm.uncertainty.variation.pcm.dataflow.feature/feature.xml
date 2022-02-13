@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.palladiosimulator.pcm.uncertainty.variation.pcm.dataflow.feature"
+      label="Uncertainty Variation Dataflow Creation"
+      version="0.1.0.qualifier"
+      plugin="org.palladiosimulator.branding"
+      license-feature="org.palladiosimulator.license.epl2"
+      license-feature-version="1.0.0">
+
+   <requires>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="de.uka.ipd.sdq.identifier"/>
+      <import plugin="org.palladiosimulator.pcm"/>
+      <import plugin="de.uka.ipd.sdq.probfunction"/>
+      <import plugin="de.uka.ipd.sdq.stoex"/>
+      <import plugin="de.uka.ipd.sdq.units"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.emf.ecore.edit"/>
+      <import plugin="de.uka.ipd.sdq.identifier.edit"/>
+      <import plugin="org.palladiosimulator.pcm.edit"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
+      <import plugin="de.uka.ipd.sdq.stoex.edit"/>
+      <import plugin="de.uka.ipd.sdq.units.edit"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="de.uka.ipd.sdq.identifier" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.dataflow.dictionary.characterized" version="5.1.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" version="5.1.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.dataflow.confidentiality.pcm.model" version="5.1.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.ui" version="3.118.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.core.services" version="2.2.500" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface"/>
+   </requires>
+
+
+
+   <includes
+         id="org.palladiosimulator.pcm.uncertainty.variation.pcm.feature"
+         version="0.0.0"/>
+
+
+   <plugin
+         id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.dataflow"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

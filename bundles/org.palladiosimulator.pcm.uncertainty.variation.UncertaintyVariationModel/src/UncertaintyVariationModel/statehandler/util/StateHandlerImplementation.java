@@ -141,4 +141,5 @@ public class StateHandlerImplementation {
     private static final String VARYING_SUBJECT_DEFINTION_TYPE = "VaryingSubjectDefinition";
     private static final String VARIATION_DESCRIPTION_DEFINITION_TYPE = "VariationDescriptionDefinition";
     private static final String TYPE_ATTRIBUTE = "type";
+
 }
