@@ -88,13 +88,11 @@ public class StateHandlerImplementation {
     }
 
     private boolean implementsAnyInterface(final Identifier element, Stream<String> interfaceNames) {
-        return interfaceNames.peek(System.out::print)
-            .anyMatch(typeName -> Arrays.stream(element.getClass()
-                .getInterfaces())
-                .filter(it -> it != null)
-                .peek(System.out::println)
-                .anyMatch(it -> it.getName()
-                    .contentEquals(typeName)));
+        return interfaceNames.anyMatch(typeName -> Arrays.stream(element.getClass()
+            .getInterfaces())
+            .filter(it -> it != null)
+            .anyMatch(it -> it.getName()
+                .contentEquals(typeName)));
     }
 
     private Stream<String> getTypesInDefinition(final IConfigurationElement elem, final String definitionName) {
@@ -105,7 +103,6 @@ public class StateHandlerImplementation {
             final IConfigurationElement[] typesDefinition = definition.orElse(null)
                 .getChildren();
             result = Arrays.stream(typesDefinition)
-                .peek(System.out::println)
                 .map(it -> this.getTypeOf(it));
         }
         return result;
@@ -126,6 +123,7 @@ public class StateHandlerImplementation {
     }
 
     private String getTypeOf(final IConfigurationElement elem) {
+        // IdentifierFactory.eINSTANCE.
         return elem.getAttribute(TYPE_ATTRIBUTE);
     }
 

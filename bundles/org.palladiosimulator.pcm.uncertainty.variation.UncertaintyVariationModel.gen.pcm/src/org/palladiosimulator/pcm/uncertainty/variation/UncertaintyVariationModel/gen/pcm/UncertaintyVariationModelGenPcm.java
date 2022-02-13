@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.net4j.util.om.monitor.SubMonitor;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.StatespaceIterator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * UncertaintyVariationModelGenPcm realizes the generation of the uncertainty varied palladio
@@ -35,13 +37,13 @@ public class UncertaintyVariationModelGenPcm {
      * @param progressMonitor
      */
     public void generateVariations(final IProgressMonitor progressMonitor) {
-        final SubMonitor progressSubMonitor = SubMonitor.convert(progressMonitor);
-        final Statespace statespace = new Statespace(this.variationManager.loadUncertaintyVariantModel("port"));
-        this.scenarioManager.register(statespace.getModelTypes());
+        try {
+            final SubMonitor progressSubMonitor = SubMonitor.convert(progressMonitor);
+            final Statespace statespace = new Statespace(this.variationManager.loadUncertaintyVariantModel("port"));
+            this.scenarioManager.register(statespace.getModelTypes());
 
-        int i = 0;
-        for (final StatespaceIterator it = statespace.iterator(); it.hasNext(); it.next()) {
-            try {
+            int i = 0;
+            for (final StatespaceIterator it = statespace.iterator(); it.hasNext(); it.next()) {
                 final SubMonitor iterationMonitor = progressSubMonitor.setWorkRemaining(100)
                     .newChild(1);
                 iterationMonitor.subTask("generating scenario " + i);
@@ -50,16 +52,16 @@ public class UncertaintyVariationModelGenPcm {
                 it.patchModels(models);
                 this.scenarioManager.storeCurrVariantModels(models);
                 ++i;
-            } catch (final CoreException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (final IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
             }
+        } catch (final CoreException e) {
+            LOGGER.error("Ressource not found", e);
+        } catch (final IOException e) {
+            LOGGER.error("cannot write model", e);
         }
     }
 
     private final ScenarioManager scenarioManager;
     private final VariationManager variationManager;
+    private static final Logger LOGGER = LoggerFactory
+        .getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");
 }
