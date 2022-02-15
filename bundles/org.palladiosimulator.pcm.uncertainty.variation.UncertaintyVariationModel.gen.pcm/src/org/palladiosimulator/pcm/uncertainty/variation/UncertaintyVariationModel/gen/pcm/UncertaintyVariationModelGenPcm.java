@@ -29,11 +29,34 @@ public class UncertaintyVariationModelGenPcm {
      *             if result directory can not be created in the case it does not exist
      */
     public UncertaintyVariationModelGenPcm(final URI uncertaintyModelUri) throws CoreException {
+        this(uncertaintyModelUri, "source", "scenarios", "configuration");
+    }
+
+    /**
+     * Constructor
+     * 
+     * @param uncertaintyModelUri
+     *            specifies the uniform resource identifier (uri) which points to the uncertainty
+     *            variation model to use. The uri must be of the platform type.
+     * @param sourceDirName
+     *            name of the directory in which the model templates for the variants will be
+     *            searched in.
+     * @param resultDirName
+     *            name of the directory in which the all variants will be saved in
+     * @param variantDirName
+     *            name of the directory in which one variant will be saved in
+     * @throws CoreException
+     *             if result directory can not be created in the case it does not exist
+     */
+    public UncertaintyVariationModelGenPcm(final URI uncertaintyModelUri, String sourceDirName, String resultDirName,
+            String variantDirName) throws CoreException {
         if (uncertaintyModelUri == null || !uncertaintyModelUri.isPlatform()) {
             LOGGER.error("uncertainty model uri must be of the platform type but is " + uncertaintyModelUri.toString());
             throw new IllegalArgumentException("uncertainty model uri must be of the platform type");
         }
-        this.scenarioManager = new ScenarioManager(uncertaintyModelUri.trimSegments(1));
+
+        this.scenarioManager = new ScenarioManager(uncertaintyModelUri.trimSegments(1), sourceDirName, resultDirName,
+                variantDirName);
         this.variationManager = new VariationManager(uncertaintyModelUri);
     }
 

@@ -13,7 +13,7 @@ import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel
 public class VariationManager {
     /**
      * Constructor
-     * 
+     *
      * @param uncertaintyVariationModel
      *            specifies the uniform resource identifier (uri) which points to the uncertainty
      *            variation model for the varying. The uri must be of the platform type.
@@ -26,11 +26,11 @@ public class VariationManager {
     /**
      * loadUncertaintyVariationModel loads and returns the specified uncertainty variant model of
      * the current project.
-     * 
+     *
      * @return the loaded uncertainty variation model.
      */
     public EObject loadUncertaintyVariantModel() {
-        return this.resourceAbstraction.load(uncertaintyVaritionModel);
+        return this.resourceAbstraction.load(this.uncertaintyVaritionModel);
     }
 
     private final URI uncertaintyVaritionModel;
