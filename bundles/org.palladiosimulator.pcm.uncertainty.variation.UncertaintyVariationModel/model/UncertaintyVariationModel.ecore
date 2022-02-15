@@ -8,22 +8,27 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariationPoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="varyingSubjects" lowerBound="1"
-        upperBound="-1" eType="ecore:EClass ../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
+        upperBound="-1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variationDescription" eType="#//VariationDescription"
-        containment="true"/>
+        containment="true" eOpposite="#//VariationDescription/variationpoint"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateHandlerId" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariationDescription">
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetVariations" lowerBound="1"
-        upperBound="-1" eType="#//Value" containment="true"/>
+        upperBound="-1" eType="#//Value" containment="true" eOpposite="#//Value/variationdescription"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variationpoint" eType="#//VariationPoint"
+        eOpposite="#//VariationPoint/variationDescription"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variationdescription" eType="#//VariationDescription"
+        eOpposite="#//VariationDescription/targetVariations"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimitiveValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="ecore:EClass ../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValueCollection" eSuperTypes="#//Value">
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
-        eType="ecore:EClass ../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
+        eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
   </eClassifiers>
 </ecore:EPackage>

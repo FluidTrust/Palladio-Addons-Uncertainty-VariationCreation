@@ -23,8 +23,11 @@
     </genClasses>
     <genClasses ecoreClass="UncertaintyVariationModel.ecore#//VariationDescription">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VariationDescription/targetVariations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//VariationDescription/variationpoint"/>
     </genClasses>
-    <genClasses ecoreClass="UncertaintyVariationModel.ecore#//Value"/>
+    <genClasses ecoreClass="UncertaintyVariationModel.ecore#//Value">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//Value/variationdescription"/>
+    </genClasses>
     <genClasses ecoreClass="UncertaintyVariationModel.ecore#//PrimitiveValue">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UncertaintyVariationModel.ecore#//PrimitiveValue/link"/>
     </genClasses>

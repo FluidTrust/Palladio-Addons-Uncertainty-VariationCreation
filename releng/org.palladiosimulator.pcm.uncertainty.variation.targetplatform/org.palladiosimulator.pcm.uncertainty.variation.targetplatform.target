@@ -17,6 +17,17 @@
 			<unit id="org.palladiosimulator.dataflow.dictionary.editor.tree.feature.feature.group" version="0.0.0"/>
 			<unit id="org.palladiosimulator.dataflow.dictionary.model.feature.feature.group" version="0.0.0"/>
 		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://updatesite.mdsd.tools/library-emfeditutils/releases/latest/"/>
+			<unit id="tools.mdsd.library.emfeditutils.feature.feature.group" version="0.0.0"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20211213173813/repository"/>
+			<unit id="ch.qos.logback.classic" version="0.0.0"/>
+			<unit id="ch.qos.logback.core" version="0.0.0"/>
+			<unit id="ch.qos.logback.slf4j" version="0.0.0"/>
+			<unit id="org.slf4j.api" version="0.0.0"/>
+		</location>
 	</locations>
 	<environment>
 		<arch>x86_64</arch>
