@@ -29,6 +29,6 @@ public class ConcreteStateHandlerFactory implements StateHandlerFactory {
         String stateHandlerId = object.getStateHandlerId();
         StateHandlerImplementation impl = new StateHandlerImplementation();
         return impl.getImplemationOf(stateHandlerId)
-            .orElseThrow(() -> new UnsupportedOperationException("Unknown stateHandlerId " + stateHandlerId));
+            .orElseThrow(() -> new IllegalStateException("Unknown stateHandlerId " + stateHandlerId));
     }
 }

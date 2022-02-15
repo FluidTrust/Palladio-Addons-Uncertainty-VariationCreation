@@ -27,6 +27,10 @@ public class UncertaintyVariationModelGenPcm {
      *            variation model to use. The uri must be of the platform type.
      */
     public UncertaintyVariationModelGenPcm(final URI uncertaintyModelUri) {
+        if (uncertaintyModelUri == null || !uncertaintyModelUri.isPlatform()) {
+            LOGGER.error("uncertainty model uri must be of the platform type but is " + uncertaintyModelUri.toString());
+            throw new IllegalArgumentException("uncertainty model uri must be of the platform type");
+        }
         this.scenarioManager = new ScenarioManager(uncertaintyModelUri.trimSegments(1));
         this.variationManager = new VariationManager(uncertaintyModelUri);
     }
@@ -58,6 +62,8 @@ public class UncertaintyVariationModelGenPcm {
             LOGGER.error("Ressource not found", e);
         } catch (final IOException e) {
             LOGGER.error("cannot write model", e);
+        } catch (final IllegalStateException e) {
+            LOGGER.error("uncertainty model misformed", e);
         }
     }
 

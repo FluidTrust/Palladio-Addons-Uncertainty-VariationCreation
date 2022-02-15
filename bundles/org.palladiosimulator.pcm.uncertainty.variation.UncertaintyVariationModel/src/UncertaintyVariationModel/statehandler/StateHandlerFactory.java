@@ -18,7 +18,7 @@ public interface StateHandlerFactory {
      * @param object
      *            the current VariationPoint
      * @return the created StateHandler implementation
-     * @throws UnsupportedOperationException
+     * @throws IllegalStateException
      *             if no implementation can be created
      */
     public StateHandler createFor(VariationPoint object);
