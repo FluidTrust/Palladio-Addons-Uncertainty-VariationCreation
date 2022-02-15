@@ -23,9 +23,9 @@ public class ModelResourceAbstraction implements ResourceAbstraction {
     }
 
     @Override
-    public EObject load(final String modelUri) {
+    public EObject load(final URI modelUri) {
         final ResourceSet resSet = new ResourceSetImpl();
-        final Resource res = resSet.getResource(URI.createURI(modelUri), true);
+        final Resource res = resSet.getResource(modelUri, true);
 
         return res.getContents()
             .get(0);

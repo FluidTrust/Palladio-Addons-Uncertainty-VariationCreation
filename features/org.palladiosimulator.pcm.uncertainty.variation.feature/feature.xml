@@ -22,19 +22,11 @@
       <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
       <import plugin="de.uka.ipd.sdq.stoex.edit"/>
       <import plugin="de.uka.ipd.sdq.units.edit"/>
+      <import plugin="tools.mdsd.library.emfeditutils" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="de.uka.ipd.sdq.identifier" version="5.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.pcm" version="5.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.osgi"/>
-      <import plugin="org.eclipse.ui" version="3.118.100" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.e4.core.services" version="2.2.500" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.workbench"/>
-      <import plugin="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jface"/>
    </requires>
 
    <plugin

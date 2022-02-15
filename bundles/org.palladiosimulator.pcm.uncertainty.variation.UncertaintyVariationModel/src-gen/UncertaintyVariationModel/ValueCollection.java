@@ -22,17 +22,18 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ValueCollection extends Value {
-    /**
-     * Returns the value of the '<em><b>Links</b></em>' reference list.
-     * The list contents are of type {@link de.uka.ipd.sdq.identifier.Identifier}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Links</em>' reference list.
-     * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getValueCollection_Links()
-     * @model
-     * @generated
-     */
-    EList<Identifier> getLinks();
+public interface ValueCollection extends Value
+{
+	/**
+	 * Returns the value of the '<em><b>Links</b></em>' reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.identifier.Identifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Links</em>' reference list.
+	 * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getValueCollection_Links()
+	 * @model
+	 * @generated
+	 */
+	EList<Identifier> getLinks();
 
 } // ValueCollection
