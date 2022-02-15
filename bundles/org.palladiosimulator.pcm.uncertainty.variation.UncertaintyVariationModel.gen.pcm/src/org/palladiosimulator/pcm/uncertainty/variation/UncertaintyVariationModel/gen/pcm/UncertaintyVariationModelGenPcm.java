@@ -25,8 +25,10 @@ public class UncertaintyVariationModelGenPcm {
      * @param uncertaintyModelUri
      *            specifies the uniform resource identifier (uri) which points to the uncertainty
      *            variation model to use. The uri must be of the platform type.
+     * @throws CoreException
+     *             if result directory can not be created in the case it does not exist
      */
-    public UncertaintyVariationModelGenPcm(final URI uncertaintyModelUri) {
+    public UncertaintyVariationModelGenPcm(final URI uncertaintyModelUri) throws CoreException {
         if (uncertaintyModelUri == null || !uncertaintyModelUri.isPlatform()) {
             LOGGER.error("uncertainty model uri must be of the platform type but is " + uncertaintyModelUri.toString());
             throw new IllegalArgumentException("uncertainty model uri must be of the platform type");

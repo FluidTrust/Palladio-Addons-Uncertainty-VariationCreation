@@ -2,6 +2,7 @@ package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationMode
 
 import java.util.Objects;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.UncertaintyVariationModelGenPcm;
@@ -21,9 +22,11 @@ public class UncertaintyWorkflowJob extends SequentialJob {
 
     @Override
     public void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
-        var generation = new UncertaintyVariationModelGenPcm(uri);
-        generation.generateVariations(monitor);
-
+        try {
+            var generation = new UncertaintyVariationModelGenPcm(uri);
+            generation.generateVariations(monitor);
+        } catch (CoreException e) {
+        }
     }
 
 }

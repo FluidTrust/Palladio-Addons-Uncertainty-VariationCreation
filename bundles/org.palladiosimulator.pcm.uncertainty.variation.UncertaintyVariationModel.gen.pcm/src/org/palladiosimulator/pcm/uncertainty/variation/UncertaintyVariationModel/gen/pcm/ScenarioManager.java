@@ -34,11 +34,14 @@ public class ScenarioManager {
      *            platform type. The pcm base models will be searched in the source subdirectory of
      *            the uri and the scenarios will be generated under the ../scenario subdirectory of
      *            the uri.
+     * @throws CoreException
+     *             if result directory can not be created in the case it does not exist
      */
-    public ScenarioManager(final URI modelBaseUri) {
+    public ScenarioManager(final URI modelBaseUri) throws CoreException {
         this.modelBaseUri = modelBaseUri.appendSegment("source");
         this.scenarioBaseUri = modelBaseUri.trimSegments(1)
             .appendSegment("scenario");
+        this.createFolder(scenarioBaseUri);
     }
 
     /**
@@ -50,6 +53,8 @@ public class ScenarioManager {
      *
      * @param progressMonitor
      * @throws CoreException
+     *             if existing configuration cannot be deleted or new configuration cannot be
+     *             generated
      */
     public void createCurrVariant(final int i, final IProgressMonitor progressMonitor) throws CoreException {
         this.currScenarioUri = this.scenarioBaseUri.appendSegment("configuration_" + i);
@@ -76,10 +81,7 @@ public class ScenarioManager {
      * @throws CoreException
      */
     public Map<String, List<EObject>> loadCurrVariantModels() throws CoreException {
-        final IPath configFolderPath = new Path(this.currScenarioUri.toPlatformString(true));
-        final IWorkspace workspace = ResourcesPlugin.getWorkspace();
-        final IFolder folder = workspace.getRoot()
-            .getFolder(configFolderPath);
+        final IFolder folder = translateUriToFolder(currScenarioUri);
         // initialize result;
         final Map<String, List<EObject>> models = new HashMap<String, List<EObject>>();
         for (final String modelType : this.knownVariingModelTypes) {
@@ -127,22 +129,31 @@ public class ScenarioManager {
     private void initializeCurrVariantFrom(final URI configurationUri, final URI srcUri,
             final IProgressMonitor progressMonitor) throws CoreException {
         final SubMonitor progressSubMonitor = SubMonitor.convert(progressMonitor, 100);
-        final IPath srcPath = new Path(srcUri.toPlatformString(true));
 
-        final IPath configurationPath = new Path(configurationUri.toPlatformString(true));
-
-        final IWorkspace workspace = ResourcesPlugin.getWorkspace();
-        final IFolder srcFolder = workspace.getRoot()
-            .getFolder(srcPath);
-
-        final IFolder configurationFolder = workspace.getRoot()
-            .getFolder(configurationPath);
+        final IFolder srcFolder = translateUriToFolder(srcUri);
+        final IFolder configurationFolder = translateUriToFolder(configurationUri);
         if (configurationFolder.exists()) {
             configurationFolder.delete(true, progressSubMonitor.newChild(50));
         }
 
+        final IPath configurationPath = new Path(configurationUri.toPlatformString(true));
         srcFolder.copy(configurationPath, true, progressSubMonitor.newChild(50));
         progressSubMonitor.done();
+    }
+
+    private IFolder translateUriToFolder(final URI uri) {
+        final IWorkspace workspace = ResourcesPlugin.getWorkspace();
+        final IPath path = new Path(uri.toPlatformString(true));
+        final IFolder folder = workspace.getRoot()
+            .getFolder(path);
+        return folder;
+    }
+
+    private void createFolder(final URI uri) throws CoreException {
+        IFolder folder = translateUriToFolder(uri);
+        if (!folder.exists()) {
+            folder.create(false, false, null);
+        }
     }
 
     private final URI modelBaseUri;
