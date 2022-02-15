@@ -166,7 +166,7 @@ public class ScenarioManager {
     private void createFolder(final URI uri) throws CoreException {
         final IFolder folder = this.translateUriToFolder(uri);
         if (!folder.exists()) {
-            folder.create(false, false, null);
+            folder.create(true, true, null);
         }
     }
 
