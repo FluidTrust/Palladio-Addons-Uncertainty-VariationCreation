@@ -7,6 +7,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
@@ -24,7 +25,7 @@ public class Execute extends AbstractHandler implements IHandler {
                 public void run(IProgressMonitor monitor) {
                     monitor.beginTask("generating variations", IProgressMonitor.UNKNOWN);
                     final UncertaintyVariationModelGenPcm generator = new UncertaintyVariationModelGenPcm(
-                            "platform:/resource/FluidTrust-CaseStudy");
+                            URI.createURI("platform:/resource/FluidTrust-CaseStudy/models/port.uncertaintyvariationmodel"));
                     generator.generateVariations(monitor);
                     monitor.done();
                 }

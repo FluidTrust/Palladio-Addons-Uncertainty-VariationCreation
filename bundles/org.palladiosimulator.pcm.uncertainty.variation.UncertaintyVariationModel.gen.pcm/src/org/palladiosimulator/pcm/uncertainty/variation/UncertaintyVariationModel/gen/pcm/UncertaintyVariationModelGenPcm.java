@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.net4j.util.om.monitor.SubMonitor;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
@@ -21,13 +22,13 @@ public class UncertaintyVariationModelGenPcm {
     /**
      * Constructor
      *
-     * @param baseUri
-     *            specifies the uniform resource identifier (uri) which points to the base project
-     *            for the varying. The uri must be of the platform type.
+     * @param uncertaintyModelUri
+     *            specifies the uniform resource identifier (uri) which points to the uncertainty
+     *            variation model to use. The uri must be of the platform type.
      */
-    public UncertaintyVariationModelGenPcm(final String baseUri) {
-        this.scenarioManager = new ScenarioManager(baseUri);
-        this.variationManager = new VariationManager(baseUri);
+    public UncertaintyVariationModelGenPcm(final URI uncertaintyModelUri) {
+        this.scenarioManager = new ScenarioManager(uncertaintyModelUri.trimSegments(1));
+        this.variationManager = new VariationManager(uncertaintyModelUri);
     }
 
     /**
@@ -39,7 +40,7 @@ public class UncertaintyVariationModelGenPcm {
     public void generateVariations(final IProgressMonitor progressMonitor) {
         try {
             final SubMonitor progressSubMonitor = SubMonitor.convert(progressMonitor);
-            final Statespace statespace = new Statespace(this.variationManager.loadUncertaintyVariantModel("port"));
+            final Statespace statespace = new Statespace(this.variationManager.loadUncertaintyVariantModel());
             this.scenarioManager.register(statespace.getModelTypes());
 
             int i = 0;

@@ -28,15 +28,17 @@ public class ScenarioManager {
     /**
      * Constructor
      *
-     * @param baseUri
-     *            specifies the uniform resource identifier (uri) which points to the base project
-     *            for the varying. The uri must be of the platform type. The pcm base models will be
-     *            searched in the models/source subdirectory of the uri and the scenarios will be
-     *            generated under the scenario subdirectory of the uri.
+     * @param modelBaseUri
+     *            specifies the uniform resource identifier (uri) which points to the folder in
+     *            which the uncertainty variation model is contained. The uri must be of the
+     *            platform type. The pcm base models will be searched in the source subdirectory of
+     *            the uri and the scenarios will be generated under the ../scenario subdirectory of
+     *            the uri.
      */
-    public ScenarioManager(final String baseUri) {
-        this.modelBaseUri = baseUri + "/models";
-        this.scenarioBaseUri = baseUri + "/scenario";
+    public ScenarioManager(final URI modelBaseUri) {
+        this.modelBaseUri = modelBaseUri.appendSegment("source");
+        this.scenarioBaseUri = modelBaseUri.trimSegments(1)
+            .appendSegment("scenario");
     }
 
     /**
@@ -50,8 +52,8 @@ public class ScenarioManager {
      * @throws CoreException
      */
     public void createCurrVariant(final int i, final IProgressMonitor progressMonitor) throws CoreException {
-        this.currScenarioUri = this.scenarioBaseUri + "/configuration_" + i;
-        this.initializeCurrVariantFrom(this.currScenarioUri, this.modelBaseUri + "/source", progressMonitor);
+        this.currScenarioUri = this.scenarioBaseUri.appendSegment("configuration_" + i);
+        this.initializeCurrVariantFrom(this.currScenarioUri, this.modelBaseUri, progressMonitor);
     }
 
     /**
@@ -74,8 +76,7 @@ public class ScenarioManager {
      * @throws CoreException
      */
     public Map<String, List<EObject>> loadCurrVariantModels() throws CoreException {
-        final URI configFolderUri = URI.createURI(this.currScenarioUri);
-        final IPath configFolderPath = new Path(configFolderUri.toPlatformString(true));
+        final IPath configFolderPath = new Path(this.currScenarioUri.toPlatformString(true));
         final IWorkspace workspace = ResourcesPlugin.getWorkspace();
         final IFolder folder = workspace.getRoot()
             .getFolder(configFolderPath);
@@ -88,7 +89,7 @@ public class ScenarioManager {
         // for each known model load instances
         for (final IResource resource : folder.members()) {
             if (models.containsKey(resource.getFileExtension())) {
-                final String modelUri = this.currScenarioUri + "/" + resource.getName();
+                final URI modelUri = this.currScenarioUri.appendSegment(resource.getName());
                 models.get(resource.getFileExtension())
                     .add(this.resourceAbstraction.load(modelUri));
             }
@@ -119,36 +120,34 @@ public class ScenarioManager {
      *
      * return the platform uri to the current variant.
      */
-    public String getCurrScenarioUri() {
+    public URI getCurrScenarioUri() {
         return this.currScenarioUri;
     }
 
-    private void initializeCurrVariantFrom(final String configurationUri, final String srcUri,
+    private void initializeCurrVariantFrom(final URI configurationUri, final URI srcUri,
             final IProgressMonitor progressMonitor) throws CoreException {
         final SubMonitor progressSubMonitor = SubMonitor.convert(progressMonitor, 100);
-        final URI folderUri = URI.createURI(srcUri);
-        final IPath folderPath = new Path(folderUri.toPlatformString(true));
+        final IPath srcPath = new Path(srcUri.toPlatformString(true));
 
-        final URI configFolderUri = URI.createURI(configurationUri);
-        final IPath configFolderPath = new Path(configFolderUri.toPlatformString(true));
+        final IPath configurationPath = new Path(configurationUri.toPlatformString(true));
 
         final IWorkspace workspace = ResourcesPlugin.getWorkspace();
-        final IFolder folder = workspace.getRoot()
-            .getFolder(folderPath);
+        final IFolder srcFolder = workspace.getRoot()
+            .getFolder(srcPath);
 
-        final IFolder configFolder = workspace.getRoot()
-            .getFolder(configFolderPath);
-        if (configFolder.exists()) {
-            configFolder.delete(true, progressSubMonitor.newChild(50));
+        final IFolder configurationFolder = workspace.getRoot()
+            .getFolder(configurationPath);
+        if (configurationFolder.exists()) {
+            configurationFolder.delete(true, progressSubMonitor.newChild(50));
         }
 
-        folder.copy(configFolderPath, true, progressSubMonitor.newChild(50));
+        srcFolder.copy(configurationPath, true, progressSubMonitor.newChild(50));
         progressSubMonitor.done();
     }
 
-    private final String modelBaseUri;
-    private final String scenarioBaseUri;
+    private final URI modelBaseUri;
+    private final URI scenarioBaseUri;
     private List<String> knownVariingModelTypes;
-    private String currScenarioUri;
+    private URI currScenarioUri;
     private ResourceAbstraction resourceAbstraction;
 }

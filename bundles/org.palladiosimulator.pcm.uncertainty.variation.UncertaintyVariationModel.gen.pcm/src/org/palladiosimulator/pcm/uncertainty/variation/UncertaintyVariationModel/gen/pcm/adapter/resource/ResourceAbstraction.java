@@ -2,6 +2,7 @@ package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationMode
 
 import java.io.IOException;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -12,7 +13,7 @@ public interface ResourceAbstraction {
     /**
      * 
      */
-    EObject load(String modelUri);
+    EObject load(URI modelUri);
 
     /**
      * 

@@ -2,6 +2,7 @@ package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationMode
 
 import java.util.Arrays;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ModelResourceAbstraction;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ResourceAbstraction;
@@ -13,13 +14,12 @@ public class VariationManager {
     /**
      * Constructor
      * 
-     * @param baseUri
-     *            specifies the uniform resource identifier (uri) which points to the base project
-     *            for the varying. The uri must be of the platform type. The uncertainty variation
-     *            model will be searched in the models subdirectory of the uri.
+     * @param uncertaintyVariationModel
+     *            specifies the uniform resource identifier (uri) which points to the uncertainty
+     *            variation model for the varying. The uri must be of the platform type.
      */
-    public VariationManager(final String baseUri) {
-        this.modelBaseUri = baseUri + "/models";
+    public VariationManager(final URI uncertaintyVariationModel) {
+        this.uncertaintyVaritionModel = uncertaintyVariationModel;
         this.resourceAbstraction = new ModelResourceAbstraction(Arrays.asList(UNCERTAINTY_VARAINT_MODEL_TYPE));
     }
 
@@ -27,17 +27,13 @@ public class VariationManager {
      * loadUncertaintyVariationModel loads and returns the specified uncertainty variant model of
      * the current project.
      * 
-     * @param name
-     *            specifies the name of the uncertainty variation model.
-     * 
      * @return the loaded uncertainty variation model.
      */
-    public EObject loadUncertaintyVariantModel(final String name) {
-        final String modelUri = this.modelBaseUri + "/" + name + "." + UNCERTAINTY_VARAINT_MODEL_TYPE;
-        return this.resourceAbstraction.load(modelUri);
+    public EObject loadUncertaintyVariantModel() {
+        return this.resourceAbstraction.load(uncertaintyVaritionModel);
     }
 
-    private final String modelBaseUri;
+    private final URI uncertaintyVaritionModel;
     private final ResourceAbstraction resourceAbstraction;
     private static final String UNCERTAINTY_VARAINT_MODEL_TYPE = "uncertaintyvariationmodel";
 
