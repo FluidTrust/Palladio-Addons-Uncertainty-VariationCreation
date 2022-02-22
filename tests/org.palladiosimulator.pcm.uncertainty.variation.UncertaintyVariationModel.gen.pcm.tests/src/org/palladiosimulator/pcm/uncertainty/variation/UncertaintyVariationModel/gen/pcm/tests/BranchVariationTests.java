@@ -36,7 +36,7 @@ class BranchVariationTests {
         final var variationManager = new VariationManager(uri);
         final List<URI> content = new ArrayList<>();
         content.add(URI.createFileURI("portSystem.repository"));
-        // content.add(URI.createFileURI("portUsageModel.usagemodel"));
+        content.add(URI.createFileURI("portUsageModel.usagemodel"));
 
         final var scenarioManager = new DummyScenarioManager(uri.trimSegments(1), sourceDirName, content);
         Logger logger = LoggerFactory.getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");
@@ -45,7 +45,7 @@ class BranchVariationTests {
         generator.generateVariations(new NullProgressMonitor());
 
         final List<Map<String, List<EObject>>> results = scenarioManager.getResults();
-        assertEquals(2, results.size());
+        assertEquals(4, results.size());
     }
 
 }
