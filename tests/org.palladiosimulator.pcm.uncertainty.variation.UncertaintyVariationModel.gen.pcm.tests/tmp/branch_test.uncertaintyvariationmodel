@@ -5,7 +5,4 @@
     <varyingSubjects xsi:type="seff:BranchAction" href="source/portSystem.repository#_677HcCp9EeyQUZAfFpKaVQ"/>
     <varyingSubjects xsi:type="seff:BranchAction" href="source/portSystem.repository#_r6hOc2DbEeyl27SGknjUFw"/>
   </variationPoints>
-  <variationPoints stateHandlerId="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.statehandler.pcm.BranchStateHandler">
-    <varyingSubjects xsi:type="usagemodel:Branch" href="source/portUsageModel.usagemodel#_KAECwCqDEeyQUZAfFpKaVQ"/>
-  </variationPoints>
 </UncertaintyVariationModel:UncertaintyVariations>
