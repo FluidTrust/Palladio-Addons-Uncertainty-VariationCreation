@@ -37,6 +37,7 @@ class AllocationVariationTests {
         final var variationManager = new VariationManager(uri);
         final List<URI> content = new ArrayList<>();
         content.add(URI.createFileURI("portAllocation.allocation"));
+        content.add(URI.createFileURI("portHardware.resourceenvironment"));
 
         final var scenarioManager = new DummyScenarioManager(uri.trimSegments(1), sourceDirName, content);
         final Logger logger = LoggerFactory.getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");

@@ -42,6 +42,7 @@ class AssemblyVarationTests {
         final var variationManager = new VariationManager(uri);
         final List<URI> content = new ArrayList<>();
         content.add(URI.createFileURI("portSystem.repository"));
+        content.add(URI.createFileURI("portSystem2.repository"));
         content.add(URI.createFileURI("portSystem.system"));
 
         final var scenarioManager = new DummyScenarioManager(uri.trimSegments(1), sourceDirName, content);
