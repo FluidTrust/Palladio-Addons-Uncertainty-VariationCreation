@@ -1,11 +1,16 @@
 package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
@@ -19,6 +24,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.net4j.util.om.monitor.SubMonitor;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ModelResourceAbstraction;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ResourceAbstraction;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.StatespaceIterator;
 
 /**
  * ConcreteScenarioManager realizes the management of the scenarios generated from the pcm through
@@ -50,6 +57,7 @@ public class ConcreteScenarioManager implements ScenarioManager {
         this.scenariosBaseUri = modelBaseUri.trimSegments(1)
             .appendSegment(resultDirName);
         this.createFolder(this.scenariosBaseUri);
+        this.createCsvFile(this.scenariosBaseUri);
         this.variantPrefixName = variantDirName + "_";
     }
 
@@ -90,6 +98,7 @@ public class ConcreteScenarioManager implements ScenarioManager {
      *
      * @return a map between model type as string and loaded models of this type
      * @throws CoreException
+     *             if the result directory or its content can not be reached
      */
     @Override
     public Map<String, List<EObject>> loadCurrVariantModels() throws CoreException {
@@ -119,6 +128,7 @@ public class ConcreteScenarioManager implements ScenarioManager {
      * @param models
      *            specifies the models that shall be stored
      * @throws IOException
+     *             if writing of one of the models fails
      */
     @Override
     public void storeCurrVariantModels(final Map<String, List<EObject>> models) throws IOException {
@@ -137,6 +147,53 @@ public class ConcreteScenarioManager implements ScenarioManager {
     @Override
     public URI getCurrVariantUri() {
         return this.currVariantUri;
+    }
+
+    /**
+     * writes the different variation points into the report
+     *
+     * @param statespace
+     *            the statespace to report
+     * @param progressMonitor
+     *            progress monitor for status reporting
+     * @throws CoreException
+     *             if the writing into the report fails
+     */
+    @Override
+    public void reportsVariationPoints(final Statespace statespace, final IProgressMonitor progressMonitor)
+            throws CoreException {
+        final List<String> columns = new ArrayList<>();
+        columns.add("variations");
+        columns.addAll(statespace.getDimensions());
+
+        final String content = String.join(";", columns) + "\n";
+
+        final InputStream stream = new ByteArrayInputStream(content.getBytes());
+        this.csvReport.appendContents(stream, 0, progressMonitor);
+    }
+
+    /**
+     * writes the current state of the statespace iterator into the report
+     *
+     * @param it
+     *            the StatespaceIterator to report
+     * @param progressMonitor
+     *            progress monitor for status reporting
+     * @throws CoreException
+     *             if the writing into the report fails
+     */
+    @Override
+    public void reportVariation(final StatespaceIterator it, final IProgressMonitor progressMonitor)
+            throws CoreException {
+        final List<String> columns = new ArrayList<>();
+        columns.add(this.getCurrVariantUri()
+            .lastSegment());
+        columns.addAll(it.getCurrentState());
+
+        final String content = String.join(";", columns) + "\n";
+
+        final InputStream stream = new ByteArrayInputStream(content.getBytes());
+        this.csvReport.appendContents(stream, 0, progressMonitor);
     }
 
     private void setCurrVariantUri(final int idx) {
@@ -174,10 +231,25 @@ public class ConcreteScenarioManager implements ScenarioManager {
         }
     }
 
+    private void createCsvFile(final URI uri) throws CoreException {
+        final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm");
+        final LocalDateTime now = LocalDateTime.now();
+        final IWorkspace workspace = ResourcesPlugin.getWorkspace();
+        final URI csv = uri.appendSegment("report_" + dtf.format(now) + ".csv");
+        final IPath path = new Path(csv.toPlatformString(true));
+        this.csvReport = workspace.getRoot()
+            .getFile(path);
+
+        final String content = "";
+        final InputStream stream = new ByteArrayInputStream(content.getBytes());
+        this.csvReport.create(stream, false, null);
+    }
+
     private final String variantPrefixName;
     private final URI modelBaseUri;
     private final URI scenariosBaseUri;
     private List<String> knownVariingModelTypes;
     private URI currVariantUri;
     private ResourceAbstraction resourceAbstraction;
+    private IFile csvReport;
 }

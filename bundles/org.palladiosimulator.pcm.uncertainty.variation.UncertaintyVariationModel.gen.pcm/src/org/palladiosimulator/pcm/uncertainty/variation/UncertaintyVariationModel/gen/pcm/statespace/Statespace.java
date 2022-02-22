@@ -3,6 +3,7 @@ package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationMode
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -79,6 +80,19 @@ public class Statespace {
     public int getNumberOfDimensions() {
         return this.uncertaintyVariations.getVariationPoints()
             .size();
+    }
+
+    /**
+     * returns dimension as a named list
+     *
+     * @return list containing the names of the different variation points.
+     */
+    public List<String> getDimensions() {
+        final var res = IntStream.range(0, this.getNumberOfDimensions())
+            .boxed()
+            .map(it -> "Variation Point " + it)
+            .collect(Collectors.toList());
+        return res;
     }
 
     /**

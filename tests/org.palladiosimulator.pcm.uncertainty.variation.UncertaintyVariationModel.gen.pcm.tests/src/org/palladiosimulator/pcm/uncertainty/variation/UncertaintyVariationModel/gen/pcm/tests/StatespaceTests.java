@@ -2,6 +2,7 @@ package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationMode
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -29,6 +30,11 @@ class StatespaceTests {
         assertThrows(IllegalArgumentException.class, () -> {
             statespace.getSizeOfDimension(0);
         });
+
+        assertTrue(statespace.getDimensions()
+            .isEmpty());
+        assertTrue(it.getCurrentState()
+            .isEmpty());
 
         for (final var it2 = statespace.iterator(); it2.hasNext(); it2.next()) {
             fail("this should never be reached");

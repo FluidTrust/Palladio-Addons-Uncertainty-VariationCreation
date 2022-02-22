@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ScenarioManager;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ModelResourceAbstraction;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ResourceAbstraction;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.StatespaceIterator;
 
 public class DummyScenarioManager implements ScenarioManager {
     public DummyScenarioManager(final URI modelBaseUri, final String sourceDirName, final List<URI> content) {
@@ -72,5 +74,19 @@ public class DummyScenarioManager implements ScenarioManager {
 
     public List<Map<String, List<EObject>>> getResults() {
         return this.results;
+    }
+
+    @Override
+    public void reportsVariationPoints(final Statespace statespace, final IProgressMonitor progressMonitor)
+            throws CoreException {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void reportVariation(final StatespaceIterator it, final IProgressMonitor progressMonitor)
+            throws CoreException {
+        // TODO Auto-generated method stub
+
     }
 }

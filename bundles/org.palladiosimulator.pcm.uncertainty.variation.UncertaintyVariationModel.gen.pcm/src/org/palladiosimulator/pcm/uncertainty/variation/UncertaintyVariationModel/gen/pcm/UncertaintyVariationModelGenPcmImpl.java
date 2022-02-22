@@ -43,13 +43,15 @@ public class UncertaintyVariationModelGenPcmImpl {
             final SubMonitor progressSubMonitor = SubMonitor.convert(progressMonitor);
             final Statespace statespace = new Statespace(this.variationManager.loadUncertaintyVariantModel());
             this.scenarioManager.register(statespace.getModelTypes());
+            this.scenarioManager.reportsVariationPoints(statespace, progressSubMonitor.newChild(50));
 
             int i = 0;
             for (final StatespaceIterator it = statespace.iterator(); it.hasNext(); it.next()) {
                 final SubMonitor iterationMonitor = progressSubMonitor.setWorkRemaining(100)
                     .newChild(1);
                 iterationMonitor.subTask("generating scenario " + i);
-                this.scenarioManager.createCurrVariant(i, iterationMonitor);
+                this.scenarioManager.createCurrVariant(i, iterationMonitor.newChild(50));
+                this.scenarioManager.reportVariation(it, iterationMonitor.newChild(50));
                 final Map<String, List<EObject>> models = this.scenarioManager.loadCurrVariantModels();
                 it.patchModels(models);
                 this.scenarioManager.storeCurrVariantModels(models);

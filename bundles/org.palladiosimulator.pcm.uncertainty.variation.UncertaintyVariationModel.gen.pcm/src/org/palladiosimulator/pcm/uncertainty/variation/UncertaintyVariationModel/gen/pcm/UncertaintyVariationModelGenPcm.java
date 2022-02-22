@@ -50,8 +50,8 @@ public class UncertaintyVariationModelGenPcm {
         VariationManager.validate(uncertaintyModelUri, logger);
         // final ResourceAbstraction resourceAbstraction = new ModelResourceAbstraction(null);
         final var variationManager = new VariationManager(uncertaintyModelUri);
-        final var scenarioManager = new ConcreteScenarioManager(uncertaintyModelUri.trimSegments(1), sourceDirName,
-                resultDirName, variantDirName);
+        final ScenarioManager scenarioManager = new ConcreteScenarioManager(uncertaintyModelUri.trimSegments(1),
+                sourceDirName, resultDirName, variantDirName);
 
         this.impl = new UncertaintyVariationModelGenPcmImpl(scenarioManager, variationManager, logger);
     }

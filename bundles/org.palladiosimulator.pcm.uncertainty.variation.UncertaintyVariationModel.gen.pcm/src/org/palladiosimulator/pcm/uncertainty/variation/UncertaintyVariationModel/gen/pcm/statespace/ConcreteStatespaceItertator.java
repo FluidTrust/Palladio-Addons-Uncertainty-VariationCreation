@@ -3,6 +3,7 @@ package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationMode
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -74,4 +75,12 @@ class ConcreteStatespaceItertator implements StatespaceIterator {
 
     private final Statespace statespace;
     private final List<Integer> indices;
+
+    @Override
+    public List<String> getCurrentState() {
+        final var res = this.indices.stream()
+            .map(it -> String.valueOf(it))
+            .collect(Collectors.toList());
+        return res;
+    }
 }

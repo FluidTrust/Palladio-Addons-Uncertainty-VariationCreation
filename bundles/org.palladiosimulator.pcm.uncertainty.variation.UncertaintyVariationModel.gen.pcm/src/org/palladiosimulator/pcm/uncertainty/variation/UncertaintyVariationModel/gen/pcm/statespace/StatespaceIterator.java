@@ -29,4 +29,11 @@ public interface StatespaceIterator {
      *            the models
      */
     public void patchModels(Map<String, List<EObject>> models);
+
+    /**
+     * return the current state of the StatespaceIterator
+     *
+     * @return list containing the state for each dimension
+     */
+    public List<String> getCurrentState();
 }

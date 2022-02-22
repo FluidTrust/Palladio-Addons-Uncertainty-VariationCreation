@@ -8,6 +8,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.StatespaceIterator;
 
 public interface ScenarioManager {
 
@@ -40,6 +42,7 @@ public interface ScenarioManager {
      *
      * @return a map between model type as string and loaded models of this type
      * @throws CoreException
+     *             if the result directory or its content can not be reached
      */
     Map<String, List<EObject>> loadCurrVariantModels() throws CoreException;
 
@@ -49,6 +52,7 @@ public interface ScenarioManager {
      * @param models
      *            specifies the models that shall be stored
      * @throws IOException
+     *             if writing of one of the models fails
      */
     void storeCurrVariantModels(Map<String, List<EObject>> models) throws IOException;
 
@@ -58,5 +62,30 @@ public interface ScenarioManager {
      * return the platform uri to the current variant.
      */
     URI getCurrVariantUri();
+
+    /**
+     * writes the different variation points into the report
+     *
+     * @param statespace
+     *            the statespace to report
+     * @param progressMonitor
+     *            progress monitor for status reporting
+     * @throws CoreException
+     *             if the writing into the report fails
+     */
+    void reportsVariationPoints(final Statespace statespace, final IProgressMonitor progressMonitor)
+            throws CoreException;
+
+    /**
+     * writes the current state of the statespace iterator into the report
+     *
+     * @param it
+     *            the StatespaceIterator to report
+     * @param progressMonitor
+     *            progress monitor for status reporting
+     * @throws CoreException
+     *             if the writing into the report fails
+     */
+    void reportVariation(final StatespaceIterator it, final IProgressMonitor progressMonitor) throws CoreException;
 
 }

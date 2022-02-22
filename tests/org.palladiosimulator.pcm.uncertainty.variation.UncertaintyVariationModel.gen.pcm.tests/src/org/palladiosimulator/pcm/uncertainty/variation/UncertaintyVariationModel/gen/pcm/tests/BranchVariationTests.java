@@ -39,7 +39,7 @@ class BranchVariationTests {
         content.add(URI.createFileURI("portUsageModel.usagemodel"));
 
         final var scenarioManager = new DummyScenarioManager(uri.trimSegments(1), sourceDirName, content);
-        Logger logger = LoggerFactory.getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");
+        final Logger logger = LoggerFactory.getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");
 
         final var generator = new UncertaintyVariationModelGenPcmImpl(scenarioManager, variationManager, logger);
         generator.generateVariations(new NullProgressMonitor());
