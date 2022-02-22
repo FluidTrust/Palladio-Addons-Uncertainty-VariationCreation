@@ -18,7 +18,7 @@ import UncertaintyVariationModel.statehandler.StateHandlerFactory;
 public class Statespace {
     /**
      * Constructor
-     * 
+     *
      * @param uncertaintyVariationModel
      *            the uncertainty variation model for this Statespace
      * @throws IllegalStateException
@@ -36,11 +36,11 @@ public class Statespace {
 
     /**
      * returns the names of the model types used by the statehandlers of the various variant points
-     * 
+     *
      * @return list of names of model types which are used by one of the statehandlers
      */
     public List<String> getModelTypes() {
-        return stateHandlers.stream()
+        return this.stateHandlers.stream()
             .flatMap(hnd -> hnd.getModelTypes()
                 .stream())
             .distinct()
@@ -49,7 +49,7 @@ public class Statespace {
 
     /**
      * creates and returns an iterator for traversing this Statespace
-     * 
+     *
      * @return iterator for this Statespace
      */
     public StatespaceIterator iterator() {
@@ -58,7 +58,7 @@ public class Statespace {
 
     /**
      * patches the models affected by the dimension with the current variation.
-     * 
+     *
      * @param models
      *            the models which are used by one of the statehandlers
      * @param dimension
@@ -73,7 +73,7 @@ public class Statespace {
 
     /**
      * returns the dimension (cardinality) of the Statespace
-     * 
+     *
      * @return the number of different Variation Points
      */
     public int getNumberOfDimensions() {
@@ -83,7 +83,7 @@ public class Statespace {
 
     /**
      * return the size of a specific dimension
-     * 
+     *
      * @param dimension
      *            the specific dimension
      * @return the number of variations in a specific dimension

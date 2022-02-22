@@ -1,16 +1,8 @@
 package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.net4j.util.om.monitor.SubMonitor;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.StatespaceIterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,11 +46,14 @@ public class UncertaintyVariationModelGenPcm {
      */
     public UncertaintyVariationModelGenPcm(final URI uncertaintyModelUri, final String sourceDirName,
             final String resultDirName, final String variantDirName) throws CoreException {
-        VariationManager.validate(uncertaintyModelUri, this.logger);
+        final Logger logger = LoggerFactory.getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");
+        VariationManager.validate(uncertaintyModelUri, logger);
         // final ResourceAbstraction resourceAbstraction = new ModelResourceAbstraction(null);
-        this.variationManager = new VariationManager(uncertaintyModelUri);
-        this.scenarioManager = new ScenarioManager(uncertaintyModelUri.trimSegments(1), sourceDirName, resultDirName,
-                variantDirName);
+        final var variationManager = new VariationManager(uncertaintyModelUri);
+        final var scenarioManager = new ConcreteScenarioManager(uncertaintyModelUri.trimSegments(1), sourceDirName,
+                resultDirName, variantDirName);
+
+        this.impl = new UncertaintyVariationModelGenPcmImpl(scenarioManager, variationManager, logger);
     }
 
     /**
@@ -69,32 +64,8 @@ public class UncertaintyVariationModelGenPcm {
      *            progress monitor for status reporting
      */
     public void generateVariations(final IProgressMonitor progressMonitor) {
-        try {
-            final SubMonitor progressSubMonitor = SubMonitor.convert(progressMonitor);
-            final Statespace statespace = new Statespace(this.variationManager.loadUncertaintyVariantModel());
-            this.scenarioManager.register(statespace.getModelTypes());
-
-            int i = 0;
-            for (final StatespaceIterator it = statespace.iterator(); it.hasNext(); it.next()) {
-                final SubMonitor iterationMonitor = progressSubMonitor.setWorkRemaining(100)
-                    .newChild(1);
-                iterationMonitor.subTask("generating scenario " + i);
-                this.scenarioManager.createCurrVariant(i, iterationMonitor);
-                final Map<String, List<EObject>> models = this.scenarioManager.loadCurrVariantModels();
-                it.patchModels(models);
-                this.scenarioManager.storeCurrVariantModels(models);
-                ++i;
-            }
-        } catch (final CoreException e) {
-            this.logger.error("Ressource not found", e);
-        } catch (final IOException e) {
-            this.logger.error("cannot write model", e);
-        } catch (final IllegalStateException e) {
-            this.logger.error("uncertainty variation model misformed: ", e);
-        }
+        this.impl.generateVariations(progressMonitor);
     }
 
-    private final ScenarioManager scenarioManager;
-    private final VariationManager variationManager;
-    private final Logger logger = LoggerFactory.getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");
+    private final UncertaintyVariationModelGenPcmImpl impl;
 }

@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface StatespaceIterator {
     /**
      * tests and returns whether the Statespace has not yet been completely traversaled
-     * 
+     *
      * @return true if it has not yet been completely traversaled otherwise false
      */
     public boolean hasNext();
@@ -24,7 +24,7 @@ public interface StatespaceIterator {
 
     /**
      * patches the models with the current variation
-     * 
+     *
      * @param models
      *            the models
      */

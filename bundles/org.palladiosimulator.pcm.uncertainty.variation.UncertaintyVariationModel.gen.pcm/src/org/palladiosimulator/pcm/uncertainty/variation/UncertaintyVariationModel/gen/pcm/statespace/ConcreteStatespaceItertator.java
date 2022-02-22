@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 class ConcreteStatespaceItertator implements StatespaceIterator {
     /**
      * Constructor
-     * 
+     *
      * @param statespace
      *            the statespace to traversal
      */
