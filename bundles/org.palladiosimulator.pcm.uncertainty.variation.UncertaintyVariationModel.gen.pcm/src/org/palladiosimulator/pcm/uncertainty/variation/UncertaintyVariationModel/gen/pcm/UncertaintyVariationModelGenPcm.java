@@ -27,6 +27,8 @@ public class UncertaintyVariationModelGenPcm {
      *            variation model to use. The uri must be of the platform type.
      * @throws CoreException
      *             if result directory can not be created in the case it does not exist
+     * @throws IllegalArgumentException
+     *             if the given URI of the uncertainty variation model is valid
      */
     public UncertaintyVariationModelGenPcm(final URI uncertaintyModelUri) throws CoreException {
         this(uncertaintyModelUri, "source", "scenarios", "configuration");
@@ -34,7 +36,7 @@ public class UncertaintyVariationModelGenPcm {
 
     /**
      * Constructor
-     * 
+     *
      * @param uncertaintyModelUri
      *            specifies the uniform resource identifier (uri) which points to the uncertainty
      *            variation model to use. The uri must be of the platform type.
@@ -47,24 +49,24 @@ public class UncertaintyVariationModelGenPcm {
      *            name of the directory in which one variant will be saved in
      * @throws CoreException
      *             if result directory can not be created in the case it does not exist
+     * @throws IllegalArgumentException
+     *             if the given URI of the uncertainty variation model is valid
      */
-    public UncertaintyVariationModelGenPcm(final URI uncertaintyModelUri, String sourceDirName, String resultDirName,
-            String variantDirName) throws CoreException {
-        if (uncertaintyModelUri == null || !uncertaintyModelUri.isPlatform()) {
-            LOGGER.error("uncertainty model uri must be of the platform type but is " + uncertaintyModelUri.toString());
-            throw new IllegalArgumentException("uncertainty model uri must be of the platform type");
-        }
-
+    public UncertaintyVariationModelGenPcm(final URI uncertaintyModelUri, final String sourceDirName,
+            final String resultDirName, final String variantDirName) throws CoreException {
+        VariationManager.validate(uncertaintyModelUri, this.logger);
+        // final ResourceAbstraction resourceAbstraction = new ModelResourceAbstraction(null);
+        this.variationManager = new VariationManager(uncertaintyModelUri);
         this.scenarioManager = new ScenarioManager(uncertaintyModelUri.trimSegments(1), sourceDirName, resultDirName,
                 variantDirName);
-        this.variationManager = new VariationManager(uncertaintyModelUri);
     }
 
     /**
-     * generateVariations generates the different scenarios, which will found under scenario
-     * directory of the current project, from the pcm based on the uncertainty variation model.
+     * generates the different scenarios, which will found under scenario directory of the current
+     * project, from the pcm based on the uncertainty variation model.
      *
      * @param progressMonitor
+     *            progress monitor for status reporting
      */
     public void generateVariations(final IProgressMonitor progressMonitor) {
         try {
@@ -84,16 +86,15 @@ public class UncertaintyVariationModelGenPcm {
                 ++i;
             }
         } catch (final CoreException e) {
-            LOGGER.error("Ressource not found", e);
+            this.logger.error("Ressource not found", e);
         } catch (final IOException e) {
-            LOGGER.error("cannot write model", e);
+            this.logger.error("cannot write model", e);
         } catch (final IllegalStateException e) {
-            LOGGER.error("uncertainty model misformed", e);
+            this.logger.error("uncertainty variation model misformed: ", e);
         }
     }
 
     private final ScenarioManager scenarioManager;
     private final VariationManager variationManager;
-    private static final Logger LOGGER = LoggerFactory
-        .getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");
+    private final Logger logger = LoggerFactory.getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");
 }

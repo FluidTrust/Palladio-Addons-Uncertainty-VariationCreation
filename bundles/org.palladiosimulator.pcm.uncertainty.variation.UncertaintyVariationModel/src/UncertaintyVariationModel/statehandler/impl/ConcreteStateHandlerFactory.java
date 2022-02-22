@@ -12,13 +12,13 @@ public class ConcreteStateHandlerFactory implements StateHandlerFactory {
     /**
      * Constructor
      */
-    public ConcreteStateHandlerFactory() {
+    private ConcreteStateHandlerFactory() {
     }
 
     /**
-     * init creates and return the instance of the concrete StateHandlerFactory.
+     * creates and return the instance of the concrete StateHandlerFactory.
      * 
-     * @return the created concreate StateHandlerFactory
+     * @return the created concrete StateHandlerFactory
      */
     public static StateHandlerFactory init() {
         return new ConcreteStateHandlerFactory();
