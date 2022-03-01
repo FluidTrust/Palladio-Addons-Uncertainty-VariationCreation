@@ -24,12 +24,13 @@ public abstract class GenericStateHandler implements StateHandler {
             int variationIdx);
 
     /**
-     * resolve finds an optional model element in the container that corresponds to element.
+     * finds an optional model element in the container which corresponds to the element.
      * 
      * @param container
      *            the container to search in
      * @param element
-     * @return the model element that corresponds the element or empty
+     *            the search specification
+     * @return the model element that corresponds the element otherwise empty
      */
     protected Optional<EObject> resolve(final EObject container, final Identifier element) {
         return this.findInstance(container, currObj -> currObj instanceof Identifier,
@@ -37,6 +38,18 @@ public abstract class GenericStateHandler implements StateHandler {
                     .equalsIgnoreCase(element.getId()));
     }
 
+    /**
+     * finds optional model elements in the container which corresponds to each given element in
+     * elements.
+     * 
+     * @param container
+     *            the container to search in
+     * @param elements
+     *            the search specifications
+     * @return list with model elements that corresponds to an element otherwise empty. The
+     *         resulting list will have the same number of of elements as number of elements to be
+     *         searched.
+     */
     protected List<Optional<EObject>> reslove(final EObject container, final List<Identifier> elements) {
         List<Optional<EObject>> result = new ArrayList<>();
         for (final Identifier element : elements) {
@@ -46,6 +59,16 @@ public abstract class GenericStateHandler implements StateHandler {
         return result;
     }
 
+    /**
+     * finds an optional model element in the first container that contains it which corresponds to
+     * the element.
+     * 
+     * @param containers
+     *            the containers to search in
+     * @param element
+     *            the search specification
+     * @return the model element that corresponds the element otherwise empty
+     */
     protected Optional<EObject> resolve(final List<EObject> containers, final Identifier element) {
         Optional<EObject> resolved = Optional.empty();
         for (final EObject container : containers) {
@@ -59,10 +82,16 @@ public abstract class GenericStateHandler implements StateHandler {
     }
 
     /**
+     * finds optional model elements in the first container that contains it which corresponds to
+     * each given element in elements.
      * 
      * @param containers
+     *            the containers to search in
      * @param elements
-     * @return
+     *            the search specifications
+     * @return list with model elements that corresponds to an element otherwise empty. The
+     *         resulting list will have the same number of of elements as number of elements to be
+     *         searched.
      */
     protected List<Optional<EObject>> resolve(final List<EObject> containers, final List<Identifier> elements) {
         List<Optional<EObject>> result = new ArrayList<>();
@@ -73,8 +102,8 @@ public abstract class GenericStateHandler implements StateHandler {
     }
 
     /**
-     * findInstance finds an optional model element in the container that fulfills the type filter
-     * and the valueFilter.
+     * finds an optional model element in the container that fulfills the type filter and the
+     * valueFilter.
      * 
      * @param <T>
      *            the type of the model element

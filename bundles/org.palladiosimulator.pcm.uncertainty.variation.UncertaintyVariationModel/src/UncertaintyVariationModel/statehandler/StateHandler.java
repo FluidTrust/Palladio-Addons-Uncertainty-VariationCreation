@@ -13,7 +13,7 @@ import UncertaintyVariationModel.VariationPoint;
  */
 public interface StateHandler {
     /**
-     * getSizeOfDimension computes and return the size of a VariationPoints variation space.
+     * computes and return the size of a VariationPoints variation space.
      * 
      * @param variationPoint
      *            the current VariationPoint
@@ -22,14 +22,14 @@ public interface StateHandler {
     public int getSizeOfDimension(VariationPoint variationPoint);
 
     /**
-     * getModelTypes returns a list of models which the StateHandler uses.
+     * returns a list of models which the StateHandler uses.
      * 
      * @return list of the names of the used models. It is never empty.
      */
     public List<String> getModelTypes();
 
     /**
-     * patchModelWith patches the models with a VariationPoints variationIdx variation.
+     * patches the models with a VariationPoints variationIdx variation.
      * 
      * @param models
      *            the models which are uses by one of the StateHandlers

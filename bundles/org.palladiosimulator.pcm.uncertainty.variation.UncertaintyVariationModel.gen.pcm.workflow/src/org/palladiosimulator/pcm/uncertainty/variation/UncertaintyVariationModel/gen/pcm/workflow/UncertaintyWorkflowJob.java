@@ -23,7 +23,7 @@ public class UncertaintyWorkflowJob extends SequentialJob {
     @Override
     public void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
         try {
-            var generation = new UncertaintyVariationModelGenPcm(uri);
+            UncertaintyVariationModelGenPcm generation = new UncertaintyVariationModelGenPcm(uri);
             generation.generateVariations(monitor);
         } catch (CoreException e) {
         }
