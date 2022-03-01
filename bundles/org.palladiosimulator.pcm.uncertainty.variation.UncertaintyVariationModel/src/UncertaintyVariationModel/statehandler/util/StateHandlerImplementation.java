@@ -14,8 +14,7 @@ import UncertaintyVariationModel.statehandler.StateHandler;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
- * StateHandlerImplementation realizes the access to and queries on the StateHandler Implementation
- * extension point.
+ * realizes the access to and queries on the StateHandler Implementation extension point.
  *
  */
 public class StateHandlerImplementation {
@@ -26,7 +25,7 @@ public class StateHandlerImplementation {
     }
 
     /**
-     * getImplementionOf creates and returns an optional implementation corresponding to a given id.
+     * creates and returns an optional implementation corresponding to a given id.
      *
      * @param stateHandlerId
      *            the id of the implementation
@@ -41,7 +40,7 @@ public class StateHandlerImplementation {
     }
 
     /**
-     * getIds returns all known ids.
+     * returns all known ids.
      *
      * @return list of ids corresponding to the StateHandler implementations
      */
@@ -52,8 +51,7 @@ public class StateHandlerImplementation {
     }
 
     /**
-     * isAccecptedSubjectByImplementation returns the decision whether or not a subject is accepted
-     * by the current implementation.
+     * returns the decision whether or not a subject is accepted by the current implementation.
      *
      * @param stateHandlerId
      *            the id of the current implementation
@@ -70,8 +68,7 @@ public class StateHandlerImplementation {
     }
 
     /**
-     * isAccecptedLinkByImplementation returns the decision whether or not a link is accepted by the
-     * current implementation.
+     * returns the decision whether or not a link is accepted by the current implementation.
      *
      * @param stateHandlerId
      *            the id of the current implementation

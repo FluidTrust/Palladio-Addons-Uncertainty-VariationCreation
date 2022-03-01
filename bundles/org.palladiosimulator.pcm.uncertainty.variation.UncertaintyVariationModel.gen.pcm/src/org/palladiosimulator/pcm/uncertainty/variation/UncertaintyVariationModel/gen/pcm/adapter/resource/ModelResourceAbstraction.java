@@ -15,6 +15,11 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 public class ModelResourceAbstraction implements ResourceAbstraction {
     public ModelResourceAbstraction(final List<String> knownModelTypes) {
+        updateRegisteredModels(knownModelTypes);
+    }
+
+    @Override
+    public void updateRegisteredModels(final List<String> knownModelTypes) {
         final Registry reg = Registry.INSTANCE;
         final Map<String, Object> m = reg.getContentTypeToFactoryMap();
         for (final String model : knownModelTypes) {
