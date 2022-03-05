@@ -22,7 +22,6 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.net4j.util.om.monitor.SubMonitor;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ModelResourceAbstraction;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ResourceAbstraction;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.StatespaceIterator;
@@ -48,14 +47,43 @@ public class ConcreteScenarioManager implements ScenarioManager {
      *            name of the directory in which the all variants will be saved in
      * @param variantDirName
      *            name of the directory in which one variant will be saved in
+     * @param resourceAbstraction
+     *            the abstraction layer for the models loading and storing mechanism
      * @throws CoreException
      *             if result directory can not be created in the case it does not exist
      */
     public ConcreteScenarioManager(final URI modelBaseUri, final String sourceDirName, final String resultDirName,
-            final String variantDirName) throws CoreException {
+            final String variantDirName, ResourceAbstraction resourceAbstraction) throws CoreException {
+        this(modelBaseUri, sourceDirName, modelBaseUri.trimSegments(1)
+            .appendSegment(resultDirName), variantDirName, resourceAbstraction);
+    }
+
+    /**
+     * Constructor
+     *
+     * @param modelBaseUri
+     *            specifies the uniform resource identifier (uri) which points to the folder in
+     *            which the uncertainty variation model is contained. The uri must be of the
+     *            platform type. The pcm base models will be searched in the sourceDir sub-directory
+     *            of the uri.
+     * @param sourceDirName
+     *            name of the directory in which the model templates for the variants will be
+     *            searched in.
+     * @param resultUri
+     *            specifies the uniform resource identifier (uri) which points to the folder in
+     *            which which the scenarios will be generated
+     * @param variantDirName
+     *            name of the directory in which one variant will be saved in
+     * @param resourceAbstraction
+     *            the abstraction layer for the models loading and storing mechanism
+     * @throws CoreException
+     *             if result directory can not be created in the case it does not exist
+     */
+    public ConcreteScenarioManager(final URI modelBaseUri, final String sourceDirName, final URI resultUri,
+            final String variantDirName, ResourceAbstraction resourceAbstraction) throws CoreException {
+        this.resourceAbstraction = resourceAbstraction;
         this.modelBaseUri = modelBaseUri.appendSegment(sourceDirName);
-        this.scenariosBaseUri = modelBaseUri.trimSegments(1)
-            .appendSegment(resultDirName);
+        this.scenariosBaseUri = resultUri;
         this.createFolder(this.scenariosBaseUri);
         this.createCsvFile(this.scenariosBaseUri);
         this.variantPrefixName = variantDirName + "_";
@@ -88,7 +116,7 @@ public class ConcreteScenarioManager implements ScenarioManager {
     @Override
     public void register(final List<String> knownVariingModelTypes) {
         this.knownVariingModelTypes = knownVariingModelTypes;
-        this.resourceAbstraction = new ModelResourceAbstraction(this.knownVariingModelTypes);
+        this.resourceAbstraction.updateRegisteredModels(this.knownVariingModelTypes);
     }
 
     /**
@@ -150,7 +178,7 @@ public class ConcreteScenarioManager implements ScenarioManager {
     }
 
     /**
-     * writes the different variation points into the report
+     * writes the different variation points into the reports
      *
      * @param statespace
      *            the statespace to report
@@ -162,18 +190,15 @@ public class ConcreteScenarioManager implements ScenarioManager {
     @Override
     public void reportsVariationPoints(final Statespace statespace, final IProgressMonitor progressMonitor)
             throws CoreException {
-        final List<String> columns = new ArrayList<>();
-        columns.add("variations");
-        columns.addAll(statespace.getDimensions());
-
-        final String content = String.join(";", columns) + "\n";
-
-        final InputStream stream = new ByteArrayInputStream(content.getBytes());
-        this.csvReport.appendContents(stream, 0, progressMonitor);
+        final var variantHeader = "variations";
+        final InputStream streamCompact = this.convertStatesToIStream(variantHeader, statespace.getDimensions());
+        this.csvReportCompact.appendContents(streamCompact, 0, progressMonitor);
+        final InputStream streamVerbose = this.convertStatesToIStream(variantHeader, statespace.getDimensions());
+        this.csvReportVerbose.appendContents(streamVerbose, 0, progressMonitor);
     }
 
     /**
-     * writes the current state of the statespace iterator into the report
+     * writes the current state of the statespace iterator into the reports
      *
      * @param it
      *            the StatespaceIterator to report
@@ -185,15 +210,23 @@ public class ConcreteScenarioManager implements ScenarioManager {
     @Override
     public void reportVariation(final StatespaceIterator it, final IProgressMonitor progressMonitor)
             throws CoreException {
+        final var variantName = this.getCurrVariantUri()
+            .lastSegment();
+        final InputStream streamCompact = this.convertStatesToIStream(variantName, it.getCurrentState());
+        this.csvReportCompact.appendContents(streamCompact, 0, progressMonitor);
+        final InputStream streamVerbose = this.convertStatesToIStream(variantName, it.getCurrentStateValue());
+        this.csvReportVerbose.appendContents(streamVerbose, 0, progressMonitor);
+    }
+
+    private InputStream convertStatesToIStream(final String lastSegment, final List<String> state) {
         final List<String> columns = new ArrayList<>();
-        columns.add(this.getCurrVariantUri()
-            .lastSegment());
-        columns.addAll(it.getCurrentState());
+        columns.add(lastSegment);
+        columns.addAll(state);
 
         final String content = String.join(";", columns) + "\n";
 
         final InputStream stream = new ByteArrayInputStream(content.getBytes());
-        this.csvReport.appendContents(stream, 0, progressMonitor);
+        return stream;
     }
 
     private void setCurrVariantUri(final int idx) {
@@ -234,15 +267,23 @@ public class ConcreteScenarioManager implements ScenarioManager {
     private void createCsvFile(final URI uri) throws CoreException {
         final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm");
         final LocalDateTime now = LocalDateTime.now();
-        final IWorkspace workspace = ResourcesPlugin.getWorkspace();
-        final URI csv = uri.appendSegment("report_" + dtf.format(now) + ".csv");
-        final IPath path = new Path(csv.toPlatformString(true));
-        this.csvReport = workspace.getRoot()
-            .getFile(path);
+        final var x = dtf.format(now);
+        final URI csvCompact = uri.appendSegment("report-compact_" + x + ".csv");
+        this.csvReportCompact = this.translateUriToFile(csvCompact);
+        final URI csvVerbose = uri.appendSegment("report-verbose_" + x + ".csv");
+        this.csvReportVerbose = this.translateUriToFile(csvVerbose);
 
         final String content = "";
         final InputStream stream = new ByteArrayInputStream(content.getBytes());
-        this.csvReport.create(stream, false, null);
+        this.csvReportCompact.create(stream, false, null);
+        this.csvReportVerbose.create(stream, false, null);
+    }
+
+    private IFile translateUriToFile(final URI csv) {
+        final IWorkspace workspace = ResourcesPlugin.getWorkspace();
+        final IPath path = new Path(csv.toPlatformString(true));
+        return workspace.getRoot()
+            .getFile(path);
     }
 
     private final String variantPrefixName;
@@ -251,5 +292,6 @@ public class ConcreteScenarioManager implements ScenarioManager {
     private List<String> knownVariingModelTypes;
     private URI currVariantUri;
     private ResourceAbstraction resourceAbstraction;
-    private IFile csvReport;
+    private IFile csvReportCompact;
+    private IFile csvReportVerbose;
 }

@@ -13,8 +13,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Value Collection</b></em>'.
@@ -30,16 +28,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class ValueCollectionImpl extends ValueImpl implements ValueCollection
 {
-	/**
-	 * The cached value of the '{@link #getLinks() <em>Links</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLinks()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Identifier> links;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,13 +54,10 @@ public class ValueCollectionImpl extends ValueImpl implements ValueCollection
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Identifier> getLinks()
 	{
-		if (links == null)
-		{
-			links = new EObjectResolvingEList<Identifier>(Identifier.class, this, UncertaintyVariationModelPackage.VALUE_COLLECTION__LINKS);
-		}
-		return links;
+		return (EList<Identifier>)eDynamicGet(UncertaintyVariationModelPackage.VALUE_COLLECTION__LINKS, UncertaintyVariationModelPackage.Literals.VALUE_COLLECTION__LINKS, true, true);
 	}
 
 	/**
@@ -138,7 +123,7 @@ public class ValueCollectionImpl extends ValueImpl implements ValueCollection
 		switch (featureID)
 		{
 			case UncertaintyVariationModelPackage.VALUE_COLLECTION__LINKS:
-				return links != null && !links.isEmpty();
+				return !getLinks().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

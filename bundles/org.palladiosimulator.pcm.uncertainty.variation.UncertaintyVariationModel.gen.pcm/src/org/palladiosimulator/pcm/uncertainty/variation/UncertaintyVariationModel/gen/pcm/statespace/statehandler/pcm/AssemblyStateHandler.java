@@ -20,6 +20,10 @@ import UncertaintyVariationModel.VariationPoint;
 import UncertaintyVariationModel.statehandler.GenericStateHandler;
 import de.uka.ipd.sdq.identifier.Identifier;
 
+/**
+ * AssemblyStateHandler handles the state of variation points that vary the AssemblyContext's
+ * Component assignment of the palladio component model
+ */
 public class AssemblyStateHandler extends GenericStateHandler {
 
     @Override
@@ -33,12 +37,13 @@ public class AssemblyStateHandler extends GenericStateHandler {
     public void patchModelWith(final Map<String, List<EObject>> models, final VariationPoint variationPoint,
             final int variationIdx) {
         final VariationDescription desc = variationPoint.getVariationDescription();
+        final PrimitiveValue val = (PrimitiveValue) desc.getTargetVariations()
+            .get(variationIdx);
+        final Optional<EObject> resolvedVariation = this.resolve(models.get(MODEL_TYPE2), val.getLink());
+
         for (final String modelType : this.getModelTypes()) {
             for (final EObject container : models.get(modelType)) {
                 for (final Identifier curr : variationPoint.getVaryingSubjects()) {
-                    final PrimitiveValue val = (PrimitiveValue) desc.getTargetVariations()
-                        .get(variationIdx);
-                    final Optional<EObject> resolvedVariation = this.resolve(models.get(MODEL_TYPE2), val.getLink());
                     final Optional<EObject> resolvedSubject = this.resolve(container, curr);
                     resolvedSubject.ifPresent(subject -> this.patch(subject, resolvedVariation));
                 }
@@ -49,6 +54,16 @@ public class AssemblyStateHandler extends GenericStateHandler {
     @Override
     public List<String> getModelTypes() {
         return Arrays.asList(MODEL_TYPE1, MODEL_TYPE2);
+    }
+
+    @Override
+    public String getValue(final VariationPoint variationPoint, final int variationIdx) {
+        final var desc = variationPoint.getVariationDescription();
+        final var val = (PrimitiveValue) desc.getTargetVariations()
+            .get(variationIdx);
+        final var linked = (RepositoryComponent) val.getLink();
+        return linked.getEntityName()
+            .trim() + " " + linked.getId();
     }
 
     private static final String MODEL_TYPE1 = "system";

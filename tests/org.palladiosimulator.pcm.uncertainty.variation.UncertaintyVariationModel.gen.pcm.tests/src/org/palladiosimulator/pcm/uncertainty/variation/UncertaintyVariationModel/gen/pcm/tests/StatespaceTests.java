@@ -11,9 +11,13 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.VariationManager;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ModelResourceAbstraction;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
 
 class StatespaceTests {
+    private static final String INVALID_UNCERTAINTY_VARIATION_MODEL_TEST_MODEL = "platform:/plugin/org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.tests/tmp/invalid.uncertaintyvariationmodel";
+    private static final String EMPTY_UNCERTAINTY_VARIATION_MODEL_TEST_MODEL = "platform:/plugin/org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.tests/tmp/empty.uncertaintyvariationmodel";
+
     @BeforeAll
     static void initAll() {
     }
@@ -21,8 +25,9 @@ class StatespaceTests {
     @Test
     void testEmptyUncertaintyVariationModel() {
         final URI uri = URI.createURI(
-                "platform:/plugin/org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.tests/tmp/empty.uncertaintyvariationmodel");
-        final var variationManager = new VariationManager(uri);
+                EMPTY_UNCERTAINTY_VARIATION_MODEL_TEST_MODEL);
+        final var resourceAbstraction = new ModelResourceAbstraction();
+        final var variationManager = new VariationManager(uri, resourceAbstraction);
         final var statespace = new Statespace(variationManager.loadUncertaintyVariantModel());
         final var it = statespace.iterator();
         assertEquals(0, statespace.getNumberOfDimensions());
@@ -44,8 +49,9 @@ class StatespaceTests {
     @Test
     void testInvalidUncertaintyVariationModel() {
         final URI uri = URI.createURI(
-                "platform:/plugin/org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.tests/tmp/invalid.uncertaintyvariationmodel");
-        final var variationManager = new VariationManager(uri);
+                INVALID_UNCERTAINTY_VARIATION_MODEL_TEST_MODEL);
+        final var resourceAbstraction = new ModelResourceAbstraction();
+        final var variationManager = new VariationManager(uri, resourceAbstraction);
         assertThrows(IllegalStateException.class, () -> {
             new Statespace(variationManager.loadUncertaintyVariantModel());
         });

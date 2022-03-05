@@ -6,16 +6,12 @@ import UncertaintyVariationModel.UncertaintyVariationModelPackage;
 import UncertaintyVariationModel.Value;
 import UncertaintyVariationModel.VariationDescription;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +26,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public abstract class ValueImpl extends MinimalEObjectImpl.Container implements Value
+public abstract class ValueImpl extends CDOObjectImpl implements Value
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -58,10 +54,20 @@ public abstract class ValueImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount()
+	{
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public VariationDescription getVariationdescription()
 	{
-		if (eContainerFeatureID() != UncertaintyVariationModelPackage.VALUE__VARIATIONDESCRIPTION) return null;
-		return (VariationDescription)eInternalContainer();
+		return (VariationDescription)eDynamicGet(UncertaintyVariationModelPackage.VALUE__VARIATIONDESCRIPTION, UncertaintyVariationModelPackage.Literals.VALUE__VARIATIONDESCRIPTION, true, true);
 	}
 
 	/**
@@ -82,20 +88,7 @@ public abstract class ValueImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public void setVariationdescription(VariationDescription newVariationdescription)
 	{
-		if (newVariationdescription != eInternalContainer() || (eContainerFeatureID() != UncertaintyVariationModelPackage.VALUE__VARIATIONDESCRIPTION && newVariationdescription != null))
-		{
-			if (EcoreUtil.isAncestor(this, newVariationdescription))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newVariationdescription != null)
-				msgs = ((InternalEObject)newVariationdescription).eInverseAdd(this, UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__TARGET_VARIATIONS, VariationDescription.class, msgs);
-			msgs = basicSetVariationdescription(newVariationdescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UncertaintyVariationModelPackage.VALUE__VARIATIONDESCRIPTION, newVariationdescription, newVariationdescription));
+		eDynamicSet(UncertaintyVariationModelPackage.VALUE__VARIATIONDESCRIPTION, UncertaintyVariationModelPackage.Literals.VALUE__VARIATIONDESCRIPTION, newVariationdescription);
 	}
 
 	/**

@@ -2,7 +2,7 @@
  */
 package UncertaintyVariationModel;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,9 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getValue()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface Value extends EObject
+public interface Value extends CDOObject
 {
 	/**
 	 * Returns the value of the '<em><b>Variationdescription</b></em>' container reference.

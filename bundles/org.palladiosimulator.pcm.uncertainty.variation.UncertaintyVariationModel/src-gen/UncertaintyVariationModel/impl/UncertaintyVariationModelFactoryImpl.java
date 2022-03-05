@@ -64,11 +64,11 @@ public class UncertaintyVariationModelFactoryImpl extends EFactoryImpl implement
 	{
 		switch (eClass.getClassifierID())
 		{
-			case UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS: return createUncertaintyVariations();
-			case UncertaintyVariationModelPackage.VARIATION_POINT: return createVariationPoint();
-			case UncertaintyVariationModelPackage.VARIATION_DESCRIPTION: return createVariationDescription();
-			case UncertaintyVariationModelPackage.PRIMITIVE_VALUE: return createPrimitiveValue();
-			case UncertaintyVariationModelPackage.VALUE_COLLECTION: return createValueCollection();
+			case UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS: return (EObject)createUncertaintyVariations();
+			case UncertaintyVariationModelPackage.VARIATION_POINT: return (EObject)createVariationPoint();
+			case UncertaintyVariationModelPackage.VARIATION_DESCRIPTION: return (EObject)createVariationDescription();
+			case UncertaintyVariationModelPackage.PRIMITIVE_VALUE: return (EObject)createPrimitiveValue();
+			case UncertaintyVariationModelPackage.VALUE_COLLECTION: return (EObject)createValueCollection();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

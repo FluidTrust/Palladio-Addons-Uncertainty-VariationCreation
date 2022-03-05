@@ -201,6 +201,16 @@ public class UncertaintyVariationModelPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getVariationPoint_EntityName()
+	{
+		return (EAttribute)variationPointEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVariationDescription()
 	{
 		return variationDescriptionEClass;
@@ -323,6 +333,7 @@ public class UncertaintyVariationModelPackageImpl extends EPackageImpl implement
 		createEReference(variationPointEClass, VARIATION_POINT__VARYING_SUBJECTS);
 		createEReference(variationPointEClass, VARIATION_POINT__VARIATION_DESCRIPTION);
 		createEAttribute(variationPointEClass, VARIATION_POINT__STATE_HANDLER_ID);
+		createEAttribute(variationPointEClass, VARIATION_POINT__ENTITY_NAME);
 
 		variationDescriptionEClass = createEClass(VARIATION_DESCRIPTION);
 		createEReference(variationDescriptionEClass, VARIATION_DESCRIPTION__TARGET_VARIATIONS);
@@ -381,6 +392,7 @@ public class UncertaintyVariationModelPackageImpl extends EPackageImpl implement
 		initEReference(getVariationPoint_VaryingSubjects(), theIdentifierPackage.getIdentifier(), null, "varyingSubjects", null, 1, -1, VariationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVariationPoint_VariationDescription(), this.getVariationDescription(), this.getVariationDescription_Variationpoint(), "variationDescription", null, 0, 1, VariationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariationPoint_StateHandlerId(), ecorePackage.getEString(), "stateHandlerId", null, 1, 1, VariationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariationPoint_EntityName(), ecorePackage.getEString(), "entityName", null, 0, 1, VariationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variationDescriptionEClass, VariationDescription.class, "VariationDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariationDescription_TargetVariations(), this.getValue(), this.getValue_Variationdescription(), "targetVariations", null, 1, -1, VariationDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

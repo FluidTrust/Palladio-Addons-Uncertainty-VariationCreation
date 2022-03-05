@@ -4,9 +4,9 @@ package UncertaintyVariationModel;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.cdo.CDOObject;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,13 +20,15 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link UncertaintyVariationModel.VariationPoint#getVaryingSubjects <em>Varying Subjects</em>}</li>
  *   <li>{@link UncertaintyVariationModel.VariationPoint#getVariationDescription <em>Variation Description</em>}</li>
  *   <li>{@link UncertaintyVariationModel.VariationPoint#getStateHandlerId <em>State Handler Id</em>}</li>
+ *   <li>{@link UncertaintyVariationModel.VariationPoint#getEntityName <em>Entity Name</em>}</li>
  * </ul>
  *
  * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationPoint()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface VariationPoint extends EObject
+public interface VariationPoint extends CDOObject
 {
 	/**
 	 * Returns the value of the '<em><b>Varying Subjects</b></em>' reference list.
@@ -85,5 +87,27 @@ public interface VariationPoint extends EObject
 	 * @generated
 	 */
 	void setStateHandlerId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Entity Name</em>' attribute.
+	 * @see #setEntityName(String)
+	 * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationPoint_EntityName()
+	 * @model
+	 * @generated
+	 */
+	String getEntityName();
+
+	/**
+	 * Sets the value of the '{@link UncertaintyVariationModel.VariationPoint#getEntityName <em>Entity Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Entity Name</em>' attribute.
+	 * @see #getEntityName()
+	 * @generated
+	 */
+	void setEntityName(String value);
 
 } // VariationPoint

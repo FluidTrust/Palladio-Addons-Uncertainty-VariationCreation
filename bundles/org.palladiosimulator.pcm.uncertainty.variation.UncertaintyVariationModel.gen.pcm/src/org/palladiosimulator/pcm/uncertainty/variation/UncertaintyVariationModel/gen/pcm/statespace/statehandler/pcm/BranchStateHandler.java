@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.seff.AbstractBranchTransition;
@@ -17,6 +18,10 @@ import UncertaintyVariationModel.VariationPoint;
 import UncertaintyVariationModel.statehandler.GenericStateHandler;
 import de.uka.ipd.sdq.identifier.Identifier;
 
+/**
+ * BranchStateHandler handles the state of variation points that vary the Transitions of the
+ * BranchActions (SEFF) or Branches (Usage Model) of the palladio component model
+ */
 public class BranchStateHandler extends GenericStateHandler {
     @Override
     public int getSizeOfDimension(final VariationPoint variationPoint) {
@@ -40,9 +45,10 @@ public class BranchStateHandler extends GenericStateHandler {
         for (final EObject container : models.get(MODEL_TYPE1)) {
             for (final Identifier curr : variationPoint.getVaryingSubjects()) {
                 if (curr instanceof BranchAction) {
-                    final BranchAction a = (BranchAction) curr;
-                    final Optional<EObject> resolvedVariation = this.resolve(container, a.getBranches_Branch()
-                        .get(variationIdx));
+                    final BranchAction currBranchAction = (BranchAction) curr;
+                    final Optional<EObject> resolvedVariation = this.resolve(container,
+                            currBranchAction.getBranches_Branch()
+                                .get(variationIdx));
                     final Optional<EObject> resolvedSubject = this.resolve(container, curr);
                     resolvedSubject.ifPresent(subject -> this.patch(subject, resolvedVariation));
                 }
@@ -62,6 +68,29 @@ public class BranchStateHandler extends GenericStateHandler {
     @Override
     public List<String> getModelTypes() {
         return Arrays.asList(MODEL_TYPE1, MODEL_TYPE2);
+    }
+
+    @Override
+    public String getValue(final VariationPoint variationPoint, final int variationIdx) {
+        final var subjects = variationPoint.getVaryingSubjects();
+        final var branchActionNames = subjects.stream()
+            .filter(it -> it instanceof BranchAction)
+            .map(it -> {
+                final var branch = ((BranchAction) it).getBranches_Branch()
+                    .get(variationIdx);
+                return branch.getEntityName()
+                    .trim() + " " + branch.getId();
+            })
+            .collect(Collectors.toList());
+
+        final var branchNames = subjects.stream()
+            .filter(it -> it instanceof Branch)
+            .map(it -> String.valueOf(variationIdx))
+            .collect(Collectors.toList());
+        branchActionNames.addAll(branchNames);
+
+        final var joinedNames = String.join(",", branchActionNames);
+        return joinedNames;
     }
 
     private static final String MODEL_TYPE1 = "repository";
@@ -89,6 +118,7 @@ public class BranchStateHandler extends GenericStateHandler {
         final Branch resolved = (Branch) subject;
         final BranchTransition value = resolved.getBranchTransitions_Branch()
             .get(index);
+
         value.setBranchProbability(1.0);
         resolved.getBranchTransitions_Branch()
             .clear();

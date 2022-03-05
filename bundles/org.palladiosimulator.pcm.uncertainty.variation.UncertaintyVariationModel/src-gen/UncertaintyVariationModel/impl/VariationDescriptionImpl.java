@@ -9,7 +9,6 @@ import UncertaintyVariationModel.VariationPoint;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -17,12 +16,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,18 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class VariationDescriptionImpl extends MinimalEObjectImpl.Container implements VariationDescription
+public class VariationDescriptionImpl extends CDOObjectImpl implements VariationDescription
 {
-	/**
-	 * The cached value of the '{@link #getTargetVariations() <em>Target Variations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetVariations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Value> targetVariations;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,13 +62,21 @@ public class VariationDescriptionImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount()
+	{
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	public EList<Value> getTargetVariations()
 	{
-		if (targetVariations == null)
-		{
-			targetVariations = new EObjectContainmentWithInverseEList<Value>(Value.class, this, UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__TARGET_VARIATIONS, UncertaintyVariationModelPackage.VALUE__VARIATIONDESCRIPTION);
-		}
-		return targetVariations;
+		return (EList<Value>)eDynamicGet(UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__TARGET_VARIATIONS, UncertaintyVariationModelPackage.Literals.VARIATION_DESCRIPTION__TARGET_VARIATIONS, true, true);
 	}
 
 	/**
@@ -92,8 +86,7 @@ public class VariationDescriptionImpl extends MinimalEObjectImpl.Container imple
 	 */
 	public VariationPoint getVariationpoint()
 	{
-		if (eContainerFeatureID() != UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__VARIATIONPOINT) return null;
-		return (VariationPoint)eInternalContainer();
+		return (VariationPoint)eDynamicGet(UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__VARIATIONPOINT, UncertaintyVariationModelPackage.Literals.VARIATION_DESCRIPTION__VARIATIONPOINT, true, true);
 	}
 
 	/**
@@ -114,20 +107,7 @@ public class VariationDescriptionImpl extends MinimalEObjectImpl.Container imple
 	 */
 	public void setVariationpoint(VariationPoint newVariationpoint)
 	{
-		if (newVariationpoint != eInternalContainer() || (eContainerFeatureID() != UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__VARIATIONPOINT && newVariationpoint != null))
-		{
-			if (EcoreUtil.isAncestor(this, newVariationpoint))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newVariationpoint != null)
-				msgs = ((InternalEObject)newVariationpoint).eInverseAdd(this, UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, VariationPoint.class, msgs);
-			msgs = basicSetVariationpoint(newVariationpoint, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__VARIATIONPOINT, newVariationpoint, newVariationpoint));
+		eDynamicSet(UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__VARIATIONPOINT, UncertaintyVariationModelPackage.Literals.VARIATION_DESCRIPTION__VARIATIONPOINT, newVariationpoint);
 	}
 
 	/**
@@ -256,7 +236,7 @@ public class VariationDescriptionImpl extends MinimalEObjectImpl.Container imple
 		switch (featureID)
 		{
 			case UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__TARGET_VARIATIONS:
-				return targetVariations != null && !targetVariations.isEmpty();
+				return !getTargetVariations().isEmpty();
 			case UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__VARIATIONPOINT:
 				return getVariationpoint() != null;
 		}

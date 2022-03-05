@@ -9,12 +9,15 @@ import java.util.stream.Stream;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import UncertaintyVariationModel.statehandler.StateHandler;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
- * realizes the access to and queries on the StateHandler Implementation extension point.
+ * StateHandlerImplementation realizes the access to and queries on the StateHandler Implementation
+ * extension point.
  *
  */
 public class StateHandlerImplementation {
@@ -116,14 +119,12 @@ public class StateHandlerImplementation {
         try {
             return (StateHandler) elem.createExecutableExtension(CLASS_ATTRIBUTE);
         } catch (final CoreException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            LOGGER.error("cannot instanciate specifyied class", e);
         }
         return null;
     }
 
     private String getTypeOf(final IConfigurationElement elem) {
-        // IdentifierFactory.eINSTANCE.
         return elem.getAttribute(TYPE_ATTRIBUTE);
     }
 
@@ -139,5 +140,7 @@ public class StateHandlerImplementation {
     private static final String VARYING_SUBJECT_DEFINTION_TYPE = "VaryingSubjectDefinition";
     private static final String VARIATION_DESCRIPTION_DEFINITION_TYPE = "VariationDescriptionDefinition";
     private static final String TYPE_ATTRIBUTE = "type";
+    private static final Logger LOGGER = LoggerFactory
+        .getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");
 
 }

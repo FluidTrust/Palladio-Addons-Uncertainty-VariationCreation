@@ -8,6 +8,8 @@ import UncertaintyVariationModel.UncertaintyVariationModelPackage;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.cdo.edit.CDOItemProviderAdapter;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,7 +22,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link UncertaintyVariationModel.Value} object.
@@ -29,7 +30,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class ValueItemProvider 
-	extends ItemProviderAdapter
+	extends CDOItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

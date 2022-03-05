@@ -2,9 +2,9 @@
  */
 package UncertaintyVariationModel;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.cdo.CDOObject;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,9 +21,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see UncertaintyVariationModel.UncertaintyVariationModelPackage#getVariationDescription()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface VariationDescription extends EObject
+public interface VariationDescription extends CDOObject
 {
 	/**
 	 * Returns the value of the '<em><b>Target Variations</b></em>' containment reference list.

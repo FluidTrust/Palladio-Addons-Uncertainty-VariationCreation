@@ -1,7 +1,6 @@
 package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ui;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Iterator;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -19,8 +18,13 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.progress.IProgressService;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.UncertaintyVariationModelGenPcm;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Execute extends AbstractHandler implements IHandler {
+    private static final Logger LOGGER = LoggerFactory
+        .getLogger("org.palladiosimulator.pcm.uncertainty.variation.ui.logger");
+
     @Override
     public Object execute(final ExecutionEvent event) throws ExecutionException {
         final IWorkbench wb = PlatformUI.getWorkbench();
@@ -28,19 +32,17 @@ public class Execute extends AbstractHandler implements IHandler {
         try {
             ps.run(true, true, new IRunnableWithProgress() {
                 @Override
-                public void run(IProgressMonitor monitor) {
+                public void run(final IProgressMonitor monitor) {
                     monitor.beginTask("generating variations", IProgressMonitor.UNKNOWN);
-                    ISelection selection = HandlerUtil.getActiveWorkbenchWindow(event)
+                    final ISelection selection = HandlerUtil.getActiveWorkbenchWindow(event)
                         .getActivePage()
                         .getSelection();
                     if (selection != null & selection instanceof IStructuredSelection) {
-                        IStructuredSelection strucSelection = (IStructuredSelection) selection;
-                        for (@SuppressWarnings("unchecked")
-                        Iterator<Object> iterator = strucSelection.iterator(); iterator.hasNext();) {
-                            Object currElement = iterator.next();
+                        final IStructuredSelection strucSelection = (IStructuredSelection) selection;
+                        for (final Object currElement : strucSelection) {
                             if (currElement instanceof IFile) {
-                                IFile currFile = (IFile) currElement;
-                                URI currFileURI = URI.createURI("platform:/resource")
+                                final IFile currFile = (IFile) currElement;
+                                final URI currFileURI = URI.createURI("platform:/resource")
                                     .appendSegment(currFile.getProject()
                                         .getName())
                                     .appendSegments(currFile.getProjectRelativePath()
@@ -50,7 +52,10 @@ public class Execute extends AbstractHandler implements IHandler {
                                     final UncertaintyVariationModelGenPcm generator = new UncertaintyVariationModelGenPcm(
                                             currFileURI);
                                     generator.generateVariations(monitor);
-                                } catch (CoreException e) {
+                                } catch (final CoreException e) {
+                                    LOGGER.error("result directory cannot be created", e);
+                                } catch (final IllegalArgumentException e) {
+                                    LOGGER.error("uri of uncertainty variation model is illformed", e);
                                 }
                             }
                         }
@@ -59,16 +64,13 @@ public class Execute extends AbstractHandler implements IHandler {
                 }
             });
         } catch (InvocationTargetException | InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            LOGGER.error("generation interrupted or call to generation failed", e);
         }
         return null;
     }
 
     @Override
     public boolean isEnabled() {
-        // TODO Auto-generated method stub
         return true;
     }
-
 }

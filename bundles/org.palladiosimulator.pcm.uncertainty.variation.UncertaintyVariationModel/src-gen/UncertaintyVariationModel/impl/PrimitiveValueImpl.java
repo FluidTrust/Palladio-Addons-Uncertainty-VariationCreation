@@ -7,13 +7,7 @@ import UncertaintyVariationModel.UncertaintyVariationModelPackage;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,16 +24,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class PrimitiveValueImpl extends ValueImpl implements PrimitiveValue
 {
-	/**
-	 * The cached value of the '{@link #getLink() <em>Link</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLink()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier link;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,17 +52,7 @@ public class PrimitiveValueImpl extends ValueImpl implements PrimitiveValue
 	 */
 	public Identifier getLink()
 	{
-		if (link != null && ((EObject)link).eIsProxy())
-		{
-			InternalEObject oldLink = (InternalEObject)link;
-			link = (Identifier)eResolveProxy(oldLink);
-			if (link != oldLink)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UncertaintyVariationModelPackage.PRIMITIVE_VALUE__LINK, oldLink, link));
-			}
-		}
-		return link;
+		return (Identifier)eDynamicGet(UncertaintyVariationModelPackage.PRIMITIVE_VALUE__LINK, UncertaintyVariationModelPackage.Literals.PRIMITIVE_VALUE__LINK, true, true);
 	}
 
 	/**
@@ -88,7 +62,7 @@ public class PrimitiveValueImpl extends ValueImpl implements PrimitiveValue
 	 */
 	public Identifier basicGetLink()
 	{
-		return link;
+		return (Identifier)eDynamicGet(UncertaintyVariationModelPackage.PRIMITIVE_VALUE__LINK, UncertaintyVariationModelPackage.Literals.PRIMITIVE_VALUE__LINK, false, true);
 	}
 
 	/**
@@ -98,10 +72,7 @@ public class PrimitiveValueImpl extends ValueImpl implements PrimitiveValue
 	 */
 	public void setLink(Identifier newLink)
 	{
-		Identifier oldLink = link;
-		link = newLink;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UncertaintyVariationModelPackage.PRIMITIVE_VALUE__LINK, oldLink, link));
+		eDynamicSet(UncertaintyVariationModelPackage.PRIMITIVE_VALUE__LINK, UncertaintyVariationModelPackage.Literals.PRIMITIVE_VALUE__LINK, newLink);
 	}
 
 	/**
@@ -166,7 +137,7 @@ public class PrimitiveValueImpl extends ValueImpl implements PrimitiveValue
 		switch (featureID)
 		{
 			case UncertaintyVariationModelPackage.PRIMITIVE_VALUE__LINK:
-				return link != null;
+				return basicGetLink() != null;
 		}
 		return super.eIsSet(featureID);
 	}

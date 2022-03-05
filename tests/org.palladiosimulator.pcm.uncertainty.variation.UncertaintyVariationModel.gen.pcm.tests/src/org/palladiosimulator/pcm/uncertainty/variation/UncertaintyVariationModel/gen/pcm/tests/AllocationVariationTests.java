@@ -16,6 +16,8 @@ import org.junit.jupiter.api.Test;
 import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.UncertaintyVariationModelGenPcmImpl;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.VariationManager;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ModelResourceAbstraction;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.tests.moc.DummyScenarioManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +26,9 @@ import UncertaintyVariationModel.UncertaintyVariations;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 class AllocationVariationTests {
+    private static final String LOGGER_NAME = "org.palladiosimulator.pcm.uncertainty.variation.logger";
+    private static final String ALLOCATION_UNCERTAINTY_MODEL_TEST_MODEL = "platform:/plugin/org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.tests/tmp/allocation_test.uncertaintyvariationmodel";
+
     @BeforeAll
     static void initAll() {
     }
@@ -32,15 +37,15 @@ class AllocationVariationTests {
     void testAllocationUncertaintyVariationModel() {
         final var sourceDirName = "source";
 
-        final URI uri = URI.createURI(
-                "platform:/plugin/org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.tests/tmp/allocation_test.uncertaintyvariationmodel");
-        final var variationManager = new VariationManager(uri);
+        final URI uri = URI.createURI(ALLOCATION_UNCERTAINTY_MODEL_TEST_MODEL);
+        final var resourceAbstraction = new ModelResourceAbstraction();
+        final var variationManager = new VariationManager(uri, resourceAbstraction);
         final List<URI> content = new ArrayList<>();
         content.add(URI.createFileURI("portAllocation.allocation"));
         content.add(URI.createFileURI("portHardware.resourceenvironment"));
 
         final var scenarioManager = new DummyScenarioManager(uri.trimSegments(1), sourceDirName, content);
-        final Logger logger = LoggerFactory.getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");
+        final Logger logger = LoggerFactory.getLogger(LOGGER_NAME);
 
         final var generator = new UncertaintyVariationModelGenPcmImpl(scenarioManager, variationManager, logger);
         generator.generateVariations(new NullProgressMonitor());

@@ -132,13 +132,22 @@ public interface UncertaintyVariationModelPackage extends EPackage
 	int VARIATION_POINT__STATE_HANDLER_ID = 2;
 
 	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIATION_POINT__ENTITY_NAME = 3;
+
+	/**
 	 * The number of structural features of the '<em>Variation Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIATION_POINT_FEATURE_COUNT = 3;
+	int VARIATION_POINT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Variation Point</em>' class.
@@ -390,6 +399,17 @@ public interface UncertaintyVariationModelPackage extends EPackage
 	EAttribute getVariationPoint_StateHandlerId();
 
 	/**
+	 * Returns the meta object for the attribute '{@link UncertaintyVariationModel.VariationPoint#getEntityName <em>Entity Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Entity Name</em>'.
+	 * @see UncertaintyVariationModel.VariationPoint#getEntityName()
+	 * @see #getVariationPoint()
+	 * @generated
+	 */
+	EAttribute getVariationPoint_EntityName();
+
+	/**
 	 * Returns the meta object for class '{@link UncertaintyVariationModel.VariationDescription <em>Variation Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -559,6 +579,14 @@ public interface UncertaintyVariationModelPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute VARIATION_POINT__STATE_HANDLER_ID = eINSTANCE.getVariationPoint_StateHandlerId();
+
+		/**
+		 * The meta object literal for the '<em><b>Entity Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIATION_POINT__ENTITY_NAME = eINSTANCE.getVariationPoint_EntityName();
 
 		/**
 		 * The meta object literal for the '{@link UncertaintyVariationModel.impl.VariationDescriptionImpl <em>Variation Description</em>}' class.
