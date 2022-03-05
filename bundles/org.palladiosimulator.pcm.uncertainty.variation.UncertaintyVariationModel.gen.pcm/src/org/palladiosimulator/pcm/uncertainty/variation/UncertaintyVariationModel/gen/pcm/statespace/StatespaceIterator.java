@@ -36,4 +36,11 @@ public interface StatespaceIterator {
      * @return list containing the state for each dimension
      */
     public List<String> getCurrentState();
+
+    /**
+     * return the value of current state
+     *
+     * @return list containing the current value for each dimension
+     */
+    public List<String> getCurrentStateValue();
 }

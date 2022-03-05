@@ -1,4 +1,6 @@
-package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.tests;
+package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.tests.moc;
+
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,18 +23,18 @@ public class DummyScenarioManager implements ScenarioManager {
         this.modelBaseUri = modelBaseUri.appendSegment(sourceDirName);
         this.content = content;
         this.results = new ArrayList<>();
+        this.resourceAbstraction = new ModelResourceAbstraction();
     }
 
     @Override
     public void createCurrVariant(final int idx, final IProgressMonitor progressMonitor) throws CoreException {
-        // TODO Auto-generated method stub
-
+        // Dummy has here nothing to do
     }
 
     @Override
     public void register(final List<String> knownVariingModelTypes) {
         this.knownVariingModelTypes = knownVariingModelTypes;
-        this.resourceAbstraction = new ModelResourceAbstraction(this.knownVariingModelTypes);
+        this.resourceAbstraction.updateRegisteredModels(this.knownVariingModelTypes);
     }
 
     @Override
@@ -79,14 +81,16 @@ public class DummyScenarioManager implements ScenarioManager {
     @Override
     public void reportsVariationPoints(final Statespace statespace, final IProgressMonitor progressMonitor)
             throws CoreException {
-        // TODO Auto-generated method stub
-
+        final var headers = statespace.getDimensions();
+        assertTrue(!headers.isEmpty());
     }
 
     @Override
     public void reportVariation(final StatespaceIterator it, final IProgressMonitor progressMonitor)
             throws CoreException {
-        // TODO Auto-generated method stub
-
+        final var columnsCompact = it.getCurrentState();
+        assertTrue(!columnsCompact.isEmpty());
+        final var columnsVerbose = it.getCurrentStateValue();
+        assertTrue(!columnsVerbose.isEmpty());
     }
 }

@@ -11,6 +11,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.Statespace;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.statespace.StatespaceIterator;
 
+/**
+ * Scenario Manager defines the abstraction layer for managing scenarios
+ */
 public interface ScenarioManager {
 
     /**
@@ -64,7 +67,7 @@ public interface ScenarioManager {
     URI getCurrVariantUri();
 
     /**
-     * writes the different variation points into the report
+     * writes the different variation points into the reports
      *
      * @param statespace
      *            the statespace to report
@@ -77,7 +80,7 @@ public interface ScenarioManager {
             throws CoreException;
 
     /**
-     * writes the current state of the statespace iterator into the report
+     * writes the current state of the statespace iterator into the reports
      *
      * @param it
      *            the StatespaceIterator to report

@@ -3,6 +3,7 @@ package org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationMode
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
+import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ModelResourceAbstraction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,10 +49,10 @@ public class UncertaintyVariationModelGenPcm {
             final String resultDirName, final String variantDirName) throws CoreException {
         final Logger logger = LoggerFactory.getLogger("org.palladiosimulator.pcm.uncertainty.variation.logger");
         VariationManager.validate(uncertaintyModelUri, logger);
-        // final ResourceAbstraction resourceAbstraction = new ModelResourceAbstraction(null);
-        final var variationManager = new VariationManager(uncertaintyModelUri);
-        final ScenarioManager scenarioManager = new ConcreteScenarioManager(uncertaintyModelUri.trimSegments(1),
-                sourceDirName, resultDirName, variantDirName);
+        final var resourceAbstraction = new ModelResourceAbstraction();
+        final var variationManager = new VariationManager(uncertaintyModelUri, resourceAbstraction);
+        final var scenarioManager = new ConcreteScenarioManager(uncertaintyModelUri.trimSegments(1), sourceDirName,
+                resultDirName, variantDirName, resourceAbstraction);
 
         this.impl = new UncertaintyVariationModelGenPcmImpl(scenarioManager, variationManager, logger);
     }

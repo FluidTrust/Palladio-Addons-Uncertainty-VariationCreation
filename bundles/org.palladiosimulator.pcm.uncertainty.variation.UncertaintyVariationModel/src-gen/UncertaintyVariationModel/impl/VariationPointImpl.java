@@ -10,7 +10,6 @@ import de.uka.ipd.sdq.identifier.Identifier;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,10 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,32 +30,13 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link UncertaintyVariationModel.impl.VariationPointImpl#getVaryingSubjects <em>Varying Subjects</em>}</li>
  *   <li>{@link UncertaintyVariationModel.impl.VariationPointImpl#getVariationDescription <em>Variation Description</em>}</li>
  *   <li>{@link UncertaintyVariationModel.impl.VariationPointImpl#getStateHandlerId <em>State Handler Id</em>}</li>
+ *   <li>{@link UncertaintyVariationModel.impl.VariationPointImpl#getEntityName <em>Entity Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VariationPointImpl extends MinimalEObjectImpl.Container implements VariationPoint
+public class VariationPointImpl extends CDOObjectImpl implements VariationPoint
 {
-	/**
-	 * The cached value of the '{@link #getVaryingSubjects() <em>Varying Subjects</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVaryingSubjects()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Identifier> varyingSubjects;
-
-	/**
-	 * The cached value of the '{@link #getVariationDescription() <em>Variation Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVariationDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected VariationDescription variationDescription;
-
 	/**
 	 * The default value of the '{@link #getStateHandlerId() <em>State Handler Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -71,14 +48,14 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 	protected static final String STATE_HANDLER_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getStateHandlerId() <em>State Handler Id</em>}' attribute.
+	 * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStateHandlerId()
+	 * @see #getEntityName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String stateHandlerId = STATE_HANDLER_ID_EDEFAULT;
+	protected static final String ENTITY_NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,13 +83,21 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount()
+	{
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	public EList<Identifier> getVaryingSubjects()
 	{
-		if (varyingSubjects == null)
-		{
-			varyingSubjects = new EObjectResolvingEList<Identifier>(Identifier.class, this, UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS);
-		}
-		return varyingSubjects;
+		return (EList<Identifier>)eDynamicGet(UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS, UncertaintyVariationModelPackage.Literals.VARIATION_POINT__VARYING_SUBJECTS, true, true);
 	}
 
 	/**
@@ -122,7 +107,7 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public VariationDescription getVariationDescription()
 	{
-		return variationDescription;
+		return (VariationDescription)eDynamicGet(UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, UncertaintyVariationModelPackage.Literals.VARIATION_POINT__VARIATION_DESCRIPTION, true, true);
 	}
 
 	/**
@@ -132,13 +117,7 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public NotificationChain basicSetVariationDescription(VariationDescription newVariationDescription, NotificationChain msgs)
 	{
-		VariationDescription oldVariationDescription = variationDescription;
-		variationDescription = newVariationDescription;
-		if (eNotificationRequired())
-		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, oldVariationDescription, newVariationDescription);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newVariationDescription, UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, msgs);
 		return msgs;
 	}
 
@@ -149,18 +128,7 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public void setVariationDescription(VariationDescription newVariationDescription)
 	{
-		if (newVariationDescription != variationDescription)
-		{
-			NotificationChain msgs = null;
-			if (variationDescription != null)
-				msgs = ((InternalEObject)variationDescription).eInverseRemove(this, UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__VARIATIONPOINT, VariationDescription.class, msgs);
-			if (newVariationDescription != null)
-				msgs = ((InternalEObject)newVariationDescription).eInverseAdd(this, UncertaintyVariationModelPackage.VARIATION_DESCRIPTION__VARIATIONPOINT, VariationDescription.class, msgs);
-			msgs = basicSetVariationDescription(newVariationDescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, newVariationDescription, newVariationDescription));
+		eDynamicSet(UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, UncertaintyVariationModelPackage.Literals.VARIATION_POINT__VARIATION_DESCRIPTION, newVariationDescription);
 	}
 
 	/**
@@ -170,7 +138,7 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public String getStateHandlerId()
 	{
-		return stateHandlerId;
+		return (String)eDynamicGet(UncertaintyVariationModelPackage.VARIATION_POINT__STATE_HANDLER_ID, UncertaintyVariationModelPackage.Literals.VARIATION_POINT__STATE_HANDLER_ID, true, true);
 	}
 
 	/**
@@ -180,10 +148,27 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public void setStateHandlerId(String newStateHandlerId)
 	{
-		String oldStateHandlerId = stateHandlerId;
-		stateHandlerId = newStateHandlerId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UncertaintyVariationModelPackage.VARIATION_POINT__STATE_HANDLER_ID, oldStateHandlerId, stateHandlerId));
+		eDynamicSet(UncertaintyVariationModelPackage.VARIATION_POINT__STATE_HANDLER_ID, UncertaintyVariationModelPackage.Literals.VARIATION_POINT__STATE_HANDLER_ID, newStateHandlerId);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEntityName()
+	{
+		return (String)eDynamicGet(UncertaintyVariationModelPackage.VARIATION_POINT__ENTITY_NAME, UncertaintyVariationModelPackage.Literals.VARIATION_POINT__ENTITY_NAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEntityName(String newEntityName)
+	{
+		eDynamicSet(UncertaintyVariationModelPackage.VARIATION_POINT__ENTITY_NAME, UncertaintyVariationModelPackage.Literals.VARIATION_POINT__ENTITY_NAME, newEntityName);
 	}
 
 	/**
@@ -197,6 +182,7 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID)
 		{
 			case UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION:
+				VariationDescription variationDescription = getVariationDescription();
 				if (variationDescription != null)
 					msgs = ((InternalEObject)variationDescription).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION, null, msgs);
 				return basicSetVariationDescription((VariationDescription)otherEnd, msgs);
@@ -236,6 +222,8 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 				return getVariationDescription();
 			case UncertaintyVariationModelPackage.VARIATION_POINT__STATE_HANDLER_ID:
 				return getStateHandlerId();
+			case UncertaintyVariationModelPackage.VARIATION_POINT__ENTITY_NAME:
+				return getEntityName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -261,6 +249,9 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 			case UncertaintyVariationModelPackage.VARIATION_POINT__STATE_HANDLER_ID:
 				setStateHandlerId((String)newValue);
 				return;
+			case UncertaintyVariationModelPackage.VARIATION_POINT__ENTITY_NAME:
+				setEntityName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -284,6 +275,9 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 			case UncertaintyVariationModelPackage.VARIATION_POINT__STATE_HANDLER_ID:
 				setStateHandlerId(STATE_HANDLER_ID_EDEFAULT);
 				return;
+			case UncertaintyVariationModelPackage.VARIATION_POINT__ENTITY_NAME:
+				setEntityName(ENTITY_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -299,30 +293,15 @@ public class VariationPointImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID)
 		{
 			case UncertaintyVariationModelPackage.VARIATION_POINT__VARYING_SUBJECTS:
-				return varyingSubjects != null && !varyingSubjects.isEmpty();
+				return !getVaryingSubjects().isEmpty();
 			case UncertaintyVariationModelPackage.VARIATION_POINT__VARIATION_DESCRIPTION:
-				return variationDescription != null;
+				return getVariationDescription() != null;
 			case UncertaintyVariationModelPackage.VARIATION_POINT__STATE_HANDLER_ID:
-				return STATE_HANDLER_ID_EDEFAULT == null ? stateHandlerId != null : !STATE_HANDLER_ID_EDEFAULT.equals(stateHandlerId);
+				return STATE_HANDLER_ID_EDEFAULT == null ? getStateHandlerId() != null : !STATE_HANDLER_ID_EDEFAULT.equals(getStateHandlerId());
+			case UncertaintyVariationModelPackage.VARIATION_POINT__ENTITY_NAME:
+				return ENTITY_NAME_EDEFAULT == null ? getEntityName() != null : !ENTITY_NAME_EDEFAULT.equals(getEntityName());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (stateHandlerId: ");
-		result.append(stateHandlerId);
-		result.append(')');
-		return result.toString();
 	}
 
 } //VariationPointImpl

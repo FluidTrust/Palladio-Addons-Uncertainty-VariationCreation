@@ -13,9 +13,14 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+/**
+ * ModelResourceAbstraction implements the Resource Abstraction Layer for models.
+ */
 public class ModelResourceAbstraction implements ResourceAbstraction {
-    public ModelResourceAbstraction(final List<String> knownModelTypes) {
-        updateRegisteredModels(knownModelTypes);
+    /**
+     * Constructor
+     */
+    public ModelResourceAbstraction() {
     }
 
     @Override

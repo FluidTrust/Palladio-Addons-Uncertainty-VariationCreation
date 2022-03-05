@@ -15,10 +15,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,18 +32,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class UncertaintyVariationsImpl extends MinimalEObjectImpl.Container implements UncertaintyVariations
+public class UncertaintyVariationsImpl extends CDOObjectImpl implements UncertaintyVariations
 {
-	/**
-	 * The cached value of the '{@link #getVariationPoints() <em>Variation Points</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVariationPoints()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<VariationPoint> variationPoints;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,13 +60,21 @@ public class UncertaintyVariationsImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	protected int eStaticFeatureCount()
+	{
+		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	public EList<VariationPoint> getVariationPoints()
 	{
-		if (variationPoints == null)
-		{
-			variationPoints = new EObjectContainmentEList<VariationPoint>(VariationPoint.class, this, UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS__VARIATION_POINTS);
-		}
-		return variationPoints;
+		return (EList<VariationPoint>)eDynamicGet(UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS__VARIATION_POINTS, UncertaintyVariationModelPackage.Literals.UNCERTAINTY_VARIATIONS__VARIATION_POINTS, true, true);
 	}
 
 	/**
@@ -159,7 +156,7 @@ public class UncertaintyVariationsImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID)
 		{
 			case UncertaintyVariationModelPackage.UNCERTAINTY_VARIATIONS__VARIATION_POINTS:
-				return variationPoints != null && !variationPoints.isEmpty();
+				return !getVariationPoints().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

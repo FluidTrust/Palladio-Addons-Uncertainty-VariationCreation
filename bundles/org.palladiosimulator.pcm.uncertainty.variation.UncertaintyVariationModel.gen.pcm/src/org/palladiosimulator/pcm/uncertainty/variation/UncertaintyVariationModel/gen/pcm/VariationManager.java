@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ModelResourceAbstraction;
 import org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.adapter.resource.ResourceAbstraction;
 import org.slf4j.Logger;
 
@@ -18,10 +17,13 @@ public class VariationManager {
      * @param uncertaintyVariationModel
      *            specifies the uniform resource identifier (uri) which points to the uncertainty
      *            variation model for the varying. The uri must be of the platform type.
+     * @param resourceAbstraction
+     *            the abstraction layer for the model loadings and storing mechanism
      */
-    public VariationManager(final URI uncertaintyVariationModel) {
+    public VariationManager(final URI uncertaintyVariationModel, ResourceAbstraction resourceAbstraction) {
         this.uncertaintyVaritionModel = uncertaintyVariationModel;
-        this.resourceAbstraction = new ModelResourceAbstraction(Arrays.asList(UNCERTAINTY_VARAINT_MODEL_TYPE));
+        this.resourceAbstraction = resourceAbstraction;
+        this.resourceAbstraction.updateRegisteredModels(Arrays.asList(UNCERTAINTY_VARAINT_MODEL_TYPE));
     }
 
     /**

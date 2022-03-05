@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- *
+ * Resource Abstraction defines the abstraction layer for the access to modeling resources
  */
 public interface ResourceAbstraction {
 

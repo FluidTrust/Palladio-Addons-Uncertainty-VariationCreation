@@ -26,8 +26,6 @@
       <import plugin="org.eclipse.ui.workbench"/>
       <import plugin="org.eclipse.jface"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="ch.qos.logback.classic" version="1.2.3" match="greaterOrEqual"/>
-      <import plugin="ch.qos.logback.core" version="1.2.3" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.common"/>
    </requires>
 
@@ -47,13 +45,6 @@
 
    <plugin
          id="org.palladiosimulator.pcm.uncertainty.variation.UncertaintyVariationModel.gen.pcm.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.palladiosimulator.pcm.uncertainty.variation.logger"
          download-size="0"
          install-size="0"
          version="0.0.0"

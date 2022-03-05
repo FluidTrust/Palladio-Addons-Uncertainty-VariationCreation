@@ -73,9 +73,6 @@ class ConcreteStatespaceItertator implements StatespaceIterator {
         }
     }
 
-    private final Statespace statespace;
-    private final List<Integer> indices;
-
     @Override
     public List<String> getCurrentState() {
         final var res = this.indices.stream()
@@ -83,4 +80,17 @@ class ConcreteStatespaceItertator implements StatespaceIterator {
             .collect(Collectors.toList());
         return res;
     }
+
+    @Override
+    public List<String> getCurrentStateValue() {
+        final List<String> values = new ArrayList<>();
+        for (int i = 0; i < this.indices.size(); ++i) {
+            final var value = this.statespace.getValue(i, this.indices.get(i));
+            values.add(value);
+        }
+        return values;
+    }
+
+    private final Statespace statespace;
+    private final List<Integer> indices;
 }
