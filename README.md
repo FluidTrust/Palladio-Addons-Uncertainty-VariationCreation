@@ -33,7 +33,9 @@ The building and testing requires additionally the following Packages:
 * JUnit5 Jupiter (already installed in Eclipse)
 
 ## Usage
+
 The following subsections will describe the generation of a new Uncertainty Variation project as well as the generation of variation through an existing Uncertainty Variation project.
+
 ### New Uncertainty Variation Project
 
 1. Create a new Modeling project
@@ -86,8 +88,30 @@ generation.
 
 ## Development
 
-
 ### New State Handler
+
+1. Create a Plug-in Project for the new state handler
+2. Add the Uncertainty Variation Model Package to the required Plug-ins
+3. Create the new state handler implementation as implementation of the the StateHandler interface and subclass of GenericStateHandler
+   ![Creating new state handler implementation](doc/img/UncertaintyVariationModel-StateHandler-Create-NewStateHandlerImpl.png "Creating new state handler implementation")
+4. Add the state handler implementation extension point if it does not exist
+   ![Adding state handler implementation extension point](doc/img/UncertaintyVariationModel-StateHandler-Create-StateHandlerImplExtPoint.png "Adding state handler implementation extension point")
+5. Register newly generated state handler implementation with name and id under the state handler implementation extension point
+   ![Registering state handler implementation](doc/img/UncertaintyVariationModel-StateHandler-RegisterStateHandlerImpl.png "Registering state handler implementation")
+    1. Set subject type of varying subject definition
+       ![Setting subject type](doc/img/UncertaintyVariationModel-StateHandler-SetSubjectType.png "Setting subject type")
+    2. Repeat with next subject type until all subject types that this state handler implementation handles are defined. The different subject types define an or concatenated list of filters for the 
+       varying subjects of the variation point that uses this state handler.
+       ![Creating additional subject type](doc/img/UncertaintyVariationModel-StateHandler-Create-AdditionalSubjectType.png "Creating additional subject type")
+    3. Add variation description definition to the state handler implement in the case of external defined variation values
+       ![Creating variation description definition](doc/img/UncertaintyVariationModel-StateHandler-Create-VariationDescriptionDefinition.png "Creating variation description definition")
+        1. Set value type of variation description definition
+           ![Setting value type](doc/img/UncertaintyVariationModel-StateHandler-SetValueType.png "Setting value type")
+        2. Repeat with next value type until all value types that this state handler implementation handles are defined. The different value types define an or concatenated list of filters for the 
+           primitive value's link or value collection's links of the variation point that uses this state handler.
+           ![Creating additional value type](doc/img/UncertaintyVariationModel-StateHandler-Create-AdditionalValueType.png "Creating additional value type")
+5. Repeat with the next state handler implementation until all wanted implementation are realized
+   ![Creating additional state handler implementation](doc/img/UncertaintyVariationModel-StateHandler-Create-AdditionalStateHandlerImpl.png "Creating additional state handler implementation")
 
 ### Uncertainty Variation Model
 
