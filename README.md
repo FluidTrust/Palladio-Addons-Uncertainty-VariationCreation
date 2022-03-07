@@ -115,9 +115,23 @@ generation.
 
 ### Uncertainty Variation Model
 
-
+The following section describes the Uncertainty Variation Model in detail.
 ![Uncertainty Variation Model](doc/img/UncertaintyVariationModelDiagram.png "Uncertainty Variation Model")
 
+* UncertaintyVariation: represents the models main entry class. 
+    * The association variationPoints contains the different variation points of an Uncertainty Variation Model.
+* VariationPoint: represents one variation point.
+    * The property stateHandlerId defines the type that the variation point has in form of the state handler that shall be used.
+    * The property entityName defines the name that is used to describe the variation point.
+    * The association varyingSubjects connects this variation point with at least one concrete element inside of the palladio component model that will be varied by this variation point.
+    * The association variationDescription can contain the description of variation of this variation point.
+* VariationDescription: represents the description of the form that the variation has. The VariationDescription is currently used only for external variations.
+    * The association targetVariations contains at least one the different values that the variation point can take.
+* Value: represents an abstract value that the variation point can take.
+* PrimitiveValue: represent a single value that the variation point can take.
+    * The association link connects this single value with a concrete element inside of the palladio component model.
+* ValueCollection: represent a group of values that the variation point can simultaneously take.
+    * The association links connects this group of values with concrete elements inside of the palladio component model.
 
 
 
