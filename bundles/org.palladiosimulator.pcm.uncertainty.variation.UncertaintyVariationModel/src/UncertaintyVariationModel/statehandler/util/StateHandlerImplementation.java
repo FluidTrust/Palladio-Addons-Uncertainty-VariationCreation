@@ -35,9 +35,9 @@ public class StateHandlerImplementation {
      * @return the created optional implementation of the StateHandler
      */
     public Optional<StateHandler> getImplemationOf(final String stateHandlerId) {
-        return this.getConfigurationElements()
-            .filter(it -> stateHandlerId.contentEquals(this.getIdOf(it)))
-            .map(it -> this.getImplementationOf(it))
+        return getConfigurationElements()
+            .filter(it -> stateHandlerId.contentEquals(getIdOf(it)))
+            .map(this::getImplementationOf)
             .filter(it -> it != null)
             .findFirst();
     }
@@ -48,8 +48,8 @@ public class StateHandlerImplementation {
      * @return list of ids corresponding to the StateHandler implementations
      */
     public List<String> getIds() {
-        return this.getConfigurationElements()
-            .map(elem -> this.getIdOf(elem))
+        return getConfigurationElements()
+            .map(this::getIdOf)
             .collect(Collectors.toList());
     }
 
@@ -63,9 +63,9 @@ public class StateHandlerImplementation {
      * @return true if the subject is accepted and false otherwise
      */
     public boolean isAccecptedSubjectByImplementation(final String stateHandlerId, final Identifier subject) {
-        final var result = this.getConfigurationElements()
-            .filter(it -> stateHandlerId.contentEquals(this.getIdOf(it)))
-            .map(it -> this.getTypesInDefinition(it, VARYING_SUBJECT_DEFINTION_TYPE))
+        final var result = getConfigurationElements()
+            .filter(it -> stateHandlerId.contentEquals(getIdOf(it)))
+            .map(it -> getTypesInDefinition(it, VARYING_SUBJECT_DEFINTION_TYPE))
             .anyMatch(subTypeNames -> implementsAnyInterface(subject, subTypeNames));
         return result;
     }
@@ -80,14 +80,17 @@ public class StateHandlerImplementation {
      * @return true if the link is accepted and false otherwise
      */
     public boolean isAcceptedLinkByImplementation(final String stateHandlerId, final Identifier link) {
-        final var result = this.getConfigurationElements()
-            .filter(it -> stateHandlerId.contentEquals(this.getIdOf(it)))
-            .map(it -> this.getTypesInDefinition(it, VARIATION_DESCRIPTION_DEFINITION_TYPE))
+        final var result = getConfigurationElements()
+            .filter(it -> stateHandlerId.contentEquals(getIdOf(it)))
+            .map(it -> getTypesInDefinition(it, VARIATION_DESCRIPTION_DEFINITION_TYPE))
             .anyMatch(linkTypeNames -> implementsAnyInterface(link, linkTypeNames));
         return result;
     }
 
     private boolean implementsAnyInterface(final Identifier element, Stream<String> interfaceNames) {
+        if (interfaceNames == null || element == null) {
+            return false;
+        }
         return interfaceNames.anyMatch(typeName -> Arrays.stream(element.getClass()
             .getInterfaces())
             .filter(it -> it != null)
@@ -96,14 +99,14 @@ public class StateHandlerImplementation {
     }
 
     private Stream<String> getTypesInDefinition(final IConfigurationElement elem, final String definitionName) {
-        final Optional<IConfigurationElement> definition = Arrays.stream(elem.getChildren(definitionName))
+        final var definition = Arrays.stream(elem.getChildren(definitionName))
             .findFirst();
         Stream<String> result = Stream.empty();
         if (definition.isPresent()) {
-            final IConfigurationElement[] typesDefinition = definition.orElse(null)
+            final var typesDefinition = definition.orElse(null)
                 .getChildren();
             result = Arrays.stream(typesDefinition)
-                .map(it -> this.getTypeOf(it));
+                .map(this::getTypeOf);
         }
         return result;
     }
