@@ -40,7 +40,7 @@ class CharacteristicsVariationsTests {
         final var scenarioManager = new DummyScenarioManager(uri.trimSegments(1), sourceDirName, content);
         final Logger logger = LoggerFactory.getLogger(LOGGER_NAME);
         final var generator = new UncertaintyVariationModelGenPcmImpl(scenarioManager, variationManager, logger);
-        // pcs.pddc parsing creates error: lineNumber: 1; columnNumber: 1; Content ist nicht
+        // TODO: pcs.pddc parsing creates error: lineNumber: 1; columnNumber: 1; Content ist nicht
         // zulässig in Prolog
 
         // generator.generateVariations(new NullProgressMonitor());
