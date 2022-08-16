@@ -29,7 +29,7 @@
          </VaryingSubjectDefinition>
          <VariationDescriptionDefinition>
             <Type
-                  type="org.palladiosimulator.pcm.repository.RepositoryComponent">
+                  type="org.palladiosimulator.pcm.repository.BasicComponent">
             </Type>
          </VariationDescriptionDefinition>
       </StateHandlerImplementation>
